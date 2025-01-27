@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+*{
+  font-family: Poppins;
+}
+
+body {
+  overflow: hidden !important;
+}
+
+html,
+body {
+  overflow: hidden !important;
+  height: 100% !important;
+}
+
+body {
+  overflow-y: scroll !important;
+}
+
+body {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+body::-webkit-scrollbar {
+  display: none !important;
+}
+
+.input-custom {
+  border-color: #6b7280 !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.input-custom:focus {
+  border-color: #6b7280 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 1px #6b7280 !important;
+}
+
+select.input-custom {
+  border-color: #6b7280 !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+select.input-custom:focus {
+  border-color: #6b7280 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 1px #6b7280 !important;
+}
+
+textarea.input-custom {
+  border-color: #6b7280 !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+textarea.input-custom:focus {
+  border-color: #6b7280 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 1px #6b7280 !important;
+}
+
+.focus\:ring-cyan-500:focus {
+  box-shadow: 0 0 0 3px #6b7280 !important;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+  overflow-y: scroll !important;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
