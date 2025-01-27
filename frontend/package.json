@@ -37,6 +37,8 @@
     "react-select": "^5.8.0",
     "react-slick": "^0.30.2",
     "react-switch": "^7.0.0",
+    
+    "dompurify": "^3.1.6",
     "react-toastify": "^10.0.5",
     "recharts": "^2.12.7",
     "sheet": "^0.2.0",

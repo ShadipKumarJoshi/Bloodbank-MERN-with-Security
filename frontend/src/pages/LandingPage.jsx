@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { contactApi } from "../apis/Api";
 import useAuthCheck from "../components/IsAuthenticated";
+import DOMPurify from "dompurify"; // Import DOMPurify for sanitization
 
 const LandingPage = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -15,6 +16,9 @@ const LandingPage = () => {
 
   const verifyAuthBeforeAction = useAuthCheck();
 
+  const sanitizeInput = (input) => {
+    return DOMPurify.sanitize(input);
+  };
 
   const handleContactSubmit = (e) => {
     e.preventDefault();
@@ -212,7 +216,7 @@ const LandingPage = () => {
             </form>
             <div
               className="w-full md:w-1/3 mt-6 md:mt-0"
-              style={{ position: "relative", top: "-20px" }}
+              style={{ position: "relative", top: "-20px" }} 
             >
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1401.8199301169543!2d85.32952567350087!3d27.7060244248381!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb190a74aa1f23%3A0x74ebef82ad0e5c15!2z4KS44KSr4KWN4KSf4KS14KS-4KSw4KS_4KSV4KS-IOCkleCksuClh-CknA!5e0!3m2!1sne!2snp!4v1719846302324!5m2!1sne!2snp"
