@@ -40,7 +40,7 @@ export const deleteContactApi = (id) =>
   Api.delete(`/api/contact/delete_contact/${id}`, config);
 
 //get all user
-export const getAllUserApi = () => Api.get("/api/user/get_user", config);
+export const getAllUserApi = () => Api.get("/api/user/get_user" , config);
 
 //get single contact API
 export const getSingleUserApi = (id) =>
@@ -233,7 +233,7 @@ export const getMyAdoptionReqApi = (id) =>
 export const createStoryApi = (data) =>
   Api.post("/api/story/create-story", data, config);
 
-export const getAllStoryApi = () => Api.get("/api/story/get-all-storys", config);
+export const getAllStoryApi = () => Api.get("/api/story/get-all-storys",config);
 
 export const getSingleStoryApi = (id) => Api.get(`/api/story/get-story/${id}`, config);
 
