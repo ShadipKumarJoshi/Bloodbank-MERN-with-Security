@@ -6,10 +6,29 @@ const cloudinary = require("cloudinary");
 const nodemailer = require("nodemailer");
 const randomstring = require("randomstring");
 const { sendEmailController } = require("./sendEmailController");
+const winston = require("winston");
+require("winston-mongodb");
 
+const logger = winston.createLogger({
+  level: "info",
+  format: winston.format.combine(
+    winston.format.timestamp(),
+    winston.format.json()
+  ),
+  transports: [
+    new winston.transports.Console(),
+    new winston.transports.File({ filename: "application.log" }),
+    new winston.transports.MongoDB({
+      db: "mongodb://127.0.0.1:27017/adoption",
+      collection: "logs",
+      level: "info",
+      options: { useUnifiedTopology: true },
+    }),
+  ],
+});
 
 const logUserActivity = (user, action) => {
-  info("User Activity Logged", {
+  logger.info("User Activity Logged", {
     userName: user.fullName,
     email: user.email,
     action,
@@ -47,22 +66,22 @@ const sendResetPasswordMail = async (fullName, email, token) => {
 
     transporter.sendMail(mailOptions, async (error, info) => {
       if (error) {
-        error("Error sending reset password email", {
+        logger.error("Error sending reset password email", {
           error: error.message,
         });
       } else {
-        info("Reset password email sent", { response: info.response });
+        logger.info("Reset password email sent", { response: info.response });
       }
     });
   } catch (error) {
-    error("Error in sendResetPasswordMail", { error: error.message });
+    logger.error("Error in sendResetPasswordMail", { error: error.message });
   }
 };
 
 // Function to create a user
 const createUser = async (req, res) => {
   try {
-    info("Create User request received", { requestBody: req.body });
+    logger.info("Create User request received", { requestBody: req.body });
 
     const { fullName, email, password } = req.body;
 
@@ -122,7 +141,7 @@ const createUser = async (req, res) => {
     newUser.passwordExpiresAt = passwordExpiresAt;
 
     await newUser.save();
-    info("User created successfully", { userId: newUser._id });
+    logger.info("User created successfully", { userId: newUser._id });
 
     res.status(200).json({
       success: true,
@@ -130,7 +149,7 @@ const createUser = async (req, res) => {
       data: newUser,
     });
   } catch (error) {
-    error("Error in createUser", { error: error.message });
+    logger.error("Error in createUser", { error: error.message });
     res.status(500).json({
       success: false,
       message: "Server Error",
@@ -164,15 +183,15 @@ const sendUnlockNotification = async (fullName, email) => {
 
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
-        error("Error sending unlock notification", {
+        logger.error("Error sending unlock notification", {
           error: error.message,
         });
       } else {
-        info("Unlock notification sent", { response: info.response });
+        logger.info("Unlock notification sent", { response: info.response });
       }
     });
   } catch (error) {
-    error("Error in sendUnlockNotification", { error: error.message });
+    logger.error("Error in sendUnlockNotification", { error: error.message });
   }
 };
 
@@ -281,9 +300,9 @@ const loginUser = async (req, res) => {
     if (user.passwordExpiresAt && now > user.passwordExpiresAt) {
       passwordExpired = true;
       return res.json({
-        success: false,
-        passwordExpired: passwordExpired,
-        message: "Your Password has been expired !"
+        success : false,
+        passwordExpired : passwordExpired,
+        message : "Your Password has been expired !"
       })
     }
 
@@ -293,7 +312,7 @@ const loginUser = async (req, res) => {
       { expiresIn: "15m" }
     );
 
-    info({
+    logger.info({
       message: {
         text: "User logged in successfully",
         userId: user._id,
@@ -311,7 +330,7 @@ const loginUser = async (req, res) => {
       message: "Welcome to Adoption Hub",
     });
   } catch (error) {
-    error("Error in loginUser", {
+    logger.error("Error in loginUser", {
       error: error.message,
       url: req.originalUrl,
       method: req.method,
@@ -338,7 +357,7 @@ const getUserPagination = async (req, res) => {
       });
     }
 
-    info("User pagination fetched", {
+    logger.info("User pagination fetched", {
       page: requestedPage,
       totalUsers: totalUsersCount,
     });
@@ -349,7 +368,7 @@ const getUserPagination = async (req, res) => {
       totalPages: Math.ceil(totalUsersCount / resultPerPage),
     });
   } catch (error) {
-    error("Error in getUserPagination", { error: error.message });
+    logger.error("Error in getUserPagination", { error: error.message });
     res.status(500).json({
       success: false,
       message: "Server Error",
@@ -361,14 +380,14 @@ const getUserPagination = async (req, res) => {
 const getAllUsers = async (req, res) => {
   try {
     const listOfUsers = await Users.find();
-    info("Fetched all users", { totalUsers: listOfUsers.length });
+    logger.info("Fetched all users", { totalUsers: listOfUsers.length });
     res.json({
       success: true,
       message: "User Fetched Successfully",
       users: listOfUsers,
     });
   } catch (error) {
-    error("Error in getAllUsers", { error: error.message });
+    logger.error("Error in getAllUsers", { error: error.message });
     res.status(500).json("Server Error");
   }
 };
@@ -384,21 +403,21 @@ const getSingleUsers = async (req, res) => {
   }
   try {
     const singleUser = await Users.findById(id);
-    info("Fetched single user", { userId: id });
+    logger.info("Fetched single user", { userId: id });
     res.json({
       success: true,
       message: "User Fetched",
       user: singleUser,
     });
   } catch (error) {
-    error("Error in getSingleUsers", { error: error.message });
+    logger.error("Error in getSingleUsers", { error: error.message });
     res.status(500).json("Server Error");
   }
 };
 
 // Function to update a user
 const updateUser = async (req, res) => {
-  info("Update User request received", {
+  logger.info("Update User request received", {
     requestBody: req.body,
     requestFiles: req.files,
   });
@@ -426,7 +445,7 @@ const updateUser = async (req, res) => {
         userImageUrl: uploadedImage.secure_url,
       };
       await Users.findByIdAndUpdate(id, updatedUser);
-      info("User updated successfully with image", { userId: id });
+      logger.info("User updated successfully with image", { userId: id });
       res.json({
         success: true,
         message: "Updated Successfully",
@@ -439,7 +458,7 @@ const updateUser = async (req, res) => {
         address,
       };
       await Users.findByIdAndUpdate(id, updatedUser);
-      info("User updated successfully without image", { userId: id });
+      logger.info("User updated successfully without image", { userId: id });
       res.json({
         success: true,
         message: "Updated Successfully Without Image",
@@ -447,7 +466,7 @@ const updateUser = async (req, res) => {
       });
     }
   } catch (error) {
-    error("Error in updateUser", { error: error.message });
+    logger.error("Error in updateUser", { error: error.message });
     res.status(500).json({
       success: false,
       message: "Server Error",
@@ -549,14 +568,14 @@ const deleteUser = async (req, res) => {
       });
     }
 
-    info("User deleted successfully", { userId: req.params.id });
+    logger.info("User deleted successfully", { userId: req.params.id });
 
     res.json({
       success: true,
       message: "User deleted Successfully",
     });
   } catch (error) {
-    error("Error in deleteUser", { error: error.message });
+    logger.error("Error in deleteUser", { error: error.message });
     res.status(500).json({
       success: false,
       message: "Server Error",
@@ -575,7 +594,7 @@ const forgetPassword = async (req, res) => {
         { $set: { token: randomString } }
       );
       sendResetPasswordMail(userData.fullName, userData.email, randomString);
-      info("Reset password email sent", { email: userData.email });
+      logger.info("Reset password email sent", { email: userData.email });
       res
         .status(200)
         .send({ success: true, message: "Please check your inbox of mail" });
@@ -585,7 +604,7 @@ const forgetPassword = async (req, res) => {
         .send({ success: true, message: "This email does not exist" });
     }
   } catch (error) {
-    error("Error in forgetPassword", { error: error.message });
+    logger.error("Error in forgetPassword", { error: error.message });
     res.status(400).send({ success: false, message: error.message });
   }
 };
@@ -600,14 +619,14 @@ const searchUsers = async (req, res) => {
       ],
     });
 
-    info("Users search performed", {
+    logger.info("Users search performed", {
       searchKey: req.params.key,
       resultCount: data.length,
     });
 
     res.send(data);
   } catch (error) {
-    error("Error in searchUsers", { error: error.message });
+    logger.error("Error in searchUsers", { error: error.message });
     res.status(500).send({ error: "Internal Server Error" });
   }
 };
@@ -661,13 +680,13 @@ const resetPassword = async (req, res) => {
     passwordExpiresAt.setDate(passwordExpiresAt.getDate() + 30);
     tokenData.passwordExpiresAt = passwordExpiresAt;
 
-    info("Password reset successfully", { email: tokenData.email });
+    logger.info("Password reset successfully", { email: tokenData.email });
 
     res
       .status(200)
       .send({ success: true, message: "Password reset successfully" });
   } catch (error) {
-    error("Error in resetPassword", { error: error.message });
+    logger.error("Error in resetPassword", { error: error.message });
     res.status(400).send({ success: false, message: error.message });
   }
 };
@@ -676,13 +695,13 @@ const resetPassword = async (req, res) => {
 const getUserCount = async (req, res) => {
   try {
     const totalUsersCount = await Users.countDocuments();
-    info("User count retrieved", { totalUsersCount });
+    logger.info("User count retrieved", { totalUsersCount });
     res.json({
       success: true,
       totalUsersCount,
     });
   } catch (error) {
-    error("Error in getUserCount", { error: error.message });
+    logger.error("Error in getUserCount", { error: error.message });
     res.status(500).json({
       success: false,
       message: "Server Error",
@@ -719,14 +738,14 @@ const sendOtp = async (req, res) => {
 
 // Function to verify a user
 const verifyUser = async (req, res) => {
-  info("Verify User request received", { requestBody: req.body });
+  logger.info("Verify User request received", { requestBody: req.body });
   const { email, otp } = req.body;
 
   try {
     const user = await Users.findOne({ email });
 
     if (!user) {
-      error("User not found during verification", { email });
+      logger.error("User not found during verification", { email });
       return res.status(404).json({
         success: false,
         message: "User not found.",
@@ -752,13 +771,13 @@ const verifyUser = async (req, res) => {
     user.otpExpiresAt = null;
     await user.save();
 
-    info("User verified successfully", { email });
+    logger.info("User verified successfully", { email });
     res.json({
       success: true,
       message: "User verified successfully.",
     });
   } catch (error) {
-    error("Error during user verification", { error: error.message });
+    logger.error("Error during user verification", { error: error.message });
     res.status(500).json({
       success: false,
       message: "Server Error.",
