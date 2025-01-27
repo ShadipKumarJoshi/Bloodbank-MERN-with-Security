@@ -1,5 +1,17 @@
 const nodemailer = require('nodemailer');
+const winston = require('winston');
 
+const logger = winston.createLogger({
+    level: 'info',
+    format: winston.format.combine(
+        winston.format.timestamp(),
+        winston.format.json()
+    ),
+    transports: [
+        new winston.transports.Console(),
+        new winston.transports.File({ filename: 'application.log' })
+    ]
+});
 
 const sendEmailController = async (to, subject, text) => {
   try {
@@ -18,11 +30,11 @@ const sendEmailController = async (to, subject, text) => {
       text: text,
     });
 
-    info("Email sent successfully", { to, subject, response: info.response });
-    return true;
+    logger.info("Email sent successfully", { to, subject, response: info.response });
+    return true; 
   } catch (error) {
-    error("Error sending email", { error: error.message });
-    return false;
+    logger.error("Error sending email", { error: error.message });
+    return false; 
   }
 };
 
