@@ -1,9 +1,22 @@
 const Events = require("../model/eventModel");
 const cloudinary = require("cloudinary");
+const winston = require('winston');
 
+
+const logger = winston.createLogger({
+    level: 'info',
+    format: winston.format.combine(
+        winston.format.timestamp(),
+        winston.format.json()
+    ),
+    transports: [
+        new winston.transports.Console(),
+        new winston.transports.File({ filename: 'application.log' })
+    ]
+});
 
 const createEvent = async (req, res) => {
-  info('Create Event request received', { requestBody: req.body, files: req.files });
+  logger.info('Create Event request received', { requestBody: req.body, files: req.files });
 
   const { eventTitle, eventContent, organizedBy, eventDate } = req.body;
   const { eventImageOneUrl, eventImageTwoUrl, eventFileUrl } = req.files;
@@ -56,7 +69,7 @@ const createEvent = async (req, res) => {
       data: newEvent,
     });
   } catch (err) {
-    error('Error in createEvent', { error: err.message });
+    logger.error('Error in createEvent', { error: err.message });
     res.status(400).json({ message: err.message });
   }
 };
@@ -70,7 +83,7 @@ const getAllEvents = async (req, res) => {
       events: listOfEvents,
     });
   } catch (error) {
-    error('Error in getAllEvents', { error: error.message });
+    logger.error('Error in getAllEvents', { error: error.message });
     res.status(500).json("Server Error");
   }
 };
@@ -91,13 +104,13 @@ const getSingleEvent = async (req, res) => {
       event: singleEvent,
     });
   } catch (error) {
-    error('Error in getSingleEvent', { error: error.message });
+    logger.error('Error in getSingleEvent', { error: error.message });
     res.status(500).json("Server Error");
   }
 };
 
 const updateEvent = async (req, res) => {
-  info('Update Event request received', { requestBody: req.body, files: req.files });
+  logger.info('Update Event request received', { requestBody: req.body, files: req.files });
 
   const { eventTitle, eventContent, organizedBy, eventDate } = req.body;
   const { eventImageOneUrl, eventImageTwoUrl, eventFileUrl } = req.files;
@@ -160,7 +173,7 @@ const updateEvent = async (req, res) => {
       event: updatedEvent,
     });
   } catch (error) {
-    error('Error in updateEvent', { error: error.message });
+    logger.error('Error in updateEvent', { error: error.message });
     res.status(500).json({
       success: false,
       message: "Server Error",
@@ -180,7 +193,7 @@ const searchEvents = async (req, res) => {
     });
     res.send(data);
   } catch (error) {
-    error('Error in searchEvents', { error: error.message });
+    logger.error('Error in searchEvents', { error: error.message });
     res.status(500).send({ error: "Internal Server Error" });
   }
 };
@@ -199,7 +212,7 @@ const deleteEvent = async (req, res) => {
       message: "Event post deleted",
     });
   } catch (err) {
-    error('Error in deleteEvent', { error: err.message });
+    logger.error('Error in deleteEvent', { error: err.message });
     res.status(500).json({
       success: false,
       message: "server error",
@@ -231,7 +244,7 @@ const getEventPagination = async (req, res) => {
       totalPages: Math.ceil(totalEventsCount / resultPerPage),
     });
   } catch (error) {
-    error('Error in getEventPagination', { error: error.message });
+    logger.error('Error in getEventPagination', { error: error.message });
     res.status(500).json({
       success: false,
       message: "Server Error",
@@ -263,7 +276,7 @@ const getUserEventPagination = async (req, res) => {
       totalPages: Math.ceil(totalEventsCount / resultPerPage),
     });
   } catch (error) {
-    error('Error in getUserEventPagination', { error: error.message });
+    logger.error('Error in getUserEventPagination', { error: error.message });
     res.status(500).json({
       success: false,
       message: "Server Error",
@@ -279,7 +292,7 @@ const getEventCount = async (req, res) => {
       totalEventsCount: totalEventsCount,
     });
   } catch (error) {
-    error('Error in getEventCount', { error: error.message });
+    logger.error('Error in getEventCount', { error: error.message });
     res.status(500).json({
       success: false,
       message: "Server Error",
