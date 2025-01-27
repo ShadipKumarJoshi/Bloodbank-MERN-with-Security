@@ -1,8 +1,22 @@
 const Pet = require("../model/petModel");
 const cloudinary = require("cloudinary");
+const winston = require('winston');
+
+
+const logger = winston.createLogger({
+    level: 'info',
+    format: winston.format.combine(
+        winston.format.timestamp(),
+        winston.format.json()
+    ),
+    transports: [
+        new winston.transports.Console(),
+        new winston.transports.File({ filename: 'application.log' })
+    ]
+});
 
 const addPet = async (req, res) => {
-  info('Add Pet request received', { requestBody: req.body, requestFiles: req.files, status: req.body.status });
+  logger.info('Add Pet request received', { requestBody: req.body, requestFiles: req.files, status: req.body.status });
 
   try {
     const {
@@ -97,7 +111,7 @@ const addPet = async (req, res) => {
       });
 
       await newPet.save();
-      info('Pet created successfully', { petId: newPet._id });
+      logger.info('Pet created successfully', { petId: newPet._id });
     } else if (req.body.status === "own") {
       const { petAge, petGender, vaccines } = req.body;
       const {
@@ -173,7 +187,7 @@ const addPet = async (req, res) => {
       });
 
       await newPet.save();
-      info('Pet created successfully', { petId: newPet._id });
+      logger.info('Pet created successfully', { petId: newPet._id });
     }
 
     res.status(200).json({
@@ -181,7 +195,7 @@ const addPet = async (req, res) => {
       message: "Pet created successfully",
     });
   } catch (error) {
-    error('Error creating pet', { error: error.message });
+    logger.error('Error creating pet', { error: error.message });
     res.status(500).json("Something went wrong. Please try again later.");
   }
 };
@@ -192,7 +206,7 @@ const getAllPets = async (req, res) => {
     const Pets = allPets.filter((pet) => pet.isVaccinated === false);
     const vaccinatedPets = allPets.filter((pet) => pet.isVaccinated === true);
 
-    info('Fetched all pets', { totalPets: allPets.length, unvaccinatedPets: Pets.length, vaccinatedPets: vaccinatedPets.length });
+    logger.info('Fetched all pets', { totalPets: allPets.length, unvaccinatedPets: Pets.length, vaccinatedPets: vaccinatedPets.length });
 
     res.status(200).json({
       success: true,
@@ -200,7 +214,7 @@ const getAllPets = async (req, res) => {
       vaccinatedPets: vaccinatedPets,
     });
   } catch (error) {
-    error('Error fetching pets', { error: error.message });
+    logger.error('Error fetching pets', { error: error.message });
     res.status(500).json(error.message);
   }
 };
