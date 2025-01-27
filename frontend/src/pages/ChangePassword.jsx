@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { changePasswordApi } from '../apis/Api';
-import { f faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faLock, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const UpdatedPasswords = () => {
@@ -66,7 +66,7 @@ const UpdatedPasswords = () => {
             <div className="mb-4">
               <div className="relative">
                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                  <FontAwesomeIcon icon={} className="text-gray-950" />
+                  <FontAwesomeIcon icon={faLock} className="text-gray-950" />
                 </span>
                 <input
                   placeholder="Enter your current password"
@@ -80,7 +80,7 @@ const UpdatedPasswords = () => {
             <div className="mb-4">
               <div className="relative">
                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                  <FontAwesomeIcon icon={} className="text-gray-950" />
+                  <FontAwesomeIcon icon={faLock} className="text-gray-950" />
                 </span>
                 <input
                   placeholder="Enter your new password"

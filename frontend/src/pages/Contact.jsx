@@ -85,7 +85,7 @@ const Contact = () => {
                 <div className="form-group">
                   <div className="mb-3">
                     <label htmlFor="name">Your Name:</label>
-                    <input
+                    <input 
                       value={contactName}
                       onChange={(e) => setContactName(e.target.value)}
                       type="text"
@@ -99,7 +99,7 @@ const Contact = () => {
                 <div className="form-group">
                   <div className="mb-3">
                     <label htmlFor="email">Email Address:</label>
-                    <input
+                    <input 
                       value={contactEmail}
                       onChange={(e) => setContactEmail(e.target.value)}
                       type="email"
@@ -113,7 +113,7 @@ const Contact = () => {
                 <div className="form-group">
                   <div className="mb-3">
                     <label htmlFor="message">Write Your Message:</label>
-                    <textarea
+                    <textarea 
                       value={contactMessage}
                       onChange={(e) => setContactMessage(e.target.value)}
                       className="form-control"
@@ -125,7 +125,7 @@ const Contact = () => {
                   </div>
                 </div>
                 <div className="mb-3">
-                  <button type="submit" className="btn btn-success" style={{ backgroundColor: "#2b7509" }}>Submit</button>
+                  <button type="submit" className="btn btn-success" style={{backgroundColor : "#2b7509"}}>Submit</button>
                 </div>
               </form>
             </div>

@@ -1,8 +1,8 @@
 import axios from "axios";
 import contact_mock from "../mock/contact_mock";
-const baseURL = "https://localhost:5000";
+const baseURL = "http://localhost:5000";
 
-describe("Contact Testing", () => {
+describe("Contact Testing" , () =>{
     it("Fetch all contact", async () => {
         const res = await axios.get(`${baseURL}/api/contact/get_contact`)
         expect(res.status).toEqual(200);
