@@ -1,6 +1,7 @@
 import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { loginUserApi } from "../apis/Api";
@@ -9,9 +10,10 @@ const LoginModal = ({ isOpen, onClose, onOpenSignup }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [captcha, setCaptcha] = useState(null);
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-
+  const [showCaptcha, setShowCaptcha] = useState(false);
 
   const validate = () => {
     let isValid = true;
@@ -44,7 +46,7 @@ const LoginModal = ({ isOpen, onClose, onOpenSignup }) => {
     const loginData = {
       email: email,
       password: password,
-     
+      captcha: captcha,
     };
     loginUserApi(loginData)
       .then((res) => {
@@ -53,7 +55,11 @@ const LoginModal = ({ isOpen, onClose, onOpenSignup }) => {
           if (res?.data?.passwordExpired) {
             window.location.reload("/passwordForget");
           }
-          
+          if (res.data.message.includes("captcha")) {
+            setShowCaptcha(true);
+          } else {
+            setCaptcha(null);
+          }
         } else {
           toast.success(res.data.message);
           const jsonDecode = JSON.stringify(res.data.userData);
@@ -144,7 +150,15 @@ const LoginModal = ({ isOpen, onClose, onOpenSignup }) => {
                 <p className="text-red-500 text-sm mt-2">{passwordError}</p>
               )}
             </div>
-            
+            {showCaptcha && (
+              <div className="mb-4">
+                <ReCAPTCHA
+                  sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
+                  onChange={(value) => setCaptcha(value)}
+                  onExpired={() => setCaptcha(null)}
+                />
+              </div>
+            )}
             <div className="flex items-center justify-between mb-4">
               <a
                 href="/passwordForget"
