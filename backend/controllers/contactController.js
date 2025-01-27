@@ -5,7 +5,6 @@ const xss = require('xss');
 
 
 
-
 const sendMessage = async (req, res) => {
   info('Send Message request received', { requestBody: req.body });
 

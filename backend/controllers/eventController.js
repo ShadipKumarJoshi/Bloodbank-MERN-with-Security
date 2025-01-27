@@ -1,6 +1,7 @@
 const Events = require("../model/eventModel");
 const cloudinary = require("cloudinary");
 
+
 const createEvent = async (req, res) => {
   info('Create Event request received', { requestBody: req.body, files: req.files });
 

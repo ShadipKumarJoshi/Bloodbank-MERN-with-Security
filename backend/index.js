@@ -16,7 +16,6 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
-
 dotenv.config();
 
 
@@ -184,7 +183,6 @@ app.use('/api/contact', require('./routes/contactRoute'));
 
 
 const PORT = process.env.PORT || 5000;
-
 
 
 

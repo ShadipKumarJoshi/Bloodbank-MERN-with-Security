@@ -1,9 +1,10 @@
 const jwt = require("jsonwebtoken");
+const logger = require('../logger'); // Ensure the path to logger.js is correct
 
 const authGuard = (req, res, next) => {
     const authHeader = req.headers.authorization;
     if (!authHeader) {
-        warn('Authorization header not found', {
+        logger.warn('Authorization header not found', {
             url: req.originalUrl,
             method: req.method,
             ip: req.ip
@@ -16,7 +17,7 @@ const authGuard = (req, res, next) => {
 
     const token = authHeader.split(" ")[1];
     if (!token) {
-        warn('Token not found', {
+        logger.warn('Token not found', {
             url: req.originalUrl,
             method: req.method,
             ip: req.ip
@@ -61,7 +62,7 @@ const authGuard = (req, res, next) => {
 const authGuardAdmin = (req, res, next) => {
     const authHeader = req.headers.authorization;
     if (!authHeader) {
-        warn('Authorization header not found for admin', {
+        logger.warn('Authorization header not found for admin', {
             url: req.originalUrl,
             method: req.method,
             ip: req.ip
@@ -74,7 +75,7 @@ const authGuardAdmin = (req, res, next) => {
 
     const token = authHeader.split(" ")[1];
     if (!token) {
-        warn('Token not found for admin', {
+        logger.warn('Token not found for admin', {
             url: req.originalUrl,
             method: req.method,
             ip: req.ip
@@ -90,7 +91,7 @@ const authGuardAdmin = (req, res, next) => {
         req.user = decodedUser;
 
         if (!req.user.isAdmin) {
-            warn('Permission denied for non-admin user', {
+            logger.warn('Permission denied for non-admin user', {
                 userName: req.user.email || 'Unknown',
                 sessionId: req.cookies["connect.sid"] || 'Unknown',
                 url: req.originalUrl,

@@ -1,5 +1,6 @@
 const Adopt = require("../model/adoptionModel");
 
+
 const adoptAPet = async (req, res) => {
   info('Adoption request received', { requestBody: req.body });
   try {

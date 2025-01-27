@@ -139,10 +139,46 @@ const createUser = async (req, res) => {
   }
 };
 
+// Function to send unlock notification email
+const sendUnlockNotification = async (fullName, email) => {
+  try {
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT,
+      secure: false,
+      auth: {
+        user: process.env.SMTP_MAIL,
+        pass: process.env.SMTP_PASSWORD,
+      },
+      tls: {
+        rejectUnauthorized: false,
+      },
+    });
+
+    const mailOptions = {
+      from: process.env.SMTP_MAIL,
+      to: email,
+      subject: "Account Unlocked",
+      html: `Hi ${fullName},<br/><br/>Your account has been unlocked. You can now try logging in again.<br/><br/>Regards,<br/>Adoption Hub`,
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        error("Error sending unlock notification", {
+          error: error.message,
+        });
+      } else {
+        info("Unlock notification sent", { response: info.response });
+      }
+    });
+  } catch (error) {
+    error("Error in sendUnlockNotification", { error: error.message });
+  }
+};
 
 // Function to log in a user
 const loginUser = async (req, res) => {
-  
+  const { email, password, captcha } = req.body;
 
   if (!email || !password) {
     return res.json({
@@ -160,10 +196,46 @@ const loginUser = async (req, res) => {
       });
     }
 
-    
-   
+    if (user.isLocked && new Date() < user.lockUntil) {
+      const remainingTime = Math.ceil((user.lockUntil - new Date()) / 60000);
+      return res.json({
+        success: false,
+        message: `Your account is locked. Try again in ${remainingTime} minutes.`,
+      });
+    }
 
-  
+    if (user.failedLoginAttempts >= 5) {
+      user.isLocked = true;
+      user.lockUntil = new Date(Date.now() + 15 * 60000);
+      await user.save();
+      return res.json({
+        success: false,
+        message:
+          "Your account is locked due to multiple failed login attempts. Please try again after 5 minutes.",
+      });
+    }
+
+    if (user.failedLoginAttempts >= 3) {
+      if (!captcha) {
+        return res.json({
+          success: false,
+          message: "Please complete the captcha.",
+        });
+      }
+
+      const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+      const verificationUrl = `http://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captcha}`;
+
+      const response = await axios.post(verificationUrl);
+      const { success } = response.data;
+
+      if (!success) {
+        return res.json({
+          success: false,
+          message: "Captcha validation failed.",
+        });
+      }
+    }
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
@@ -171,13 +243,38 @@ const loginUser = async (req, res) => {
       user.lastFailedAttempt = new Date();
       await user.save();
 
-      
+      if (user.failedLoginAttempts >= 5) {
+        user.isLocked = true;
+        user.lockUntil = new Date(Date.now() + 1 * 60000);
+        await user.save();
+
+        setTimeout(async () => {
+          user.isLocked = false;
+          user.failedLoginAttempts = 0;
+          user.lockUntil = null;
+          await user.save();
+          await sendUnlockNotification(user.fullName, user.email);
+        }, 5 * 60000);
+
+        return res.json({
+          success: false,
+          message:
+            "Your account is locked due to multiple failed login attempts. Please try again after 5 minutes.",
+        });
+      }
 
       return res.json({
         success: false,
         message: "Password does not match.",
       });
- 
+    }
+
+    user.failedLoginAttempts = 0;
+    user.lastFailedAttempt = null;
+    user.isLocked = false;
+    user.lockUntil = null;
+    await user.save();
+
     const now = new Date();
     let passwordExpired = false;
 

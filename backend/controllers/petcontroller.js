@@ -1,7 +1,6 @@
 const Pet = require("../model/petModel");
 const cloudinary = require("cloudinary");
 
-
 const addPet = async (req, res) => {
   info('Add Pet request received', { requestBody: req.body, requestFiles: req.files, status: req.body.status });
 
