@@ -32,6 +32,8 @@
     "https": "^1.0.0",
     "jsonwebtoken": "^9.0.2",
     "mkcert": "^3.2.0",
+    "winston": "^3.14.1",
+    "winston-mongodb": "^5.1.1",
     "mongoose": "^8.5.2",
     "multipart": "^0.1.5",
     "multiparty": "^4.2.3",

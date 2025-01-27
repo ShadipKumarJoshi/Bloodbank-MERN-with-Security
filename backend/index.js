@@ -13,6 +13,7 @@ const xssClean = require('xss-clean');
 const mongoSanitize = require('express-mongo-sanitize');
 const app = express();
 const session = require('express-session');
+const winston = require('winston');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
@@ -183,6 +184,17 @@ app.use('/api/contact', require('./routes/contactRoute'));
 
 
 const PORT = process.env.PORT || 5000;
+const logger = winston.createLogger({
+    level: 'info', 
+    format: winston.format.combine(
+        winston.format.colorize(),
+        winston.format.simple()
+    ),
+    transports: [
+        new winston.transports.Console(), 
+        new winston.transports.File({ filename: 'server.log' }) 
+    ]
+});
 
 httpss.createServer(sslOptions, app).listen(PORT, () => {
     logger.info(`httpsS Server is running on port ${PORT}`);
