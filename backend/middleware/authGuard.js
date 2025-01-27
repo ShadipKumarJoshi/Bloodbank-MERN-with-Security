@@ -38,15 +38,15 @@ const authGuard = (req, res, next) => {
             sessionId: req.cookies["connect.sid"] || 'Unknown', // Assume the session ID is stored in cookies
             url: req.originalUrl,
             method: req.method,
-
+            
         };
 
         // Log the user authentication success
-        info('User authenticated', log);
+        logger.info('User authenticated', log);
 
         next();
     } catch (error) {
-        error('Invalid Token', {
+        logger.error('Invalid Token', {
             url: req.originalUrl,
             method: req.method,
             ip: req.ip,
@@ -104,7 +104,7 @@ const authGuardAdmin = (req, res, next) => {
         }
 
         // Log the admin authentication success
-        info('Admin authenticated', {
+        logger.info('Admin authenticated', {
             userName: req.user.email || 'Unknown',
             sessionId: req.cookies["connect.sid"] || 'Unknown',
             url: req.originalUrl,
@@ -113,7 +113,7 @@ const authGuardAdmin = (req, res, next) => {
 
         next();
     } catch (error) {
-        error('Invalid Token for admin', {
+        logger.error('Invalid Token for admin', {
             url: req.originalUrl,
             method: req.method,
             ip: req.ip,
