@@ -1,6 +1,6 @@
 const path = require("path");
 const fs = require('fs');
-const http = require('http');
+const https = require('https');
 const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./database/db');
@@ -39,7 +39,7 @@ app.use(session({
     cookie: {
         maxAge: 1 * 60 * 1000,
         secure: true,
-        httpOnly: false
+        httpsOnly: false
 
     }
 }));
@@ -91,45 +91,45 @@ app.use(helmet.contentSecurityPolicy({
             "'self'",
             "'unsafe-inline'",
             "'unsafe-eval'",
-            "http://js.stripe.com",
-            "http://www.google.com",
-            "http://www.gstatic.com",
-            "http://cdn.jsdelivr.net",
-            "http://cdnjs.cloudflare.com"
+            "https://js.stripe.com",
+            "https://www.google.com",
+            "https://www.gstatic.com",
+            "https://cdn.jsdelivr.net",
+            "https://cdnjs.cloudflare.com"
         ],
         styleSrc: [
             "'self'",
             "'unsafe-inline'",
-            "http://fonts.googleapis.com",
-            "http://cdn.jsdelivr.net",
-            "http://cdnjs.cloudflare.com"
+            "https://fonts.googleapis.com",
+            "https://cdn.jsdelivr.net",
+            "https://cdnjs.cloudflare.com"
         ],
         imgSrc: [
             "'self'",
             "data:",
-            "http://*.stripe.com",
-            "http://www.google.com",
-            "http://www.gstatic.com",
-            "http://cdn.jsdelivr.net",
-            "http://cdnjs.cloudflare.com"
+            "https://*.stripe.com",
+            "https://www.google.com",
+            "https://www.gstatic.com",
+            "https://cdn.jsdelivr.net",
+            "https://cdnjs.cloudflare.com"
         ],
         fontSrc: [
             "'self'",
-            "http://fonts.gstatic.com",
-            "http://cdnjs.cloudflare.com"
+            "https://fonts.gstatic.com",
+            "https://cdnjs.cloudflare.com"
         ],
         connectSrc: [
             "'self'",
-            "http://api.stripe.com",
-            "http://www.google.com",
-            "http://www.gstatic.com",
-            "http://*.sentry.io"
+            "https://api.stripe.com",
+            "https://www.google.com",
+            "https://www.gstatic.com",
+            "https://*.sentry.io"
         ],
         frameSrc: [
             "'self'",
-            "http://js.stripe.com",
-            "http://www.google.com",
-            "http://www.gstatic.com"
+            "https://js.stripe.com",
+            "https://www.google.com",
+            "https://www.gstatic.com"
         ],
         objectSrc: ["'none'"],
         upgradeInsecureRequests: [],
@@ -184,8 +184,8 @@ app.use('/api/contact', require('./routes/contactRoute'));
 
 const PORT = process.env.PORT || 5000;
 
-https.createServer(sslOptions, app).listen(PORT, () => {
-    logger.info(`HTTPS Server is running on port ${PORT}`);
+httpss.createServer(sslOptions, app).listen(PORT, () => {
+    logger.info(`httpsS Server is running on port ${PORT}`);
 })
 
 

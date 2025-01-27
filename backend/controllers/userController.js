@@ -40,7 +40,7 @@ const sendResetPasswordMail = async (fullName, email, token) => {
       html:
         "Hi " +
         fullName +
-        ', Please copy the link and <a href="http://localhost:3000/reset_password/' +
+        ', Please copy the link and <a href="https://localhost:3000/reset_password/' +
         token +
         '">click here</a> to reset your password',
     };
@@ -224,7 +224,7 @@ const loginUser = async (req, res) => {
       }
 
       const secretKey = process.env.RECAPTCHA_SECRET_KEY;
-      const verificationUrl = `http://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captcha}`;
+      const verificationUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captcha}`;
 
       const response = await axios.post(verificationUrl);
       const { success } = response.data;
