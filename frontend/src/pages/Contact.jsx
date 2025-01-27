@@ -153,7 +153,7 @@ const Contact = () => {
                 loading="lazy"
                 allowFullScreen
                 frameBorder="0"
-                src="http://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3531.3344400403693!2d85.31808691451583!3d27.708955882789484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb18573d796fcb%3A0x16520dd5f924cd25!2sDillibazar%2C%20Kathmandu%2044600!5e0!3m2!1sen!2snp!4v1641710014990!5m2!1sen!2snp"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3531.3344400403693!2d85.31808691451583!3d27.708955882789484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb18573d796fcb%3A0x16520dd5f924cd25!2sDillibazar%2C%20Kathmandu%2044600!5e0!3m2!1sen!2snp!4v1641710014990!5m2!1sen!2snp"
               ></iframe>
             </div>
           </div>

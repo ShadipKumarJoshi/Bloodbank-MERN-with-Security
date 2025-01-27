@@ -6,7 +6,7 @@ const user_mock = [{
   "lastName": "Thapa",
   "email": "aniianyone234@gmail.com",
   "password": "$2b$10$sHYH8B1CWyswkjLffuLYkuOpKoYAogI.dUuWWltPNHuN1ljh.xWuu",
-  "userImageUrl": "http://res.cloudinary.com/dkknrzvmg/image/upload/v1708607210/users/yz6jrazfbradfz7p76gt.jpg",
+  "userImageUrl": "https://res.cloudinary.com/dkknrzvmg/image/upload/v1708607210/users/yz6jrazfbradfz7p76gt.jpg",
   "isAdmin": false,
   "token": "",
   "__v": 0
@@ -19,7 +19,7 @@ const user_mock = [{
   "lastName": "Khadka",
   "email": "prabi@gmail.com",
   "password": "$2b$10$/6mhdIaWklm6pk9QtJbl.ebOvoKFhCw9GjJiRUsBs4PLUTM671zw2",
-  "userImageUrl": "http://res.cloudinary.com/dkknrzvmg/image/upload/v1709291771/users/d7y3ydfesam4ccel3mgn.jpg",
+  "userImageUrl": "https://res.cloudinary.com/dkknrzvmg/image/upload/v1709291771/users/d7y3ydfesam4ccel3mgn.jpg",
   "isAdmin": false,
   "token": "",
   "__v": 0
@@ -45,7 +45,7 @@ const user_mock = [{
   "lastName": "Khadka",
   "email": "prabishakhadka0@gmail.com",
   "password": "$2b$10$LV/JY6RYBNosxSR90rRHEewWESM/j.KM8ir5cAJ7VJggAPgiBY.Qa",
-  "userImageUrl": "http://res.cloudinary.com/dkknrzvmg/image/upload/v1708774506/users/lf7oaofjngokohonehm5.png",
+  "userImageUrl": "https://res.cloudinary.com/dkknrzvmg/image/upload/v1708774506/users/lf7oaofjngokohonehm5.png",
   "isAdmin": false,
   "token": "",
   "__v": 0
@@ -58,7 +58,7 @@ const user_mock = [{
   "lastName": "Khadka",
   "email": "pa@gmail.com",
   "password": "$2b$10$Hkukvy6wst5lWo8u9ONq.OlyESFOhpFCULQnwwRRRFtlfpl1bB1C6",
-  "userImageUrl": "http://res.cloudinary.com/dkknrzvmg/image/upload/v1708774645/users/a8bxo94jj8kgalyd8slc.jpg",
+  "userImageUrl": "https://res.cloudinary.com/dkknrzvmg/image/upload/v1708774645/users/a8bxo94jj8kgalyd8slc.jpg",
   "isAdmin": false,
   "token": "",
   "__v": 0
@@ -71,7 +71,7 @@ const user_mock = [{
   "lastName": "Thapa",
   "email": "123@gmail.com",
   "password": "$2b$10$AIvQ7L0EcdhPL/AtEe7PpuGOII7eqBCy0xpt3y64s4LgxUottYSmq",
-  "userImageUrl": "http://res.cloudinary.com/dkknrzvmg/image/upload/v1708774738/users/javtydiritmyouqeor0c.jpg",
+  "userImageUrl": "https://res.cloudinary.com/dkknrzvmg/image/upload/v1708774738/users/javtydiritmyouqeor0c.jpg",
   "isAdmin": false,
   "token": "",
   "__v": 0
@@ -84,7 +84,7 @@ const user_mock = [{
   "lastName": "Khadka",
   "email": "p@gmail.com",
   "password": "$2b$10$go0J4ZpT4NjLpD/ip2u7GeeJh5h1mS3/5irA3414WzI1uXob/D5xO",
-  "userImageUrl": "http://res.cloudinary.com/dkknrzvmg/image/upload/v1709000639/users/ndwgpjswgb6epawa5uoy.jpg",
+  "userImageUrl": "https://res.cloudinary.com/dkknrzvmg/image/upload/v1709000639/users/ndwgpjswgb6epawa5uoy.jpg",
   "isAdmin": false,
   "token": "",
   "__v": 0
@@ -97,7 +97,7 @@ const user_mock = [{
   "lastName": "Thapa",
   "email": "samyamithapa55@gmail.com",
   "password": "$2b$10$A.1RtAx6ZX5WlfIe.jwTa.hopnpg8Zg.wgTOYL89SIijXR2R4Xqb2",
-  "userImageUrl": "http://res.cloudinary.com/dkknrzvmg/image/upload/v1709124806/users/uljzlw0dbxu2ydoc1af3.jpg",
+  "userImageUrl": "https://res.cloudinary.com/dkknrzvmg/image/upload/v1709124806/users/uljzlw0dbxu2ydoc1af3.jpg",
   "isAdmin": false,
   "token": "IflMfglGrN9y181jygbPRYtLEAf2bEgI",
   "__v": 0
@@ -110,7 +110,7 @@ const user_mock = [{
   "lastName": "Khadka",
   "email": "sam@gmail.com",
   "password": "$2b$10$0dTWMWYmRepxXveqnbkFBO8InegwL7xf0lUjZRI1LLgVWSg0riGyW",
-  "userImageUrl": "http://res.cloudinary.com/dkknrzvmg/image/upload/v1709100674/users/pq0ge51qql6p3v1irw4q.jpg",
+  "userImageUrl": "https://res.cloudinary.com/dkknrzvmg/image/upload/v1709100674/users/pq0ge51qql6p3v1irw4q.jpg",
   "isAdmin": false,
   "token": "",
   "__v": 0
@@ -123,7 +123,7 @@ const user_mock = [{
   "lastName": "khadka",
   "email": "prabisha@gmail.com",
   "password": "$2b$10$y/qRNrCB2H2Nohr4xlBBP.uaEHZ2LvS3p7Tzp0vZbXguHAbKzux5m",
-  "userImageUrl": "http://res.cloudinary.com/dkknrzvmg/image/upload/v1709125126/users/jsc9uu3doyhyzqfgd2y9.jpg",
+  "userImageUrl": "https://res.cloudinary.com/dkknrzvmg/image/upload/v1709125126/users/jsc9uu3doyhyzqfgd2y9.jpg",
   "isAdmin": false,
   "token": "",
   "__v": 0
@@ -136,7 +136,7 @@ const user_mock = [{
   "lastName": "dhungel",
   "email": "suvi@g",
   "password": "$2b$10$de1acrbLTyg0yveG8M120uqimJPr.5XLNDAklgvpFQRKppD1/JhEO",
-  "userImageUrl": "http://res.cloudinary.com/dkknrzvmg/image/upload/v1709133557/users/srtr84an3d7vajok1icm.jpg",
+  "userImageUrl": "https://res.cloudinary.com/dkknrzvmg/image/upload/v1709133557/users/srtr84an3d7vajok1icm.jpg",
   "isAdmin": false,
   "token": "",
   "__v": 0
@@ -149,7 +149,7 @@ const user_mock = [{
   "lastName": "khadka",
   "email": "df@gmail.com",
   "password": "$2b$10$UCFsgQhGdTseZAga1ePL1u66NHdJ.wL./07en4GqUU32uqciLNQk.",
-  "userImageUrl": "http://res.cloudinary.com/dkknrzvmg/image/upload/v1709134136/users/zdomzexxsgctirpzbbao.jpg",
+  "userImageUrl": "https://res.cloudinary.com/dkknrzvmg/image/upload/v1709134136/users/zdomzexxsgctirpzbbao.jpg",
   "isAdmin": false,
   "token": "",
   "__v": 0
@@ -162,7 +162,7 @@ const user_mock = [{
   "lastName": "Khadka",
   "email": "sunitakhadka2000@gmail.com",
   "password": "$2b$10$L4fdD43BfPEoSnBzLXQar.E4bDSnUXbEtcQk1TchWgSShzwI8C1va",
-  "userImageUrl": "http://res.cloudinary.com/dkknrzvmg/image/upload/v1709345410/users/tcx012ixspybcwieswaq.jpg",
+  "userImageUrl": "https://res.cloudinary.com/dkknrzvmg/image/upload/v1709345410/users/tcx012ixspybcwieswaq.jpg",
   "isAdmin": false,
   "token": "",
   "__v": 0
@@ -175,7 +175,7 @@ const user_mock = [{
   "lastName": "Chettry",
   "email": "mabisha.g.chhtry@gmail.com",
   "password": "$2b$10$.RRvpJsK2.LTXz2ZayIHIOifjlawuPcYGS9ARlXGZeMZqHkH9CfoK",
-  "userImageUrl": "http://res.cloudinary.com/dkknrzvmg/image/upload/v1709354818/users/ze5rehe8uway5ei5nsmr.jpg",
+  "userImageUrl": "https://res.cloudinary.com/dkknrzvmg/image/upload/v1709354818/users/ze5rehe8uway5ei5nsmr.jpg",
   "isAdmin": false,
   "token": "",
   "__v": 0
@@ -188,7 +188,7 @@ const user_mock = [{
   "lastName": "a",
   "email": "a@gmail.com",
   "password": "$2b$10$YrOGIzrciUBRex0CQGcHkO.j4V3ERVv8NCnUbC6uEJPuNIs3PAeAq",
-  "userImageUrl": "http://res.cloudinary.com/dkknrzvmg/image/upload/v1709358058/users/wb1vjkw1o9uragrihvmq.jpg",
+  "userImageUrl": "https://res.cloudinary.com/dkknrzvmg/image/upload/v1709358058/users/wb1vjkw1o9uragrihvmq.jpg",
   "isAdmin": false,
   "token": "",
   "__v": 0
@@ -201,7 +201,7 @@ const user_mock = [{
   "lastName": "admin",
   "email": "admin@gmail.com",
   "password": "$2b$10$t7hp55C7uhKGdx2fgpSZPeZlvdTWf/L0rdNK1Pax0sfxvUY524qu.",
-  "userImageUrl": "http://res.cloudinary.com/dkknrzvmg/image/upload/v1709454714/users/aivjozz7yz6rjbhth4ll.jpg",
+  "userImageUrl": "https://res.cloudinary.com/dkknrzvmg/image/upload/v1709454714/users/aivjozz7yz6rjbhth4ll.jpg",
   "isAdmin": true,
   "token": "",
   "__v": 0

@@ -29,8 +29,8 @@ const TermsAndConditions = () => {
         <p className="text-lg mb-[27px]" style={{ fontSize: '20px', fontFamily: 'Poppins', fontWeight: '400' }}>
           These terms and conditions outline the rules and regulations for the
           use of the Petadapt Website, located at
-          <a href="http://www.petadapt.com" className="text-blue-500">
-            http://www.petadapt.com
+          <a href="https://www.petadapt.com" className="text-blue-500">
+            https://www.petadapt.com
           </a>
           . By accessing this website we assume you accept these terms and
           conditions. Do not continue to use Petadapt if you do not agree to

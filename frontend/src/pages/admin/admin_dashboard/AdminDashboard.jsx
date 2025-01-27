@@ -1,83 +1,73 @@
-import React, { useEffect, useState } from "react";
-import {
-  Bar,
-  BarChart,
-  Legend,
-  Line,
-  LineChart,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
+import React from "react";
 
 const AdminDashboard = () => {
-//   const [data, setData] = useState({
-//     bloodBank: [],
-//     hospital: [],
-//     users: 0,
-//     campaigns: 0,
-//   });
+  //   const [data, setData] = useState({
+  //     bloodBank: [],
+  //     hospital: [],
+  //     users: 0,
+  //     campaigns: 0,
+  //   });
 
-//   const currentYear = new Date().getFullYear();
+  //   const currentYear = new Date().getFullYear();
 
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         const [bloodBankRes, hospitalRes, usersRes, campaignsRes] =
-//           await Promise.all([
-//           ]);
+  //   useEffect(() => {
+  //     const fetchData = async () => {
+  //       try {
+  //         const [bloodBankRes, hospitalRes, usersRes, campaignsRes] =
+  //           await Promise.all([
+  //           ]);
 
-//         setData({
-//         });
-//       } catch (error) {
-//         console.error("Error fetching data:", error);
-//       }
-//     };
+  //         setData({
+  //         });
+  //       } catch (error) {
+  //         console.error("Error fetching data:", error);
+  //       }
+  //     };
 
-//     fetchData();
-//   }, []);
+  //     fetchData();
+  //   }, []);
 
-//   const { bloodBank, hospital, users, campaigns } = data;
+  //   const { bloodBank, hospital, users, campaigns } = data;
 
-// //   const countByMonth = (items) => {
-// //     const currentYear = new Date().getFullYear(); // Define current year inside the function
-// //     return items.reduce((acc, item) => {
-// //       const itemDate = new Date(item.createdAt);
-// //       if (!isNaN(itemDate)) { // Check if the date is valid
-// //         if (itemDate.getFullYear() === currentYear) {
-// //           const month = itemDate.getMonth();
-// //           acc[month] = (acc[month] || 0) + 1;
-// //         }
-// //       }
-// //       return acc;
-// //     }, {});
-// // };
+  // //   const countByMonth = (items) => {
+  // //     const currentYear = new Date().getFullYear(); // Define current year inside the function
+  // //     return items.reduce((acc, item) => {
+  // //       const itemDate = new Date(item.createdAt);
+  // //       if (!isNaN(itemDate)) { // Check if the date is valid
+  // //         if (itemDate.getFullYear() === currentYear) {
+  // //           const month = itemDate.getMonth();
+  // //           acc[month] = (acc[month] || 0) + 1;
+  // //         }
+  // //       }
+  // //       return acc;
+  // //     }, {});
+  // // };
 
-//   const bloodBankByMonth = 4;
-//   const hospitalByMonth = 5;
+  //   const bloodBankByMonth = 4;
+  //   const hospitalByMonth = 5;
 
-//   const createChartData = (dataByMonth) => {
-//     return Array.from({ length: 12 }, (_, index) => ({
-//       name: new Date(currentYear, index).toLocaleString("default", {
-//         month: "short",
-//       }),
-//       count: dataByMonth[index] || 0,
-//     }));
-//   };
+  //   const createChartData = (dataByMonth) => {
+  //     return Array.from({ length: 12 }, (_, index) => ({
+  //       name: new Date(currentYear, index).toLocaleString("default", {
+  //         month: "short",
+  //       }),
+  //       count: dataByMonth[index] || 0,
+  //     }));
+  //   };
 
-//   const bloodBankData = createChartData(bloodBankByMonth);
-//   const hospitalData = createChartData(hospitalByMonth);
+  //   const bloodBankData = createChartData(bloodBankByMonth);
+  //   const hospitalData = createChartData(hospitalByMonth);
 
-//   const StatCard = ({ icon, value, label }) => (
-//     <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
-//       <div className="flex flex-col space-y-1.5">
-//         <div className="w-8 h-8 text-red-500">{icon}</div>
-//         <div className="text-3xl font-bold text-gray-900 dark:text-gray-50">
-//           {value}
-//         </div>
-//         <p className="text-gray-600 dark:text-gray-400">{label}</p>
-//       </div>
-//     </div>
+  //   const StatCard = ({ icon, value, label }) => (
+  //     <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
+  //       <div className="flex flex-col space-y-1.5">
+  //         <div className="w-8 h-8 text-red-500">{icon}</div>
+  //         <div className="text-3xl font-bold text-gray-900 dark:text-gray-50">
+  //           {value}
+  //         </div>
+  //         <p className="text-gray-600 dark:text-gray-400">{label}</p>
+  //       </div>
+  //     </div>
   // );
 
   return (
@@ -118,7 +108,7 @@ const AdminDashboard = () => {
     //         <StatCard
     //           icon={
     //             <svg
-    //               xmlns="http://www.w3.org/2000/svg"
+    //               xmlns="https://www.w3.org/2000/svg"
     //               width="24"
     //               height="24"
     //               viewBox="0 0 24 24"
@@ -137,7 +127,7 @@ const AdminDashboard = () => {
     //         <StatCard
     //           icon={
     //             <svg
-    //               xmlns="http://www.w3.org/2000/svg"
+    //               xmlns="https://www.w3.org/2000/svg"
     //               width="24"
     //               height="24"
     //               viewBox="0 0 24 24"
@@ -159,7 +149,7 @@ const AdminDashboard = () => {
     //         <StatCard
     //           icon={
     //             <svg
-    //               xmlns="http://www.w3.org/2000/svg"
+    //               xmlns="https://www.w3.org/2000/svg"
     //               width="24"
     //               height="24"
     //               viewBox="0 0 24 24"
@@ -181,7 +171,7 @@ const AdminDashboard = () => {
     //         <StatCard
     //           icon={
     //             <svg
-    //               xmlns="http://www.w3.org/2000/svg"
+    //               xmlns="https://www.w3.org/2000/svg"
     //               width="24"
     //               height="24"
     //               viewBox="0 0 24 24"
@@ -201,7 +191,7 @@ const AdminDashboard = () => {
     //         <StatCard
     //           icon={
     //             <svg
-    //               xmlns="http://www.w3.org/2000/svg"
+    //               xmlns="https://www.w3.org/2000/svg"
     //               width="24"
     //               height="24"
     //               viewBox="0 0 24 24"

@@ -9,7 +9,7 @@ const blog_mock = [{
     "$date": "2024-03-15T00:00:00.000Z"
   },
   "blogCategory": "Technology",
-  "blogImageUrl": "http://res.cloudinary.com/dkknrzvmg/image/upload/v1709437293/blogs/rho2xynifn0jytfstbk7.jpg",
+  "blogImageUrl": "https://res.cloudinary.com/dkknrzvmg/image/upload/v1709437293/blogs/rho2xynifn0jytfstbk7.jpg",
   "__v": 0
 },
 {
@@ -23,7 +23,7 @@ const blog_mock = [{
     "$date": "2024-03-05T00:00:00.000Z"
   },
   "blogCategory": "Technology",
-  "blogImageUrl": "http://res.cloudinary.com/dkknrzvmg/image/upload/v1709437344/blogs/m2g3gyay8wpippnzneek.jpg",
+  "blogImageUrl": "https://res.cloudinary.com/dkknrzvmg/image/upload/v1709437344/blogs/m2g3gyay8wpippnzneek.jpg",
   "__v": 0
 },
 {
@@ -37,7 +37,7 @@ const blog_mock = [{
     "$date": "2024-03-06T00:00:00.000Z"
   },
   "blogCategory": "Technology",
-  "blogImageUrl": "http://res.cloudinary.com/dkknrzvmg/image/upload/v1709437383/blogs/gvgg27pn41yqj7xrne8b.jpg",
+  "blogImageUrl": "https://res.cloudinary.com/dkknrzvmg/image/upload/v1709437383/blogs/gvgg27pn41yqj7xrne8b.jpg",
   "__v": 0
 }]
 
