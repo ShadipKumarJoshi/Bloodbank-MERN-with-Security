@@ -7,15 +7,16 @@ const connectDB = require('./database/db');
 const cors = require('cors');
 const multiparty = require('connect-multiparty');
 const cloudinary = require('cloudinary');
-const helmet = require('helmet');
-const rateLimit = require('express-rate-limit');
-const xssClean = require('xss-clean');
-const mongoSanitize = require('express-mongo-sanitize');
+const helmet = require('helmet'); 
+const rateLimit = require('express-rate-limit'); 
+const xssClean = require('xss-clean'); 
+const mongoSanitize = require('express-mongo-sanitize'); 
 const app = express();
 const session = require('express-session');
-const winston = require('winston');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const winston = require('winston');
+
 
 dotenv.config();
 
@@ -35,13 +36,13 @@ app.use(bodyParser.json());
 // Set up express-session
 app.use(session({
     secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
+    resave: false, 
+    saveUninitialized: false, 
     cookie: {
-        maxAge: 1 * 60 * 1000,
+        maxAge: 1 * 60 * 1000 ,
         secure: true,
-        httpsOnly: false
-
+        httpOnly: false 
+        
     }
 }));
 
@@ -91,61 +92,61 @@ app.use(helmet.contentSecurityPolicy({
         scriptSrc: [
             "'self'",
             "'unsafe-inline'",
-            "'unsafe-eval'",
-            "https://js.stripe.com",
-            "https://www.google.com",
-            "https://www.gstatic.com",
-            "https://cdn.jsdelivr.net",
-            "https://cdnjs.cloudflare.com"
+            "'unsafe-eval'", 
+            "https://js.stripe.com", 
+            "https://www.google.com", 
+            "https://www.gstatic.com", 
+            "https://cdn.jsdelivr.net", 
+            "https://cdnjs.cloudflare.com" 
         ],
         styleSrc: [
             "'self'",
-            "'unsafe-inline'",
-            "https://fonts.googleapis.com",
-            "https://cdn.jsdelivr.net",
-            "https://cdnjs.cloudflare.com"
+            "'unsafe-inline'", 
+            "https://fonts.googleapis.com", 
+            "https://cdn.jsdelivr.net", 
+            "https://cdnjs.cloudflare.com" 
         ],
         imgSrc: [
             "'self'",
-            "data:",
-            "https://*.stripe.com",
-            "https://www.google.com",
+            "data:", 
+            "https://*.stripe.com", 
+            "https://www.google.com", 
             "https://www.gstatic.com",
-            "https://cdn.jsdelivr.net",
-            "https://cdnjs.cloudflare.com"
+            "https://cdn.jsdelivr.net", 
+            "https://cdnjs.cloudflare.com" 
         ],
         fontSrc: [
             "'self'",
-            "https://fonts.gstatic.com",
-            "https://cdnjs.cloudflare.com"
+            "https://fonts.gstatic.com", 
+            "https://cdnjs.cloudflare.com" 
         ],
         connectSrc: [
             "'self'",
-            "https://api.stripe.com",
-            "https://www.google.com",
-            "https://www.gstatic.com",
-            "https://*.sentry.io"
+            "https://api.stripe.com", 
+            "https://www.google.com", 
+            "https://www.gstatic.com", 
+            "https://*.sentry.io" 
         ],
         frameSrc: [
             "'self'",
-            "https://js.stripe.com",
-            "https://www.google.com",
-            "https://www.gstatic.com"
+            "https://js.stripe.com", 
+            "https://www.google.com", 
+            "https://www.gstatic.com" 
         ],
-        objectSrc: ["'none'"],
-        upgradeInsecureRequests: [],
-        blockAllMixedContent: [],
+        objectSrc: ["'none'"], 
+        upgradeInsecureRequests: [], 
+        blockAllMixedContent: [], 
         baseUri: ["'self'"],
-        formAction: ["'self'"],
-        frameAncestors: ["'self'"],
+        formAction: ["'self'"], 
+        frameAncestors: ["'self'"], 
     }
 }));
 
 
 
 const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000,
-    max: 100,
+    windowMs: 15 * 60 * 1000, 
+    max: 100, 
     message: 'Too many requests from this IP, please try again later'
 });
 app.use(limiter);
@@ -184,6 +185,7 @@ app.use('/api/contact', require('./routes/contactRoute'));
 
 
 const PORT = process.env.PORT || 5000;
+
 const logger = winston.createLogger({
     level: 'info', 
     format: winston.format.combine(
@@ -196,9 +198,8 @@ const logger = winston.createLogger({
     ]
 });
 
-httpss.createServer(sslOptions, app).listen(PORT, () => {
-    logger.info(`httpsS Server is running on port ${PORT}`);
+https.createServer(sslOptions, app).listen(PORT, () => {
+    logger.info(`HTTPS Server is running on port ${PORT}`);
 })
-
 
 module.exports = app;
