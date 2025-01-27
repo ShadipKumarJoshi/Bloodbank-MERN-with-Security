@@ -184,6 +184,9 @@ app.use('/api/contact', require('./routes/contactRoute'));
 
 const PORT = process.env.PORT || 5000;
 
+https.createServer(sslOptions, app).listen(PORT, () => {
+    logger.info(`HTTPS Server is running on port ${PORT}`);
+})
 
 
 module.exports = app;
