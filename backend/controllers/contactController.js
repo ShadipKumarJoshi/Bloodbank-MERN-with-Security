@@ -1,16 +1,29 @@
 const Contacts = require("../model/contactModel");
+const winston = require('winston');
 const { sendEmailController } = require("./sendEmailController");
 const { body, validationResult } = require('express-validator');
 const xss = require('xss');
 
 
+const logger = winston.createLogger({
+    level: 'info',
+    format: winston.format.combine(
+        winston.format.timestamp(),
+        winston.format.json()
+    ),
+    transports: [
+        new winston.transports.Console(),
+        new winston.transports.File({ filename: 'application.log' })
+    ]
+});
+
 
 const sendMessage = async (req, res) => {
-  info('Send Message request received', { requestBody: req.body });
+  logger.info('Send Message request received', { requestBody: req.body });
 
   const { contactName, contactEmail, contactMessage } = req.body;
 
-
+  
   await body('contactName').trim().escape().notEmpty().run(req);
   await body('contactEmail').isEmail().normalizeEmail().run(req);
   await body('contactMessage').trim().escape().notEmpty().run(req);
@@ -25,7 +38,7 @@ const sendMessage = async (req, res) => {
   }
 
   try {
-
+    
     const sanitizedContactName = xss(contactName);
     const sanitizedContactEmail = xss(contactEmail);
     const sanitizedContactMessage = xss(contactMessage);
@@ -42,7 +55,7 @@ const sendMessage = async (req, res) => {
         contactEmail: sanitizedContactEmail,
         contactMessage: sanitizedContactMessage,
       }).catch((error) => {
-        error('Error in saving contact', { error: error.message });
+        logger.error('Error in saving contact', { error: error.message });
         return res.status(500).json({
           success: false,
           message: "An error occurred while saving the contact",
@@ -55,7 +68,7 @@ const sendMessage = async (req, res) => {
       });
     }
   } catch (error) {
-    error('Error in sending email', { error: error.message });
+    logger.error('Error in sending email', { error: error.message });
     return res.status(500).json({
       success: false,
       message: "An error occurred while sending the email",
@@ -74,7 +87,7 @@ const searchContacts = async (req, res) => {
     });
     res.send(data);
   } catch (error) {
-    error('Error in searchContacts', { error: error.message });
+    logger.error('Error in searchContacts', { error: error.message });
     res.status(500).send({ error: "Internal Server Error" });
   }
 };
@@ -104,7 +117,7 @@ const getContactPagination = async (req, res) => {
       totalPages: Math.ceil(totalContactsCount / resultPerPage),
     });
   } catch (error) {
-    error('Error in getContactPagination', { error: error.message });
+    logger.error('Error in getContactPagination', { error: error.message });
     res.status(500).json({
       success: false,
       message: "Server Error",
@@ -122,7 +135,7 @@ const getAllContacts = async (req, res) => {
       contacts: listOfContacts,
     });
   } catch (error) {
-    error('Error in getAllContacts', { error: error.message });
+    logger.error('Error in getAllContacts', { error: error.message });
     res.status(500).json("Server Error");
   }
 };
@@ -150,7 +163,7 @@ const getSingleContact = async (req, res) => {
       contact: singleContact,
     });
   } catch (error) {
-    error('Error in getSingleContact', { error: error.message });
+    logger.error('Error in getSingleContact', { error: error.message });
     res.status(500).json("Server Error");
   }
 };
@@ -170,7 +183,7 @@ const deleteContact = async (req, res) => {
       message: "Contact deleted Successfully",
     });
   } catch (error) {
-    error('Error in deleteContact', { error: error.message });
+    logger.error('Error in deleteContact', { error: error.message });
     res.status(500).json({
       success: false,
       message: "Server Error",
@@ -187,7 +200,7 @@ const getContactCount = async (req, res) => {
       totalContactsCount: totalContactsCount,
     });
   } catch (error) {
-    error('Error in getContactCount', { error: error.message });
+    logger.error('Error in getContactCount', { error: error.message });
     res.status(500).json({
       success: false,
       message: "Server Error",
