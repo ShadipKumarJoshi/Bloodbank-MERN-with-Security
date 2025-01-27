@@ -1,0 +1,106 @@
+.fc-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 120px;
+  margin-top: 150px; /* Adjust this value to move the toolbar down */
+}
+
+.fc-toolbar-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
+  flex-grow: 1;
+  position: relative;
+}
+
+.fc-toolbar-title::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 4px;
+  background-color: #328AFF; /* Blue underline */
+  position: absolute;
+  bottom: -8px; /* Adjust the position of the underline */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.fc-toolbar-chunk {
+  display: flex;
+  justify-content: space-around;
+}
+
+.fc-button-group {
+  display: flex;
+  justify-content: space-between;
+  width: 361px;
+  height: 78px;
+  font-family: 'Poppins', sans-serif;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.fc-button {
+  background: none;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.fc-button:hover {
+  color: white;
+  background-color: #328AFF; /* Blue color on hover */
+}
+
+.fc-button-active {
+  background-color: #328AFF;
+  color: white;
+}
+
+.calendar-container {
+  margin-top: 40px; /* Add spacing between toolbar and calendar */
+  padding-left: 120px;
+  padding-right: 120px;
+  flex-grow: 1; /* Allow the calendar container to grow */
+  width: 100%;
+  overflow: auto; /* Enable scrolling */
+}
+
+.fc-daygrid-day-number {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+}
+
+.fc-daygrid-event {
+  width: 100%; /* Make the event occupy the entire width of the box */
+}
+
+.fc .fc-col-header-cell-cushion {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: normal; /* Make the header text normal weight */
+}
+
+.fc-daygrid-day {
+  height: 150px;
+  /* Increase the height of each day cell */
+}
+
+.fc-daygrid-day.fc-day-other .fc-daygrid-day-number {
+  color: #0c0909; /* Gray color for dates from adjacent months */
+}
+
+.event-content {
+  background-color: #328AFF;
+  color: white;
+  border-radius: 10px; /* Adjust the corner radius */
+  padding: 5px;
+  text-align: center;
+  width: 100%; /* Ensure the event content occupies the full width */
+}
