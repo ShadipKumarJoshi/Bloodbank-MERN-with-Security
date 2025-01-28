@@ -178,7 +178,7 @@ const sendUnlockNotification = async (fullName, email) => {
       from: process.env.SMTP_MAIL,
       to: email,
       subject: "Account Unlocked",
-      html: `Hi ${fullName},<br/><br/>Your account has been unlocked. You can now try logging in again.<br/><br/>Regards,<br/>Adoption Hub`,
+      html: `Hi ${fullName},<br/><br/>Your account has been unlocked. You can now try logging in again.<br/><br/>Regards,<br/>Petadapt`,
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
@@ -300,9 +300,9 @@ const loginUser = async (req, res) => {
     if (user.passwordExpiresAt && now > user.passwordExpiresAt) {
       passwordExpired = true;
       return res.json({
-        success : false,
-        passwordExpired : passwordExpired,
-        message : "Your Password has been expired !"
+        success: false,
+        passwordExpired: passwordExpired,
+        message: "Your Password has been expired !"
       })
     }
 
@@ -327,7 +327,7 @@ const loginUser = async (req, res) => {
       success: true,
       token: token,
       userData: user,
-      message: "Welcome to Adoption Hub",
+      message: "Welcome to Petadapt",
     });
   } catch (error) {
     logger.error("Error in loginUser", {
@@ -711,13 +711,14 @@ const getUserCount = async (req, res) => {
 
 
 const sendOtp = async (req, res) => {
+  console.log(req.body)
   const { email } = req.body;
   // const user = await Users.findOne({ email: email });
   const randomOtp = Math.floor(100000 + Math.random() * 900000);
   // console.log(randomOtp);
   await sendEmailController(
     email,
-    "Adoption Hub",
+    "Petadapt",
     `Your Otp is: ${randomOtp}`
   ).then(async (success) => {
     if (success) {
