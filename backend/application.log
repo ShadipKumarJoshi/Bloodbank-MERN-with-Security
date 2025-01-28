@@ -3,3 +3,4 @@
 {"level":"info","message":"Create User request received","requestBody":{"email":"mstacezro@gmail.com","fullName":"Test two","password":"0M@ster1t"},"timestamp":"2025-01-28T06:54:25.828Z"}
 {"level":"info","message":"User created successfully","timestamp":"2025-01-28T06:54:26.242Z","userId":"67987f22205c06178aabae9e"}
 {"level":"info","message":"Connected to Database","timestamp":"2025-01-28T07:10:55.545Z"}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-28T07:21:23.204Z"}
