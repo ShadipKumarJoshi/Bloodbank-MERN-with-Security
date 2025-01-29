@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   min-height: 97vh;
-  background: url(../../public/assets/images/3.png) no-repeat;
+  /* background: url(../../public/assets/images/3.png) no-repeat; */
   background-position: center;
   background-size: cover;
 }
