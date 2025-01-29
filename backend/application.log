@@ -4,3 +4,6 @@
 {"level":"info","message":"User created successfully","timestamp":"2025-01-28T06:54:26.242Z","userId":"67987f22205c06178aabae9e"}
 {"level":"info","message":"Connected to Database","timestamp":"2025-01-28T07:10:55.545Z"}
 {"level":"info","message":"Connected to Database","timestamp":"2025-01-28T07:21:23.204Z"}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T02:05:25.630Z"}
+{"level":"info","message":"Create User request received","requestBody":{"email":"stmcearoz@gmail.com","fullName":"Test two","password":"1@Qwerty"},"timestamp":"2025-01-29T02:15:18.186Z"}
+{"level":"info","message":"User created successfully","timestamp":"2025-01-29T02:15:18.416Z","userId":"67998f36a5121b327b3593d4"}
