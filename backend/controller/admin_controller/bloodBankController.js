@@ -18,7 +18,7 @@ const addBloodBanks = async (req, res) => {
     socialLinks,
     latitude,
     longitude,
-    municipality,
+    // municipality,
     wardNo,
     contactEmail,
   } = req.body;
@@ -45,7 +45,7 @@ const addBloodBanks = async (req, res) => {
     !specialInstructions ||
     !additionalNotes ||
     !socialLinks ||
-    !municipality ||
+    // !municipality ||
     !wardNo ||
     !latitude ||
     !longitude
@@ -69,7 +69,7 @@ const addBloodBanks = async (req, res) => {
       operatingHours: oHours,
       serviceOffered: serviceOffered,
       specialInstructions: specialInstructions,
-      municipality: municipality,
+      // municipality: municipality,
       wardNo: wardNo,
       additionalNotes: additionalNotes,
       availableBloodGroups: bgavailable,
@@ -134,7 +134,7 @@ const addBloodBanks = async (req, res) => {
       bbAddress: bAddress,
       bbContact: bContact,
       wardNo: wardNo,
-      municipality: municipality,
+      // municipality: municipality,
       operatingHours: oHours,
       serviceOffered: serviceOffered,
       specialInstructions: specialInstructions,

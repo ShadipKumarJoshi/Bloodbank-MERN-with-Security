@@ -34,7 +34,7 @@ export default function AddHospitals() {
   const [filters, setFilters] = useState({
     hospitalName: "",
     hospitalAddress: "",
-    municipality: "",
+    // municipality: "",
   });
 
   const fetchHospitals = async () => {
@@ -71,11 +71,11 @@ export default function AddHospitals() {
         (filters.hospitalAddress === "" ||
           hospital.hospitalAddress
             .toLowerCase()
-            .includes(filters.hospitalAddress.toLowerCase())) &&
-        (filters.municipality === "" ||
-          hospital.municipality
-            .toLowerCase()
-            .includes(filters.municipality.toLowerCase()))
+            .includes(filters.hospitalAddress.toLowerCase())) 
+        //  && (filters.municipality === "" ||
+        //   hospital.municipality
+        //     .toLowerCase()
+        //     .includes(filters.municipality.toLowerCase()))
       );
     });
     setFilteredhospitals(filtered);
@@ -88,7 +88,7 @@ export default function AddHospitals() {
 
   const [hospitalName, setHospitalName] = useState("");
   const [hospitalAddress, setHospitalAddress] = useState("");
-  const [municipality, setMunicipality] = useState("");
+  // const [municipality, setMunicipality] = useState("");
   const [wardNo, setWardNo] = useState("");
   const [hospitalContactNumber, setHospitalContactNumber] = useState("");
   const [hospitalType, setHospitalType] = useState("");
@@ -133,7 +133,7 @@ export default function AddHospitals() {
     const formData = new FormData();
     formData.append("hospitalName", hospitalName);
     formData.append("hospitalAddress", hospitalAddress);
-    formData.append("municipality", municipality);
+    // formData.append("municipality", municipality);
     formData.append("wardNo", wardNo);
     formData.append("hospitalContactNumber", hospitalContactNumber);
     formData.append("hospitalType", hospitalType);
@@ -220,14 +220,14 @@ export default function AddHospitals() {
                 value={filters.hospitalAddress}
                 onChange={handleFilterChange}
               />
-              <input
+              {/* <input
                 className="w-1/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500"
                 type="text"
                 name="municipality"
                 placeholder="Filter by Municipality"
                 value={filters.municipality}
                 onChange={handleFilterChange}
-              />
+              /> */}
             </div>
           </div>
 
@@ -238,7 +238,7 @@ export default function AddHospitals() {
                   <th className="font-normal text-left pl-4">Hospital Image</th>
                   <th className="font-normal text-left pl-4">Hospital Name</th>
                   <th className="font-normal text-left pl-12">District</th>
-                  <th className="font-normal text-left pl-12">Municipality</th>
+                  {/* <th className="font-normal text-left pl-12">Municipality</th> */}
                   <th className="font-normal text-left pl-12">Ward No.</th>
                   <th className="font-normal text-left pl-12">Contact</th>
                   <th className="font-normal text-left pl-20">Hospital Type</th>
@@ -288,9 +288,9 @@ export default function AddHospitals() {
                     <td className="pl-12">
                       <p className="font-medium">{item.hospitalAddress}</p>
                     </td>
-                    <td className="pl-12">
+                    {/* <td className="pl-12">
                       <p className="font-medium">{item.municipality}</p>
-                    </td>
+                    </td> */}
                     <td className="pl-12">
                       <p className="font-medium">{item.wardNo}</p>
                     </td>
@@ -414,7 +414,7 @@ export default function AddHospitals() {
                   <div>
                     <DistrictList onChange={changeHospitalAddress} />
                   </div>
-                  <div>
+                  {/* <div>
                     <label className="block text-sm font-medium text-gray-900">
                       Municipality
                     </label>
@@ -424,7 +424,7 @@ export default function AddHospitals() {
                       className="mt-1 block w-full  border border-solid border-gray-300 text-gray-900 rounded-lg shadow-sm"
                       required
                     />
-                  </div>
+                  </div> */}
                   <div>
                     <label className="block text-sm font-medium text-gray-900">
                       Ward No.

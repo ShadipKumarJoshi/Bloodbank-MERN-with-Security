@@ -13,10 +13,10 @@ const hospitalSchema = mongoose.Schema(
       required: true,
     },
 
-    municipality: {
-      type: String,
-      required: true,
-    },
+    // municipality: {
+    //   type: String,
+    //   required: true,
+    // },
 
     wardNo: {
       type: Number,
