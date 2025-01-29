@@ -13,7 +13,7 @@ body {
 .adminHeader {
   display: flex;
   background-color: white;
-  color: #FF8534;
+  color: red;
   padding: 20px;
   text-align: center;
   flex-direction: row;
@@ -25,7 +25,7 @@ body {
 
 .dropdown-menu {
   width: inherit;
-  background-color: #FF8534;
+  background-color: red;
   color: white;
   transition: 0 !important;
 }
@@ -47,7 +47,7 @@ body {
 .adminLi {
   font-size: 1.5rem;
   width: 100%;
-  border-bottom: 1px solid #FF8534;
+  border-bottom: 1px solid #d9534f;
 }
 
 .adminLi button {
@@ -61,12 +61,12 @@ body {
 }
 
 .adminLi button:hover {
-  background-color: #FF8534;
+  background-color: red;
   color: whitesmoke;
 }
 
 .active {
-  background-color: #FF8534;
+  background-color: red;
   color: whitesmoke;
 }
 

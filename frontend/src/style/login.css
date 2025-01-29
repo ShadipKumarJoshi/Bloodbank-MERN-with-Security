@@ -1,0 +1,140 @@
+.loginSecondBody {
+  margin-top: 1.5rem;
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 97vh;
+  background: url(../../public/assets/images/3.png) no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.loginContainer {
+  width: 33rem;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  overflow-x: hidden;
+}
+header {
+  font-size: 50px;
+  font-weight: 600;
+  color: red;
+  text-align: center;
+}
+form {
+  margin-top: 20px;
+}
+form .loginInputBox {
+  display: flex;
+  height: 50px;
+  width: 100%;
+  margin-top: 35px;
+  border-bottom: 2px solid #162938;
+  position: relative;
+  align-items: center;
+}
+form .loginInputBox input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  color: #162938;
+  padding: 0 10px;
+  font-weight: 600;
+}
+form .loginInputBox i {
+  position: absolute;
+  bottom: 3px;
+  right: 8px;
+  font-size: 1.6em;
+  color: #162938;
+}
+form .loginInputBox label {
+  position: absolute;
+  top: 90%;
+  left: 2px;
+  transform: translateY(-80%);
+  font-size: 22px;
+  color: #162938;
+  pointer-events: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+form .loginInputBox input:focus ~ label,
+form .loginInputBox input:valid ~ label {
+  top: -5px;
+}
+form button {
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+  background: red;
+  color: #fff;
+  font-size: 25px;
+  border: none;
+  background-color: black;
+  cursor: pointer;
+}
+form .link {
+  text-align: center;
+  margin-top: 10px;
+}
+form .link a {
+  font-size: 16px;
+  color: #162938;
+  font-weight: 500;
+}
+form .link p,
+form .link a {
+  font-size: 14px;
+  color: #162938;
+  font-weight: 500;
+}
+.line {
+  position: relative;
+  height: 1px;
+  width: 100%;
+  margin: 30px 0;
+  background: #d4d4d4;
+}
+.line::before {
+  content: "OR";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  color: #162938;
+  padding: 0 15px;
+  font-weight: 600;
+}
+.social-login {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+.social-login a {
+  width: 100%;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 16px;
+}
+.apple,
+.apple i {
+  background: #fff;
+  color: #162938;
+  font-weight: 500;
+}
+.facebook {
+  background: #4267b2;
+  color: #fff;
+}

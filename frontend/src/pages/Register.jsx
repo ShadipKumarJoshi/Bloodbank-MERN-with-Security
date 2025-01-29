@@ -1,367 +1,464 @@
-import { faEnvelope, faLock, faUser } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Label, Modal, TextInput } from "flowbite-react";
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import {
+  faAddressBook,
+  faEnvelope,
+  faLocation,
+  faLock,
+  faMapLocation,
+  faPhone,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { createUserApi, sendOtpApi } from "../apis/Api";
+import "../../src/style/navbar.css";
+import "../../src/style/register.css";
+import { createUserApi, sendOtpApi } from "../apis/api";
+import CustomFaIcons from "../components/CustomFaIcons";
 
-const RegisterModal = ({ isOpen, onClose, onOpenLogin }) => {
+import { CircularProgress } from "@mui/material";
+import { Label, Modal, TextInput } from "flowbite-react";
+import DistrictList from "../components/DistrictsList.jsx";
+
+const Register = () => {
+  const navigate = useNavigate();
   const [fullName, setFullName] = useState("");
+  const [openModal, setOpenModal] = useState(false);
+  const [otp, setOtp] = useState("");
+  const [passwordStrength, setPasswordStrength] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isResendDisabled, setIsResendDisabled] = useState(false);
+  const [resendTimer, setResendTimer] = useState(0);
+
+  const sendOtp = async () => {
+    setIsLoading(true);
+    const data = { email: email };
+    sendOtpApi(data)
+      .then((res) => {
+        if (res.data.success === false) {
+          setIsLoading(false);
+          toast.error(res.data.message);
+        } else {
+          setOpenModal(true);
+          toast.success(res.data.message);
+          setOtp(res?.data?.otp);
+          setIsLoading(false);
+          startResendTimer();
+        }
+      })
+      .catch((err) => {
+        toast.error("Server Error");
+        console.log(err.message);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
+  const validatein = (e) => {
+    e.preventDefault();
+    const isValid = Validate();
+    if (!isValid) {
+      return;
+    } else {
+      sendOtp(email);
+    }
+  };
+
+  function onCloseModal() {
+    setOpenModal(false);
+  }
+
+  const startResendTimer = () => {
+    setIsResendDisabled(true);
+    setResendTimer(60);
+    const interval = setInterval(() => {
+      setResendTimer((prevTimer) => {
+        if (prevTimer <= 1) {
+          clearInterval(interval);
+          setIsResendDisabled(false);
+          return 0;
+        }
+        return prevTimer - 1;
+      });
+    }, 1000);
+  };
+
+  const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
   const [email, setEmail] = useState("");
+  const [number, setContact] = useState("");
+  const [currentAddress, setCurrentAddress] = useState("");
+  const [municipality, setMunicipality] = useState("");
+  const [wardNo, setWardNo] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [terms, setTerms] = useState(false);
+  const [userVerificationCode, setUserVerificationCode] = useState("");
+  const [userImage, setUserImage] = useState(null);
+  const [previewImage, setPreviewImage] = useState(null);
+
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    setUserImage(file);
+    setPreviewImage(URL?.createObjectURL(file));
+  };
 
   const [fnameerror, setFullnameError] = useState("");
+  const [addressError, setCurrentAddressError] = useState("");
+  const [municipalityError, setMunicipalityError] = useState("");
+  const [wardNoError, setWardNoError] = useState("");
   const [emailerror, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState([]);
-  const [passwordStrength, setPasswordStrength] = useState("");
+  const [numbererror, setNumberError] = useState("");
+  const [passworderror, setPasswordError] = useState("");
   const [cpassworderror, setCpasswordError] = useState("");
-  const [termsError, setTermsError] = useState("");
-
-  const [openModal, setOpenModal] = useState(false);
-  const [userVerificationCode, setUserVerificationCode] = useState("");
-  const [otp, setOtp] = useState("");
-  const [timer, setTimer] = useState(900); // 15 minutes timer
-
-  useEffect(() => {
-    let interval;
-    if (openModal) {
-      interval = setInterval(() => {
-        setTimer((prev) => (prev > 0 ? prev - 1 : 0));
-      }, 1000);
-    }
-
-    return () => clearInterval(interval);
-  }, [openModal]);
-
-  const handleTermsChange = (e) => {
-    setTerms(e.target.checked);
-    if (e.target.checked) {
-      setTermsError("");
-    }
-  };
-
-  const validatePassword = (password) => {
-    const errors = [];
-    if (password.length < 8) errors.push("At least 8 characters long");
-    if (!/[A-Z]/.test(password)) errors.push("An uppercase letter");
-    if (!/[a-z]/.test(password)) errors.push("A lowercase letter");
-    if (!/\d/.test(password)) errors.push("A number");
-    if (!/[@$!%*?&]/.test(password)) errors.push("A special character");
-
-    setPasswordError(errors);
-
-    if (errors.length === 0) {
-      setPasswordStrength("Strong");
-    } else if (errors.length <= 2) {
-      setPasswordStrength("Medium");
-    } else {
-      setPasswordStrength("Weak");
-    }
-  };
-
-  const handlePasswordChange = (e) => {
-    const passwordValue = e.target.value;
-    setPassword(passwordValue);
-    validatePassword(passwordValue);
-  };
 
   const Validate = () => {
     let isValid = true;
+
     setFullnameError("");
+    setCurrentAddressError("");
+    setMunicipalityError("");
+    setWardNoError("");
+    setNumberError("");
     setEmailError("");
-    setPasswordError([]);
+    setPasswordError("");
     setCpasswordError("");
-    setTermsError("");
 
     if (fullName.trim() === "") {
       setFullnameError("Name is Required");
       isValid = false;
     }
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (email.trim() === "" || !emailRegex.test(email)) {
-      setEmailError("Please enter a valid email address.");
+    if (email.trim() === "") {
+      setEmailError("Email is Required");
       isValid = false;
     }
-    if (passwordError.length > 0 || passwordStrength !== "Strong") {
-      toast.error("Please ensure your password meets all criteria and is strong.");
-      isValid = false;
-    }
-    if (password.trim() !== confirmPassword.trim()) {
-      setCpasswordError("Passwords do not match.");
-      isValid = false;
-    }
-    if (!terms) {
-      setTermsError("Please agree to the terms and conditions.");
+    if (email.trim() !== "" && !email.includes("@")) {
+      setEmailError("Invalid Email");
       isValid = false;
     }
 
+    if (number.trim() === "" || number.length !== 10) {
+      setNumberError("Number is Invalid (Must be 10 digits) ");
+      isValid = false;
+    }
+
+    if (currentAddress.trim() === "") {
+      setCurrentAddressError("Address is Required");
+      isValid = false;
+    }
+
+    if (municipality.trim() === "") {
+      setMunicipalityError("Municipality is Required");
+      isValid = false;
+    }
+
+    if (wardNo.trim() === "") {
+      setWardNoError("Ward No is Required");
+      isValid = false;
+    }
+
+    if (password.trim() === "") {
+      setPasswordError("Password is Required");
+      isValid = false;
+    }
+    if (password.trim() !== "" && !password.match(passwordRegex)) {
+      setPasswordError(
+        "Password must be 6 or more characters with at least one number and one uppercase and lowercase letter"
+      );
+      isValid = false;
+    }
+    if (confirmPassword.trim() === "") {
+      setCpasswordError("Password does not match");
+      isValid = false;
+    }
+
+    if (password.trim() !== confirmPassword.trim()) {
+      setCpasswordError("Password does not match");
+      isValid = false;
+    }
     return isValid;
   };
 
-  const validateAndSendOtp = async (e) => {
-    e.preventDefault();
-    const isValid = Validate();
-    if (isValid) {
-      const data = { email: email };
-      sendOtpApi(data)
-        .then((res) => {
-          if (res?.data?.success === false) {
-            toast.error(res?.data?.message);
-          } else {
-            setOpenModal(true);
-            setTimer(900); // Reset timer to 15 minutes
-            toast.success(res?.data?.message);
-            setOtp(res?.data?.otp);
-          }
-        })
-        .catch(() => {
-          toast.error("Server Error");
-        });
+  const changeFullName = (e) => {
+    setFullName(e.target.value);
+  };
+
+  const changeEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const changeCode = (e) => {
+    setUserVerificationCode(e.target.value);
+  };
+
+  const changeContact = (e) => {
+    setContact(e.target.value);
+  };
+
+  const changeCurrentAddress = (e) => {
+    setCurrentAddress(e.target.value);
+  };
+
+  const changePassword = (e) => {
+    const newPassword = e.target.value;
+    setPassword(newPassword);
+    const strength = calculatePasswordStrength(newPassword);
+    setPasswordStrength(strength);
+  };
+
+  const changeConfirmPassword = (e) => {
+    setConfirmPassword(e.target.value);
+  };
+
+  const calculatePasswordStrength = (password) => {
+    if (password.length < 6) {
+      return "Weak";
+    }
+    const hasLowerCase = /[a-z]/.test(password);
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasNumbers = /\d/.test(password);
+    const hasSymbols = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+    if (hasLowerCase && hasUpperCase && hasNumbers && hasSymbols) {
+      return "Strong";
+    } else if ((hasLowerCase || hasUpperCase) && hasNumbers) {
+      return "Normal";
+    } else {
+      return "Weak";
     }
   };
 
-  const resendOtp = async () => {
-    const data = { email: email };
-    sendOtpApi(data)
-      .then((res) => {
-        if (res?.data?.success === false) {
-          toast.error(res?.data?.message);
-        } else {
-          setTimer(900); // Reset timer to 15 minutes
-          toast.success("OTP has been resent to your email.");
-          setOtp(res?.data?.otp);
-        }
-      })
-      .catch(() => {
-        toast.error("Server Error");
-      });
-  };
-
-  const handleRegister = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const data = new FormData();
-    data.append("fullName", fullName);
-    data.append("email", email);
-    data.append("password", password);
-    data.append("confirmPassword", confirmPassword);
+    const data = {
+      fullName: fullName,
+      email: email,
+      number: number,
+      currentAddress: currentAddress,
+      municipality: municipality,
+      wardNo: wardNo,
+      password: password,
+      userImage: userImage,
+      userVerificationCode: userVerificationCode,
+      otp: otp,
+    };
 
     createUserApi(data)
       .then((res) => {
         if (res.data.success === false) {
           toast.error(res.data.message);
         } else {
-          onClose();
-          onOpenLogin();
+          navigate("/login");
           toast.success(res.data.message);
         }
       })
-      .catch(() => {
+      .catch((err) => {
         toast.error("Server Error");
+        console.log(err.message);
       });
   };
 
-  const onCloseModal = () => {
-    setOpenModal(false);
-  };
-
-  if (!isOpen) return null;
-
-  const minutes = Math.floor(timer / 60);
-  const seconds = timer % 60;
-
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-10 backdrop-blur-sm p-4 md:p-8">
-      <div className="bg-white rounded-lg shadow-lg flex flex-col md:flex-row w-full max-w-4xl border border-black overflow-visible">
-        <div className="w-full md:w-1/2 hidden md:block">
-          <img
-            src="assets/images/login.png"
-            alt="Adopt Me"
-            className="h-full w-full object-cover rounded-l-lg"
-          />
-        </div>
-        <div className="w-full md:w-1/2 p-8 relative flex flex-col justify-center">
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 text-2xl text-black hover:text-red-600"
-          >
-            &times;
-          </button>
-          <div className="text-center mb-8">
-            <img
-              src="assets/logo/logo.png"
-              alt="Petadapt"
-              className="w-32 h-auto mx-auto"
-            />
-          </div>
-          <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center md:text-left">
-            Create an Account
-          </h2>
-          <form className="flex flex-col items-center relative">
-            <div className="mb-4 w-full">
-              <div className="relative">
-                <span className="absolute top-1/2 transform -translate-y-1/2 left-4">
-                  <FontAwesomeIcon icon={faUser} className="text-gray-500" />
-                </span>
-                <input
-                  placeholder="Full Name"
-                  type="text"
-                  onChange={(e) => setFullName(e.target.value)}
-                  className="w-full pl-12 py-3 bg-gray-100 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-              {fnameerror && (
-                <p className="text-red-500 text-sm mt-2">{fnameerror}</p>
-              )}
+    <>
+      <div className="registerSecondBody">
+        <div className="registerContainer">
+          <header>Signup</header>
+          <form className="form-control">
+            <div className="registerInputBox">
+              <i>
+                <CustomFaIcons icon={faUser} className={"m-0"} />
+              </i>
+              <input
+                style={{ boxShadow: "none" }}
+                onChange={changeFullName}
+                type="text"
+                required
+              />
+              <label>Enter Your Fullname</label>
             </div>
-            <div className="mb-4 w-full">
-              <div className="relative">
-                <span className="absolute top-1/2 transform -translate-y-1/2 left-4">
-                  <FontAwesomeIcon icon={faEnvelope} className="text-gray-500" />
-                </span>
-                <input
-                  placeholder="Email"
-                  type="email"
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full pl-12 py-3 bg-gray-100 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-              {emailerror && (
-                <p className="text-red-500 text-sm mt-2">{emailerror}</p>
-              )}
+            {fnameerror && <p className="text-danger">{fnameerror}</p>}
+            <div className="registerInputBox">
+              <i>
+                <CustomFaIcons icon={faEnvelope} className={"m-0"} />
+              </i>
+              <input
+                style={{ boxShadow: "none" }}
+                onChange={changeEmail}
+                type="text"
+                maxLength="26"
+                required
+              />
+              <label>Enter Your Email</label>
             </div>
-            <div className="mb-4 w-full relative">
-              <div className="relative">
-                <span className="absolute top-1/2 transform -translate-y-1/2 left-4">
-                  <FontAwesomeIcon icon={faLock} className="text-gray-500" />
-                </span>
-                <input
-                  placeholder="Password"
-                  type="password"
-                  onChange={handlePasswordChange}
-                  className="w-full pl-12 py-3 bg-gray-100 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-              {passwordError.length > 0 && (
-                <div className="absolute top-0 right-[-240px] bg-white border border-gray-300 rounded p-4 w-[220px] shadow-lg text-sm text-red-500 z-50">
-                  <ul>
-                    {passwordError.map((error, index) => (
-                      <li key={index}>{error}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+            {emailerror && <p className="text-danger">{emailerror}</p>}
+            <div className="registerInputBox">
+              <i>
+                <CustomFaIcons icon={faPhone} className={"m-0"} />
+              </i>
+              <input
+                style={{ boxShadow: "none" }}
+                onChange={changeContact}
+                type="number"
+                maxLength="10"
+                required
+              />
+              <label>Enter Your Contact No.</label>
+            </div>
+            {numbererror && <p className="text-danger">{numbererror}</p>}
+            <div className="registerInputBox">
+              <i>
+                <CustomFaIcons icon={faLocation} className={"m-0"} />
+              </i>
+              <DistrictList
+                className="block px-4 py-2 !w-full !border-none rounded-md appearance-none focus:!outline-none focus:!ring focus:!border-gray-300"
+                label={" "}
+                onChange={changeCurrentAddress}
+              />
+            </div>
+            {addressError && <p className="text-danger">{addressError}</p>}
+            <div className="registerInputBox">
+              <i>
+                <CustomFaIcons icon={faMapLocation} className={"m-0"} />
+              </i>
+              <input
+                onChange={(e) => setMunicipality(e.target.value)}
+                type="text"
+                maxLength="26"
+                required
+              />
+              <label>Enter Your Municipality</label>
+            </div>
+            {municipalityError && (
+              <p className="text-danger">{municipalityError}</p>
+            )}
+            <div className="registerInputBox">
+              <i>
+                <CustomFaIcons icon={faAddressBook} className={"m-0"} />
+              </i>
+              <input
+                onChange={(e) => setWardNo(e.target.value)}
+                type="number"
+                maxLength="26"
+                required
+              />
+              <label>Enter Your Ward No</label>
+            </div>
+            {wardNoError && <p className="text-danger">{wardNoError}</p>}
+            <div className="registerInputBox">
+              <i>
+                <CustomFaIcons icon={faLock} className={"m-0"} />
+              </i>
+              <input
+                style={{ boxShadow: "none" }}
+                onChange={changePassword}
+                type="password"
+                maxLength="26"
+                required
+              />
+              <label>Enter Your Password</label>
+            </div>
+            <div className="password-strength mt-2">
+              <div
+                className={`h-2 rounded ${
+                  passwordStrength === "Strong"
+                    ? "bg-green-500"
+                    : passwordStrength === "Normal"
+                    ? "bg-yellow-500"
+                    : "bg-red-500"
+                }`}
+              ></div>
               {passwordStrength && (
-                <div className={`mt-2 text-sm ${passwordStrength === "Strong" ? "text-green-500" : passwordStrength === "Medium" ? "text-yellow-500" : "text-red-500"}`}>
-                  Password Strength: {passwordStrength}
-                </div>
-              )}
-            </div>
-            <div className="mb-4 w-full">
-              <div className="relative">
-                <span className="absolute top-1/2 transform -translate-y-1/2 left-4">
-                  <FontAwesomeIcon icon={faLock} className="text-gray-500" />
+                <span
+                  className={`text-${
+                    passwordStrength === "Strong"
+                      ? "green-500"
+                      : passwordStrength === "Normal"
+                      ? "yellow-500"
+                      : "red-500"
+                  }`}
+                >
+                  {passwordStrength} Password
                 </span>
-                <input
-                  placeholder="Confirm Password"
-                  type="password"
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  className="w-full pl-12 py-3 bg-gray-100 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-              {cpassworderror && (
-                <p className="text-red-500 text-sm mt-2">{cpassworderror}</p>
               )}
             </div>
-            <div className="flex flex-col w-full items-start mb-4">
-              <div className="flex items-center">
-                <input
-                  onChange={handleTermsChange}
-                  className="cursor-pointer"
-                  type="checkbox"
-                  id="terms"
-                />
-                <label htmlFor="terms" className="ml-2 cursor-pointer text-sm">
-                  I agree to the{" "}
-                  <a
-                    href="/terms-and-condition"
-                    className="text-blue-600 hover:underline"
-                  >
-                    terms and conditions
-                  </a>
-                </label>
-              </div>
-              {termsError && (
-                <p className="text-red-500 text-sm mt-2">{termsError}</p>
-              )}
+            {passworderror && <p className="text-danger">{passworderror}</p>}
+            <div className="registerInputBox">
+              <i>
+                <CustomFaIcons icon={faLock} className={"m-0"} />
+              </i>
+              <input
+                style={{ boxShadow: "none" }}
+                onChange={changeConfirmPassword}
+                type="password"
+                maxLength="26"
+                required
+              />
+              <label>Confirm your Password</label>
             </div>
+            {cpassworderror && <p className="text-danger">{cpassworderror}</p>}
             <button
-              className="bg-gradient-to-r from-orange-400 to-orange-500 text-white font-bold py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-50 w-full mb-4"
-              type="button"
-              onClick={validateAndSendOtp}
+              className="btn btn-dark text-white border-0 btn-outline-danger"
+              onClick={(e) => validatein(e)}
             >
-              Sign Up
+              {isLoading ? (
+                <CircularProgress size={20} color="inherit" />
+              ) : (
+                "Sign Up"
+              )}
             </button>
-            <p className="text-sm text-gray-600">
-              Already a member?{" "}
-              <Link
-                onClick={onOpenLogin}
-                className="text-blue-600 hover:underline"
-              >
-                Login
-              </Link>
-            </p>
+            <Modal show={openModal} size="md" onClose={onCloseModal} popup>
+              <Modal.Header />
+              <Modal.Body>
+                <div className="space-y-6">
+                  <h3 className="text-xl font-medium text-gray-900 dark:text-white">
+                    Enter Your Verification code here ....
+                  </h3>
+                  <div>
+                    <div className="mb-2 block">
+                      <Label htmlFor="code" value="Your Verification Code" />
+                    </div>
+                    <TextInput
+                      id="code"
+                      type="text"
+                      onChange={changeCode}
+                      required
+                    />
+                  </div>
+                  <div className="w-full d-flex flex-row justify-center">
+                    <button
+                      className="btn btn-dark text-white border-0 btn-outline-danger"
+                      onClick={handleSubmit}
+                    >
+                      Create your account
+                    </button>
+                  </div>
+                  <div className="flex flex-row justify-end">
+                    <span>
+                      Resend the otp from here :{" "}
+                      {isLoading ? (
+                        <CircularProgress size={20} color="inherit" />
+                      ) : (
+                        <>
+                          {isResendDisabled ? (
+                            <span>{resendTimer} seconds</span>
+                          ) : (
+                            <Link onClick={validatein}>Resend OTP</Link>
+                          )}
+                        </>
+                      )}
+                    </span>
+                  </div>
+                </div>
+              </Modal.Body>
+            </Modal>
+            <div className="link">
+              <p>
+                Already have an account? <Link to={"/login"}>Login</Link>
+              </p>
+            </div>
           </form>
-          <Modal show={openModal} size="md" onClose={onCloseModal} popup>
-            <Modal.Header>
-              <h3 className="text-2xl font-semibold text-center text-gray-900">
-                Verification Code
-              </h3>
-            </Modal.Header>
-            <Modal.Body>
-              <div className="space-y-6">
-                <p className="text-lg text-gray-600">
-                  Enter your verification code below to create your account.
-                </p>
-                <div>
-                  <Label htmlFor="code" value="Your Verification Code" />
-                  <TextInput
-                    id="code"
-                    type="text"
-                    onChange={(e) => setUserVerificationCode(e.target.value)}
-                    required
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-500 focus:ring focus:!ring-gray-500"
-                  />
-                </div>
-                <div className="w-full flex justify-center">
-                  <button
-                    className="px-6 py-2 mt-4 bg-[#8BC53E] text-white font-semibold rounded-md shadow-md hover:bg-[#6aa023] transition duration-300"
-                    onClick={handleRegister}
-                  >
-                    Create your account
-                  </button>
-                </div>
-                {timer > 0 ? (
-                  <p className="text-sm text-gray-500">
-                    Resend OTP in {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
-                  </p>
-                ) : (
-                  <button
-                    className="text-sm text-blue-600 hover:underline"
-                    onClick={resendOtp}
-                  >
-                    Resend OTP
-                  </button>
-                )}
-              </div>
-            </Modal.Body>
-          </Modal>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default RegisterModal;
+export default Register;

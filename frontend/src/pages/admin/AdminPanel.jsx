@@ -1,18 +1,24 @@
 import { faSignOut } from "@fortawesome/free-solid-svg-icons";
+import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CustomFaIcons from "../../components/CustomFaIcons";
 import "../../style/AdminPanel.css";
-import AdminDashBoard from "./admin_dashboard/AdminDashboard";
-import Adopt from "./AdoptManagement";
-import ContactManagement from "./ContactManagement";
-import EventManagenent from "./EventManagement";
-
-
+import BBDashBoard from "../BBUsers/BBDashBoard";
+import BBRequests from "../BBUsers/BBRequests";
+import AddCampaigns from "../BBUsers/Campaigns/AddCampaigns";
+import Campaigns from "./Campaigns";
+import Requests from "./Requests";
+import AdminDashboard from "./admin_dashboard/AdminDashboard";
+import AddBloodBanks from "./bloodbanks/AddBloodbanks";
+import ViewDonors from "./donors/Donors";
+import AddHospitals from "./hospitals/AddHospitals";
+import AddNews from "./news/AddNews";
+import SeeLogs from "./SeeLogs";
 function AdminPanel() {
   const storedPage = localStorage.getItem("currentPage");
   // Initialize the current page with the stored value or the default value
-  const initialPage = storedPage || "Product";
+  const initialPage = storedPage || "Dashboard";
 
   const users = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
@@ -20,7 +26,7 @@ function AdminPanel() {
   const handleLogout = (e) => {
     e.preventDefault();
     localStorage.clear();
-    navigate("/");
+    navigate("/login");
     window.location.reload();
   };
   // Use state to keep track of the current page
@@ -31,20 +37,49 @@ function AdminPanel() {
 
   let content;
   switch (currentPage) {
-    
-    case "Adopt":
-      content = <Adopt />;
+    case "AdminDashboard":
+      {
+        users.isAdmin
+          ? (content = <AdminDashboard />)
+          : (content = <BBDashBoard />);
+      }
       break;
-    
-    case "Event":
-      content = <EventManagenent />;
+    case "Donors":
+      content = <ViewDonors />;
       break;
-    
-    case "ContactManagement":
-      content = <ContactManagement />;
+
+    case "Requests":
+      content = <Requests />;
+      break;
+    case "AddBloodBanks":
+      content = <AddBloodBanks />;
+      break;
+    case "AddHospitals":
+      content = <AddHospitals />;
+      break;
+    case "AddCampaigns":
+      {
+        users.isBloodBank ? (content = <AddCampaigns />) : (content = null);
+      }
+      break;
+    case "Campaigns":
+      {
+        users.isAdmin ? (content = <Campaigns />) : (content = null);
+      }
+      break;
+    case "Blood Requests":
+      content = <BBRequests />;
+      break;
+    case "AddNews":
+      content = <AddNews />;
+      break;
+    case "SeeLogs":
+      content = <SeeLogs />;
       break;
     default: {
-      content = <AdminDashBoard />;
+      users.isAdmin
+        ? (content = <AdminDashboard />)
+        : (content = <BBDashBoard />);
     }
   }
   useEffect(() => {
@@ -55,84 +90,148 @@ function AdminPanel() {
     <>
       <div className="adminMainContainer">
         <header className="adminHeader">
-          <div>{users?.isAdmin ? "Admin Panel" : "Organization Panel"}</div>
+          <h1>{users.isAdmin ? "Admin Panel" : "Blood Bank Panel"}</h1>
           {
+            // users.isAdmin ? (
             <div className="d-flex flex-row align-items-center gap-3">
-              <h6 className="m-0 me-2">Welcome, {users?.username}</h6>
+              <h6 className="m-0 me-2">Welcome, {users.fullName}</h6>
               <button onClick={openLogoutModal} className="logoutBtn">
                 <CustomFaIcons icon={faSignOut} className={"m-0 me-2"} />
               </button>
             </div>
+            // ) : (
+            // <></>)
           }
         </header>
         <div className="adminWrapper">
-          <ul className="adminUl z-50">
-            <li
-              className={`adminLi ${currentPage === "Product" ? "active" : ""}`}
-            >
-              <button onClick={() => setCurrentPage("Product")} tabIndex="2">
-                Product Management
-              </button>
-            </li>
-
+          <ul className="adminUl">
             <li
               className={`adminLi ${
-                currentPage === "Product Category" ? "active" : ""
+                currentPage === "Dashboard" ? "active" : ""
+              }`}
+            >
+              <button onClick={() => setCurrentPage("Dashboard")} tabIndex="1">
+                Dashboard
+              </button>
+            </li>
+            <li
+              className={`adminLi ${currentPage === "Donors" ? "active" : ""}`}
+            >
+              <button onClick={() => setCurrentPage("Donors")} tabIndex="2">
+                Donors
+              </button>
+            </li>
+            {users.isBloodBank ? (
+              <li
+                className={`adminLi ${
+                  currentPage === "Blood Requests" ? "active" : ""
+                }`}
+              >
+                <button
+                  onClick={() => setCurrentPage("Blood Requests")}
+                  tabIndex="3"
+                >
+                  Blood Requests
+                </button>
+              </li>
+            ) : null}
+            {users.isAdmin ? (
+              <li
+                className={`adminLi ${
+                  currentPage === "AddBloodBanks" ? "active" : ""
+                }`}
+              >
+                <button
+                  onClick={() => setCurrentPage("AddBloodBanks")}
+                  tabIndex="3"
+                >
+                  BloodBanks
+                </button>
+              </li>
+            ) : null}
+            <li
+              className={`adminLi ${
+                currentPage === "AddHospitals" ? "active" : ""
               }`}
             >
               <button
-                onClick={() => setCurrentPage("Product Category")}
-                tabIndex="9"
+                onClick={() => setCurrentPage("AddHospitals")}
+                tabIndex="4"
               >
-                Product Category
+                {users.isAdmin ? "AddHospitals" : "View Hospitals"}
               </button>
             </li>
+            {users.isAdmin ? (
+              <>
+                <li
+                  className={`adminLi ${
+                    currentPage === "AddNews" ? "active" : ""
+                  }`}
+                >
+                  <button
+                    onClick={() => setCurrentPage("AddNews")}
+                    tabIndex="5"
+                  >
+                    News Section
+                  </button>
+                </li>
+                <li
+                  className={`adminLi ${
+                    currentPage === "Requests" ? "active" : ""
+                  }`}
+                >
+                  <button
+                    onClick={() => setCurrentPage("Requests")}
+                    tabIndex="5"
+                  >
+                    Requests
+                  </button>
+                </li>
+                <li
+                  className={`adminLi ${
+                    currentPage === "Campaigns" ? "active" : ""
+                  }`}
+                >
+                  <button
+                    onClick={() => setCurrentPage("Campaigns")}
+                    tabIndex="5"
+                  >
+                    Campaigns
+                  </button>
+                </li>
+                <li
+                  className={`adminLi ${
+                    currentPage === "SeeLogs" ? "active" : ""
+                  }`}
+                >
+                  <button
+                    onClick={() => setCurrentPage("SeeLogs")}
+                    tabIndex="5"
+                  >
+                    See Logs
+                  </button>
+                </li>
+              </>
+            ) : null}
 
-            <li
-              className={`adminLi ${currentPage === "OrderManagement" ? "active" : ""}`}
-            >
-              <button onClick={() => setCurrentPage("OrderManagement")} tabIndex="3">
-                OrderManagement
-              </button>
-            </li>
-            <li
-              className={`adminLi ${currentPage === "Adopt" ? "active" : ""}`}
-            >
-              <button onClick={() => setCurrentPage("Adopt")} tabIndex="4">
-                Adoption Management
-              </button>
-            </li>
-            <li
-              className={`adminLi ${currentPage === "DOnation Management" ? "active" : ""}`}
-            >
-              <button onClick={() => setCurrentPage("DOnation Management")} tabIndex="5">
-                Donation Management
-              </button>
-            </li>
-            <li
-              className={`adminLi ${currentPage === "Event" ? "active" : ""}`}
-            >
-              <button onClick={() => setCurrentPage("Event")} tabIndex="6">
-                Event
-              </button>
-            </li>
-            <li
-              className={`adminLi ${currentPage === "StoryManagement" ? "active" : ""}`}
-            >
-              <button onClick={() => setCurrentPage("StoryManagement")} tabIndex="7">
-                StoryManagement
-              </button>
-            </li>
-            <li
-              className={`adminLi ${currentPage === "ContactManagement" ? "active" : ""}`}
-            >
-              <button onClick={() => setCurrentPage("ContactManagement")} tabIndex="8">
-                Contact Management
-              </button>
-            </li>
+            {users.isBloodBank ? (
+              <li
+                className={`adminLi ${
+                  currentPage === "AddCampaigns" ? "active" : ""
+                }`}
+              >
+                <button
+                  onClick={() => setCurrentPage("AddCampaigns")}
+                  tabIndex="5"
+                >
+                  Add Campaigns
+                </button>
+              </li>
+            ) : null}
           </ul>
-          <main className="mt-4">
+          <main>
             {content}
+
             {isLogoutModalOpen && (
               <div
                 className="fixed inset-0 flex items-center justify-center bg-opacity-20 overflow-y-auto h-full w-full"
@@ -145,7 +244,7 @@ function AdminPanel() {
                       src="/assets/images/sure_about_that.jpg"
                       alt=""
                     />
-                    Are you sure to logout ?
+                    Are you sure about that 👁️👁️?
                   </h6>
                   <div className="flex flex-wrap items-center justify-between m-0 w-full">
                     <button

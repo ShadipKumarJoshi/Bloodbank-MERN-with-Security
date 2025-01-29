@@ -1,0 +1,99 @@
+  .donorBody {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color:white;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+  }
+  
+  .donor-container {
+    margin-top: 5rem;
+    background-color: var(--primary-color);
+    width: 80rem;
+    height: 600px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    line-height: 1.5;
+    box-shadow: -1px 1px 20px 8px rgba(0, 0, 0, 0.185);
+    overflow: hidden; 
+  }
+  
+  .donor-container::after {
+    position: absolute;
+    background-image: linear-gradient(to bottom right, #ff9ec4, #ffd07e);
+    width: 900px;
+    border-radius: 50%;
+    z-index: -1;
+  }
+  
+  .donor-container img {
+    object-fit: cover;
+    width: 40rem;
+    height: 38rem;
+  }
+  
+  .donor-container-text {
+    padding: 0.5rem 1.4rem 3rem 1.4rem;
+    overflow-y: scroll; 
+    height: 100%;
+  }
+  
+  .donor-container-text h2 {
+    font-size: 1.2rem;
+    color: #1a2250;
+  }
+  
+  .donor-container-text p {
+    font-size: 4rem;
+    color: #3b4169;
+    margin: 10px 0;
+  }
+  
+  .donor-container-text input,
+  .donor-container-text button ,
+  .donor-container-text select 
+  {
+    width: 100%;
+    border: none;
+    padding: 14px;
+    border-radius: 3px;
+  }
+  
+  .donor-container-text input {
+    border: 2px solid grey;
+    margin: 5px 0 10px;
+    font-size: 1rem;
+    color: grey;
+  }
+
+  .donor-container-text select {
+    border: 2px solid grey;
+    margin: 5px 0 10px;
+    font-size: 1rem;
+    color: grey;
+  }
+  
+  .donor-container-text button {
+    background-image: linear-gradient(to right, #89caff, #6589ff);
+    display: block;
+    color: var(--primary-color);
+    font-size: 1rem;
+    cursor: var(--cursor);
+    box-shadow: 0 5px 20px #89caff94;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .donor-container-text button:hover {
+    box-shadow: none;
+  }
+  
+  .donor-container-text span {
+    display: block;
+    text-align: center;
+    margin: 20px 0 0;
+    color: #babdcb;
+    font-size: 12px;
+  }
+  
