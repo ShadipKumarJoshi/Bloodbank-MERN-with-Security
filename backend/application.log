@@ -1,146 +1,57 @@
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-27T23:16:54.095Z"}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-28T06:53:56.944Z"}
-{"level":"info","message":"Create User request received","requestBody":{"email":"mstacezro@gmail.com","fullName":"Test two","password":"0M@ster1t"},"timestamp":"2025-01-28T06:54:25.828Z"}
-{"level":"info","message":"User created successfully","timestamp":"2025-01-28T06:54:26.242Z","userId":"67987f22205c06178aabae9e"}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-28T07:10:55.545Z"}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-28T07:21:23.204Z"}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T02:05:25.630Z"}
-{"level":"info","message":"Create User request received","requestBody":{"email":"stmcearoz@gmail.com","fullName":"Test two","password":"1@Qwerty"},"timestamp":"2025-01-29T02:15:18.186Z"}
-{"level":"info","message":"User created successfully","timestamp":"2025-01-29T02:15:18.416Z","userId":"67998f36a5121b327b3593d4"}
-{"level":"info","message":{"Fullname":"Test two","method":"POST","sessionId":"fF9uMSdbUxUdic9mFS5FEHqIMISAhcaH","text":"User logged in successfully","url":"/api/user/login","userId":"67998f36a5121b327b3593d4"},"timestamp":"2025-01-29T02:42:53.465Z"}
-{"level":"info","message":"Email sent successfully","response":"250 2.0.0 OK  1738118624 98e67ed59e1d1-2f83be30b06sm371319a91.42 - gsmtp","subject":"Petadapt","timestamp":"2025-01-29T02:43:42.759Z","to":"mstacezro@gmail.com"}
-{"level":"info","message":"Email sent successfully","response":"250 2.0.0 OK  1738118625 d9443c01a7336-21da424ecf5sm89932695ad.221 - gsmtp","subject":"Petadapt","timestamp":"2025-01-29T02:43:44.653Z","to":"mstacezro@gmail.com"}
-{"level":"info","message":"Create User request received","requestBody":{"confirmPassword":"0M@ster1","email":"mstacezro@gmail.com","fullName":"Shadip Kumar","password":"0M@ster1"},"timestamp":"2025-01-29T02:44:08.612Z"}
-{"level":"info","message":"User created successfully","timestamp":"2025-01-29T02:44:08.956Z","userId":"679995f8a5121b327b3593de"}
-{"level":"info","message":{"Fullname":"Shadip Kumar","method":"POST","sessionId":"RDP0ad5UMWgJ4ORI46owphDfYVV3Z1Jb","text":"User logged in successfully","url":"/api/user/login","userId":"679995f8a5121b327b3593de"},"timestamp":"2025-01-29T02:44:35.666Z"}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T02:44:38.317Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T02:44:38.372Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":{"Fullname":"Shadip Kumar","method":"POST","sessionId":"QqtFOuEUZ3IWSDihGrTOWP3d4lG007xG","text":"User logged in successfully","url":"/api/user/login","userId":"679995f8a5121b327b3593de"},"timestamp":"2025-01-29T02:49:11.518Z"}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T02:49:14.578Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T02:49:14.640Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T02:49:34.733Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T02:49:34.790Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"email":"stmcearoz@gmail.com","level":"info","message":"Reset password email sent","timestamp":"2025-01-29T02:52:18.908Z"}
-{"level":"info","message":"Reset password email sent","response":"250 2.0.0 OK  1738119144 d2e1a72fcca58-72f8a7615adsm10061322b3a.112 - gsmtp","timestamp":"2025-01-29T02:52:23.239Z"}
-{"email":"stmcearoz@gmail.com","level":"info","message":"Password reset successfully","timestamp":"2025-01-29T02:52:57.155Z"}
-{"level":"info","message":{"Fullname":"Test two","method":"POST","sessionId":"9ndgItol6Rw_B6uN0NGqKM4bqjcCrbwX","text":"User logged in successfully","url":"/api/user/login","userId":"67998f36a5121b327b3593d4"},"timestamp":"2025-01-29T02:53:36.813Z"}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T02:53:54.110Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T02:53:54.162Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T02:56:41.313Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T02:56:41.368Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Create User request received","requestBody":{"email":"stmcearoz@gmail.com","fullName":"Test two","password":"1@Qwerty"},"timestamp":"2025-01-29T03:05:34.119Z"}
-{"level":"info","message":{"Fullname":"Test two","method":"POST","sessionId":"eDG82NbeHbNCWpAkChRgMLilVXlN9_wl","text":"User logged in successfully","url":"/api/user/login","userId":"67998f36a5121b327b3593d4"},"timestamp":"2025-01-29T03:08:05.773Z"}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T03:08:37.958Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T03:08:38.007Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T03:24:04.357Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T03:24:04.416Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":{"Fullname":"Test two","method":"POST","sessionId":"RBGIGC4MbZiU1EBCbz6O0ijCZI-ipA7d","text":"User logged in successfully","url":"/api/user/login","userId":"67998f36a5121b327b3593d4"},"timestamp":"2025-01-29T03:24:47.668Z"}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T03:25:05.559Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T03:25:05.609Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T03:25:30.392Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T03:25:30.443Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T03:28:41.052Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T03:28:41.104Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T03:33:55.291Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T03:33:55.346Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":{"Fullname":"Shadip Kumar","method":"POST","sessionId":"c_cGC2R_KnjH3JU6GBPnGGWAGR0C01s5","text":"User logged in successfully","url":"/api/user/login","userId":"679995f8a5121b327b3593de"},"timestamp":"2025-01-29T03:34:19.996Z"}
-{"adoptions":[],"level":"info","message":"Fetched all adoptions","timestamp":"2025-01-29T03:34:32.707Z"}
-{"adoptions":[],"level":"info","message":"Fetched all adoptions","timestamp":"2025-01-29T03:34:32.761Z"}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T04:58:48.626Z"}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T04:59:19.373Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T04:59:19.442Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":{"Fullname":"Test two","method":"POST","sessionId":"r6Coljcg5f97dULAuVCA89JLnjnUWF6Q","text":"User logged in successfully","url":"/api/user/login","userId":"67998f36a5121b327b3593d4"},"timestamp":"2025-01-29T05:00:13.572Z"}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:00:34.404Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:00:35.545Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:04:42.991Z"}
-{"level":"info","message":"Add Pet request received","requestBody":{"address":"sz","condition":"xa","description":"asxas","email":"dgvds@gmi.com","fullName":"dvsd","number":"6745745754","petType":"sax","purpose":"saxa","status":"found","user":"67998f36a5121b327b3593d4"},"requestFiles":{"petImageUrlFour":{"fieldName":"petImageUrlFour","headers":{"content-disposition":"form-data; name=\"petImageUrlFour\"; filename=\"2.jpg\"","content-type":"image/jpeg"},"name":"2.jpg","originalFilename":"2.jpg","path":"C:\\Users\\Lenovo\\AppData\\Local\\Temp\\L6uxtCcSK2vq-WZintvuUuHY.jpg","size":15054560,"type":"image/jpeg"},"petImageUrlOne":{"fieldName":"petImageUrlOne","headers":{"content-disposition":"form-data; name=\"petImageUrlOne\"; filename=\"1.jpg\"","content-type":"image/jpeg"},"name":"1.jpg","originalFilename":"1.jpg","path":"C:\\Users\\Lenovo\\AppData\\Local\\Temp\\ujR5_m4tlTVfio2BvTbK_g3h.jpg","size":9364149,"type":"image/jpeg"},"petImageUrlThree":{"fieldName":"petImageUrlThree","headers":{"content-disposition":"form-data; name=\"petImageUrlThree\"; filename=\"1.jpg\"","content-type":"image/jpeg"},"name":"1.jpg","originalFilename":"1.jpg","path":"C:\\Users\\Lenovo\\AppData\\Local\\Temp\\mbBxJ6vceU7OW5EP2i5DXWz9.jpg","size":9364149,"type":"image/jpeg"},"petImageUrlTwo":{"fieldName":"petImageUrlTwo","headers":{"content-disposition":"form-data; name=\"petImageUrlTwo\"; filename=\"1.jpg\"","content-type":"image/jpeg"},"name":"1.jpg","originalFilename":"1.jpg","path":"C:\\Users\\Lenovo\\AppData\\Local\\Temp\\0JgU_SxIIIhWH--7g4cCFQhH.jpg","size":9364149,"type":"image/jpeg"}},"status":"found","timestamp":"2025-01-29T05:04:43.254Z"}
-{"level":"info","message":"Add Pet request received","requestBody":{"address":"sz","condition":"xa","description":"asxas","email":"dgvds@gmi.com","fullName":"dvsd","number":"6745745754","petType":"sax","purpose":"saxa","status":"found","user":"67998f36a5121b327b3593d4"},"requestFiles":{"petImageUrlFour":{"fieldName":"petImageUrlFour","headers":{"content-disposition":"form-data; name=\"petImageUrlFour\"; filename=\"2.jpg\"","content-type":"image/jpeg"},"name":"2.jpg","originalFilename":"2.jpg","path":"C:\\Users\\Lenovo\\AppData\\Local\\Temp\\V1OADRZnbzr6w766NVrWUOIM.jpg","size":15054560,"type":"image/jpeg"},"petImageUrlOne":{"fieldName":"petImageUrlOne","headers":{"content-disposition":"form-data; name=\"petImageUrlOne\"; filename=\"1.jpg\"","content-type":"image/jpeg"},"name":"1.jpg","originalFilename":"1.jpg","path":"C:\\Users\\Lenovo\\AppData\\Local\\Temp\\76My6T6oGHbKO6y5C1XXGYrX.jpg","size":9364149,"type":"image/jpeg"},"petImageUrlThree":{"fieldName":"petImageUrlThree","headers":{"content-disposition":"form-data; name=\"petImageUrlThree\"; filename=\"1.jpg\"","content-type":"image/jpeg"},"name":"1.jpg","originalFilename":"1.jpg","path":"C:\\Users\\Lenovo\\AppData\\Local\\Temp\\gPfdgh7aenTp09wgbfcD8HJI.jpg","size":9364149,"type":"image/jpeg"},"petImageUrlTwo":{"fieldName":"petImageUrlTwo","headers":{"content-disposition":"form-data; name=\"petImageUrlTwo\"; filename=\"1.jpg\"","content-type":"image/jpeg"},"name":"1.jpg","originalFilename":"1.jpg","path":"C:\\Users\\Lenovo\\AppData\\Local\\Temp\\vsuHzDOj5YEHS3mQuGk1GzGY.jpg","size":9364149,"type":"image/jpeg"}},"status":"found","timestamp":"2025-01-29T05:06:38.763Z"}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:07:19.005Z"}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:07:43.633Z"}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:08:32.229Z"}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:08:39.296Z"}
-{"error":"File size too large. Got 15054560. Maximum is 10485760. Upgrade your plan to enjoy higher limits https://www.cloudinary.com/pricing/upgrades/file-limit","level":"error","message":"Error creating pet","timestamp":"2025-01-29T05:09:05.676Z"}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:09:12.987Z"}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:10:17.811Z"}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:11:18.380Z"}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:11:28.738Z"}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:11:33.022Z"}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:13:59.811Z"}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:14:26.723Z"}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:20:13.852Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:20:13.931Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":{"Fullname":"Test two","method":"POST","sessionId":"sFUoLXmf7pZcHTmbqAtWVVsiJb1ESVi7","text":"User logged in successfully","url":"/api/user/login","userId":"67998f36a5121b327b3593d4"},"timestamp":"2025-01-29T05:20:34.835Z"}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:20:41.390Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:20:41.459Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:21:58.553Z"}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:22:47.182Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:22:47.265Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:24:59.659Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:24:59.724Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:25:44.637Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:25:44.692Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:26:08.641Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:26:08.695Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:26:41.859Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:26:41.909Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:26:57.336Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:26:57.388Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:27:09.576Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:27:09.629Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:27:46.417Z"}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:31:47.991Z"}
-{"level":"info","message":{"Fullname":"Test two","method":"POST","sessionId":"1U_HI0DNoqk0MiZsZEYLNLF5LrmF7qhF","text":"User logged in successfully","url":"/api/user/login","userId":"67998f36a5121b327b3593d4"},"timestamp":"2025-01-29T05:37:00.457Z"}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:37:16.689Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:37:16.746Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
-{"level":"info","message":"Pet created successfully","petId":"6799bec11b0d91b9e5ee2ba5","timestamp":"2025-01-29T05:38:09.611Z"}
-{"level":"info","message":"Pet created successfully","petId":"6799bec41b0d91b9e5ee2ba7","timestamp":"2025-01-29T05:38:12.337Z"}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:38:20.235Z","totalPets":2,"unvaccinatedPets":2,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:38:20.294Z","totalPets":2,"unvaccinatedPets":2,"vaccinatedPets":0}
-{"level":"info","message":"Email sent successfully","response":"250 2.0.0 OK  1738129155 d9443c01a7336-21da3d9e38esm92207475ad.3 - gsmtp","subject":"Petadapt","timestamp":"2025-01-29T05:39:14.916Z","to":"stmcearoz@gmail.com"}
-{"level":"info","message":"Verify User request received","requestBody":{"email":"stmcearoz@gmail.com"},"timestamp":"2025-01-29T05:39:49.280Z"}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:40:06.114Z","totalPets":2,"unvaccinatedPets":2,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:40:06.186Z","totalPets":2,"unvaccinatedPets":2,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:40:57.533Z","totalPets":2,"unvaccinatedPets":2,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:40:57.603Z","totalPets":2,"unvaccinatedPets":2,"vaccinatedPets":0}
-{"level":"info","message":{"Fullname":"Test two","method":"POST","sessionId":"lO6PlBKYXieF9T6HyT9Mn6SDvdfe0fOn","text":"User logged in successfully","url":"/api/user/login","userId":"67998f36a5121b327b3593d4"},"timestamp":"2025-01-29T05:41:47.647Z"}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:41:50.463Z","totalPets":2,"unvaccinatedPets":2,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:41:50.545Z","totalPets":2,"unvaccinatedPets":2,"vaccinatedPets":0}
-{"level":"info","message":"Pet created successfully","petId":"6799bfbf1b0d91b9e5ee2bb8","timestamp":"2025-01-29T05:42:24.034Z"}
-{"level":"info","message":"Pet created successfully","petId":"6799bfc31b0d91b9e5ee2bba","timestamp":"2025-01-29T05:42:27.779Z"}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:42:32.540Z","totalPets":4,"unvaccinatedPets":4,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:42:32.631Z","totalPets":4,"unvaccinatedPets":4,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:45:16.902Z","totalPets":4,"unvaccinatedPets":4,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:45:16.984Z","totalPets":4,"unvaccinatedPets":4,"vaccinatedPets":0}
-{"error":"File size too large. Got 15054560. Maximum is 10485760. Upgrade your plan to enjoy higher limits https://www.cloudinary.com/pricing/upgrades/file-limit","level":"error","message":"Error creating pet","timestamp":"2025-01-29T05:45:58.301Z"}
-{"error":"File size too large. Got 15054560. Maximum is 10485760. Upgrade your plan to enjoy higher limits https://www.cloudinary.com/pricing/upgrades/file-limit","level":"error","message":"Error creating pet","timestamp":"2025-01-29T05:45:58.681Z"}
-{"error":"File size too large. Got 15054560. Maximum is 10485760. Upgrade your plan to enjoy higher limits https://www.cloudinary.com/pricing/upgrades/file-limit","level":"error","message":"Error creating pet","timestamp":"2025-01-29T05:46:03.423Z"}
-{"level":"info","message":"Email sent successfully","response":"250 2.0.0 OK  1738129588 d9443c01a7336-21da414d9e9sm90954565ad.171 - gsmtp","subject":"Petadapt","timestamp":"2025-01-29T05:46:28.025Z","to":"stmcearoz@gmail.com"}
-{"level":"info","message":"Verify User request received","requestBody":{"email":"stmcearoz@gmail.com"},"timestamp":"2025-01-29T05:46:59.822Z"}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:48:30.401Z","totalPets":4,"unvaccinatedPets":4,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:48:30.488Z","totalPets":4,"unvaccinatedPets":4,"vaccinatedPets":0}
-{"error":"File size too large. Got 15054560. Maximum is 10485760. Upgrade your plan to enjoy higher limits https://www.cloudinary.com/pricing/upgrades/file-limit","level":"error","message":"Error creating pet","timestamp":"2025-01-29T05:48:41.658Z"}
-{"error":"File size too large. Got 15054560. Maximum is 10485760. Upgrade your plan to enjoy higher limits https://www.cloudinary.com/pricing/upgrades/file-limit","level":"error","message":"Error creating pet","timestamp":"2025-01-29T05:48:45.614Z"}
-{"level":"info","message":"Email sent successfully","response":"250 2.0.0 OK  1738129776 d2e1a72fcca58-72f8a69eb5esm10317818b3a.20 - gsmtp","subject":"Petadapt","timestamp":"2025-01-29T05:49:35.400Z","to":"stmcearoz@gmail.com"}
-{"level":"info","message":"Verify User request received","requestBody":{"email":"stmcearoz@gmail.com"},"timestamp":"2025-01-29T05:49:47.310Z"}
-{"level":"info","message":"Email sent successfully","response":"250 2.0.0 OK  1738129835 d9443c01a7336-21da414df81sm92416775ad.185 - gsmtp","subject":"Petadapt","timestamp":"2025-01-29T05:50:35.068Z","to":"stmcearoz@gmail.com"}
-{"level":"info","message":"Verify User request received","requestBody":{"email":"stmcearoz@gmail.com"},"timestamp":"2025-01-29T05:51:19.269Z"}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:52:01.151Z","totalPets":4,"unvaccinatedPets":4,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:52:01.249Z","totalPets":4,"unvaccinatedPets":4,"vaccinatedPets":0}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:53:31.864Z"}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:53:34.550Z"}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:54:16.511Z"}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:54:33.714Z"}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:55:21.852Z"}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:55:51.761Z"}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:55:58.333Z"}
-{"level":"info","message":"Email sent successfully","response":"250 2.0.0 OK  1738130167 98e67ed59e1d1-2f83be1cd22sm713599a91.40 - gsmtp","subject":"Petadapt","timestamp":"2025-01-29T05:56:07.112Z","to":"stmcearoz@gmail.com"}
-{"level":"info","message":"Verify User request received","requestBody":{"email":"stmcearoz@gmail.com"},"timestamp":"2025-01-29T05:56:34.028Z"}
-{"level":"info","message":"Email sent successfully","response":"250 2.0.0 OK  1738130329 98e67ed59e1d1-2f83bcd17a3sm724629a91.18 - gsmtp","subject":"Petadapt","timestamp":"2025-01-29T05:58:48.360Z","to":"stmcearoz@gmail.com"}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T06:00:19.258Z"}
-{"level":"info","message":"Verify User request received","requestBody":{"email":"undefined"},"timestamp":"2025-01-29T06:00:45.134Z"}
-{"email":"undefined","level":"error","message":"User not found during verification","timestamp":"2025-01-29T06:00:45.222Z"}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T06:01:30.439Z"}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T06:01:54.819Z","totalPets":4,"unvaccinatedPets":4,"vaccinatedPets":0}
-{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T06:01:54.893Z","totalPets":4,"unvaccinatedPets":4,"vaccinatedPets":0}
-{"error":"querySrv ECONNREFUSED _mongodb._tcp.mandala.zazkiu7.mongodb.net","level":"error","message":"Database connection error","timestamp":"2025-01-29T10:19:02.770Z"}
-{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T10:25:48.172Z"}
+{"level":"info","message":{"method":"POST","sessionId":"xgUMrxz78Qhey-pjmNTyhx4SgCR1N0pA","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-11T16:31:31.106Z"}
+{"level":"info","message":{"method":"POST","sessionId":"RU-ywiyrkS5U1owWZxVlPAYhRoYfpZwB","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-11T18:59:46.778Z"}
+{"level":"info","message":{"method":"POST","sessionId":"fgHjQP4Fb3kLmO5UC-2iejd9EjwymLS5","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-12T02:33:16.351Z"}
+{"level":"info","message":{"method":"POST","sessionId":"T02vX4E-V60B2Q_jzlYrW9DjBOe68Lao","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-12T02:33:44.715Z"}
+{"level":"info","message":{"method":"POST","sessionId":"nbFjniY6PHKW6kqxEeqzV4h-FGaTQeJC","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-12T08:58:28.670Z"}
+{"level":"info","message":{"method":"POST","sessionId":"_NWtKoUf_Zt67pFBfjd8xCEfWDi0qbFX","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-12T09:06:29.356Z"}
+{"level":"info","message":{"method":"POST","sessionId":"ZGjm8dr_m8Mnaq7re8Ckjjt8mi_-FM-z","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-12T09:12:41.691Z"}
+{"level":"info","message":{"method":"POST","sessionId":"UWe3UTaqkbjJ_KzQ_u9U9vx9ZkxKaY3g","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-12T10:13:01.847Z"}
+{"level":"info","message":{"method":"POST","sessionId":"kfZCduJ7IFLFO5xqCqkvP4Xuocfsgwwa","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-12T11:54:50.692Z"}
+{"level":"info","message":{"method":"POST","sessionId":"3Fgmf2YkkM60X3pfYXuDSkbYB7sACVgE","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-12T12:56:02.710Z"}
+{"level":"info","message":{"method":"POST","sessionId":"S1_WAOw4tdukW2YSuJt3-zrU_inmbRPh","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-12T13:42:17.155Z"}
+{"level":"info","message":{"method":"POST","sessionId":"fQVnKhRAI_qU90XrfnLuvZNUaoxZM7CF","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-12T14:34:01.978Z"}
+{"level":"info","message":{"method":"POST","sessionId":"RxmaaGg7cQICTTPsAnGa9QtuVRJY5NfV","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-12T14:55:55.080Z"}
+{"level":"info","message":{"method":"POST","sessionId":"7Q8NR58d8_8h9__cI9n8FFx8Vi2NneM0","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-12T15:02:22.345Z"}
+{"level":"info","message":{"method":"POST","sessionId":"j964G3pkSCIu_Mes2ywHa3skvEJjQVrL","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-12T15:08:56.039Z"}
+{"level":"info","message":{"method":"POST","sessionId":"5NMjNpKlmIkmpYy4adZCFNbZAmUJ0Dar","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-12T15:16:11.024Z"}
+{"level":"info","message":{"method":"POST","sessionId":"2b5IB_v8QGEiazq2btSvbHqAfEbLf5v7","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-12T15:19:11.031Z"}
+{"level":"info","message":{"method":"POST","sessionId":"ZaDNzinOF-i2CAbS7bbM6ZI7SHcArhP_","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-12T15:20:57.556Z"}
+{"level":"info","message":{"method":"POST","sessionId":"csVHIflheuLng7CqF5hCzkQSFLeZBmkD","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-12T15:21:44.846Z"}
+{"level":"info","message":{"method":"POST","sessionId":"oIxbB9ViYvZ8saDh2CUxXgLamVa-qe6l","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-12T15:22:38.718Z"}
+{"level":"info","message":{"method":"POST","sessionId":"Sam3TTSC2bOpzm8MuT3slkqCMm9pYdPI","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-12T15:26:33.372Z"}
+{"level":"info","message":{"method":"POST","sessionId":"UX7RC0LT0aoiDUn3XdhMM_uZrFneAIo0","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-12T15:58:44.764Z"}
+{"level":"info","message":{"method":"POST","sessionId":"zRE6lJuftpZrVZZ3Vo26apN8JkCkinYX","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-12T16:06:27.697Z"}
+{"level":"info","message":{"method":"POST","sessionId":"kU-1VUkRvbliaXXboLtFx3SkIocds5g3","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-12T23:58:49.633Z"}
+{"level":"info","message":{"method":"POST","sessionId":"-0JvlFHatprMlYWMzFkWOGDhsXxvbZix","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-13T04:32:30.155Z"}
+{"level":"info","message":{"method":"POST","sessionId":"1b0394_i8tV09d3iT7wN4c-qSTOaQM3M","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-13T04:42:49.117Z"}
+{"level":"info","message":{"method":"POST","sessionId":"dYIo8EZIH5FKE1oJ4014XKDxDURQjHMA","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-13T04:43:48.148Z"}
+{"level":"info","message":{"method":"POST","sessionId":"hu3q06SIjJbDF0zwsjEQJ4ZH4JtYO5IU","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-13T04:45:41.208Z"}
+{"level":"info","message":{"method":"POST","sessionId":"LqkAJ3lpatuNG88prMLZc5nhGfmpoy8o","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-13T04:48:11.848Z"}
+{"level":"info","message":{"method":"POST","sessionId":"9isxxOcC_kYi-07ZNwYWd1lkVgBg-6cW","text":"User logged in successfully","url":"/api/user/login"},"timestamp":"2024-08-13T04:49:07.557Z"}
+{"level":"info","message":{"Fullname":"User Three","method":"POST","sessionId":"IvGgtcX7V4aFkeGMHcZL9EkBIwK2Nkl6","text":"User logged in successfully","url":"/api/user/login","userId":"66bb0cad56ea6b0c876d5689"},"timestamp":"2024-08-13T07:35:31.609Z"}
+{"level":"info","message":{"Fullname":"userfour@gmail.com","method":"POST","sessionId":"UQV20mM8gcaJoViSn6dOjWr60vFHGZni","text":"User logged in successfully","url":"/api/user/login","userId":"66c03f583c0bed3fac81b20b"},"timestamp":"2024-08-17T06:13:00.639Z"}
+{"level":"info","message":{"Fullname":"User Five","method":"POST","sessionId":"Lf3-ajG71DGGbB0Yg7E1qwzUY8RtnUSR","text":"User logged in successfully","url":"/api/user/login","userId":"66c2bc9f7bbb596206591a0f"},"timestamp":"2024-08-19T09:33:16.987Z"}
+{"level":"info","message":{"Fullname":"admin","method":"POST","sessionId":"vhVNP5FZyOoHDVLWjWnN5amHDobct5ep","text":"User logged in successfully","url":"/api/user/login","userId":"66bad8b2c25274fb43183fb6"},"timestamp":"2024-08-19T11:21:57.182Z"}
+{"level":"info","message":{"Fullname":"admin","method":"POST","sessionId":"r35ZmDdpUHgEfEMAkiEXLlKummVzgQNI","text":"User logged in successfully","url":"/api/user/login","userId":"66bad8b2c25274fb43183fb6"},"timestamp":"2024-08-19T12:29:23.647Z"}
+{"level":"info","message":{"Fullname":"admin","method":"POST","sessionId":"5Z9UxyQP_w4ycsKEzF6RbX_lkXVe7xvX","text":"User logged in successfully","url":"/api/user/login","userId":"66bad8b2c25274fb43183fb6"},"timestamp":"2024-08-19T12:32:45.083Z"}
+{"level":"info","message":{"Fullname":"Qui earum exercitati","method":"POST","sessionId":"ygA_GRdmlBaJFhhJFGKR64ZNHgJaxe4D","text":"User logged in successfully","url":"/api/user/login","userId":"66c2b4f4ac7e398ad3591369"},"timestamp":"2024-08-19T15:04:14.568Z"}
+{"level":"info","message":{"Fullname":"Qui earum exercitati","method":"POST","sessionId":"KCt9gN97VMTPspCptFTKxzjGSqNLzoKF","text":"User logged in successfully","url":"/api/user/login","userId":"66c2b4f4ac7e398ad3591369"},"timestamp":"2024-08-21T07:05:00.660Z"}
+{"level":"info","message":{"Fullname":"Qui earum exercitati","method":"POST","sessionId":"FpJU3jTCzsPLP29GMymrtuOGGB0UAnvO","text":"User logged in successfully","url":"/api/user/login","userId":"66c2b4f4ac7e398ad3591369"},"timestamp":"2024-08-21T07:26:21.238Z"}
+{"level":"info","message":{"Fullname":"Qui earum exercitati","method":"POST","sessionId":"mTf6d0ro6l8Rfap47Zeo7nt6tQyB8ijJ","text":"User logged in successfully","url":"/api/user/login","userId":"66c2b4f4ac7e398ad3591369"},"timestamp":"2024-08-21T07:27:46.058Z"}
+{"level":"info","message":{"Fullname":"admin","method":"POST","sessionId":"Bdt76sJ053xvRovrdEyoHGES4_-Yfb-z","text":"User logged in successfully","url":"/api/user/login","userId":"66bad8b2c25274fb43183fb6"},"timestamp":"2024-08-21T07:43:26.773Z"}
+{"level":"info","message":{"Fullname":"Qui earum exercitati","method":"POST","sessionId":"SX4iAGMBpa3pVrTLb1N3mP11jsyZ-Zpx","text":"User logged in successfully","url":"/api/user/login","userId":"66c2b4f4ac7e398ad3591369"},"timestamp":"2024-08-21T07:51:11.976Z"}
+{"level":"info","message":{"Fullname":"Qui earum exercitati","method":"POST","sessionId":"M24HPbjxMeIL6PojJgyhLuflvZmkOXk2","text":"User logged in successfully","url":"/api/user/login","userId":"66c2b4f4ac7e398ad3591369"},"timestamp":"2024-08-21T07:51:49.841Z"}
+{"level":"info","message":{"Fullname":"ABhishek Bhatta","method":"POST","sessionId":"rlfPoxIROBFIEwEpQ-A_Gf0ywUw1IaAn","text":"User logged in successfully","url":"/api/user/login","userId":"66ca06c1df29393af40f4349"},"timestamp":"2024-08-24T16:14:46.866Z"}
+{"level":"info","message":{"Fullname":"ABhishek Bhatta","method":"POST","sessionId":"hNfDXLpkw5g-Wb_EBJokftXESGYIyQ5p","text":"User logged in successfully","url":"/api/user/login","userId":"66ca06c1df29393af40f4349"},"timestamp":"2024-08-24T16:18:03.544Z"}
+{"level":"info","message":{"Fullname":"admin","method":"POST","sessionId":"uLP7kwSQbi7DiWqyq-xAyrF4sfijHhGk","text":"User logged in successfully","url":"/api/user/login","userId":"66bad8b2c25274fb43183fb6"},"timestamp":"2024-08-24T16:20:10.344Z"}
+{"level":"info","message":{"Fullname":"ABhishek Bhatta","method":"POST","sessionId":"sEkFKDDTsOhjWK1RSyAGN7Bv90H5-Vs2","text":"User logged in successfully","url":"/api/user/login","userId":"66ca06c1df29393af40f4349"},"timestamp":"2024-08-24T16:28:29.325Z"}
+{"level":"info","message":{"Fullname":"ABhishek Bhatta","method":"POST","sessionId":"IfuLWH-olQdYrev2-Vm2mbSv5YZCvPfM","text":"User logged in successfully","url":"/api/user/login","userId":"66ca06c1df29393af40f4349"},"timestamp":"2024-08-24T16:40:45.722Z"}
+{"level":"info","message":{"Fullname":"ABhishek Bhatta","method":"POST","sessionId":"x5_8h9Ph0F_1Y4dmb_ZQE622Z38IcKbl","text":"User logged in successfully","url":"/api/user/login","userId":"66ca06c1df29393af40f4349"},"timestamp":"2024-08-24T16:43:10.926Z"}
+{"level":"info","message":{"Fullname":"Shadip Kumar Joshi","method":"POST","sessionId":"zU1xNQVubBDmZWLvrI0r2KY779XghpGX","text":"User logged in successfully","url":"/api/user/login","userId":"679a546a58e5c3618555fe23"},"timestamp":"2025-01-29T16:16:57.893Z"}
+{"level":"info","message":{"Fullname":"Shadip Kumar Joshi","method":"POST","sessionId":"_fCuhYOkG-TgqJMrNITNpV6SH2Ym4h5U","text":"User logged in successfully","url":"/api/user/login","userId":"679a546a58e5c3618555fe23"},"timestamp":"2025-01-29T16:21:01.537Z"}
+{"level":"info","message":{"Fullname":"Shadip Kumar Joshi","method":"POST","sessionId":"ZlNy9Gr1I1xHScot-4WsO4__85ilhURH","text":"User logged in successfully","url":"/api/user/login","userId":"679a546a58e5c3618555fe23"},"timestamp":"2025-01-29T16:50:31.290Z"}
+{"level":"info","message":{"Fullname":"Shadip Kumar Joshi","method":"POST","sessionId":"cqDoApkyBS0-VIIUaW0428UPu-T2-ALO","text":"User logged in successfully","url":"/api/user/login","userId":"679a546a58e5c3618555fe23"},"timestamp":"2025-01-29T16:54:55.151Z"}
+{"level":"info","message":{"Fullname":"Achintya Stm","method":"POST","sessionId":"tLhfE22nEl60-rN7mJv5lGOVwVmIPQwa","text":"User logged in successfully","url":"/api/user/login","userId":"679a5d1558e5c3618555fead"},"timestamp":"2025-01-29T16:56:05.725Z"}
+{"level":"info","message":{"Fullname":"Shadip Kumar Joshi","method":"POST","sessionId":"FK02cU2d2N8nzqK6ZYB9vJbpWFE_s72t","text":"User logged in successfully","url":"/api/user/login","userId":"679a546a58e5c3618555fe23"},"timestamp":"2025-01-29T16:57:46.802Z"}
+{"level":"info","message":{"Fullname":"Achintya Stm","method":"POST","sessionId":"CrjGN-VTAT-K5_BynKetawUARHRrRdHL","text":"User logged in successfully","url":"/api/user/login","userId":"679a5d1558e5c3618555fead"},"timestamp":"2025-01-29T16:58:26.614Z"}
+{"level":"info","message":{"Fullname":"Achintya Stm","method":"POST","sessionId":"w3XwCAbBK0Vo0VzKewDo_ZqR-WQhDa8s","text":"User logged in successfully","url":"/api/user/login","userId":"679a5d1558e5c3618555fead"},"timestamp":"2025-01-29T16:59:25.145Z"}

@@ -1,6 +1,6 @@
 const winston = require('winston');
 require('winston-mongodb');
-
+ 
 const logger = winston.createLogger({
     level: 'info',
     format: winston.format.combine(
@@ -11,7 +11,7 @@ const logger = winston.createLogger({
         new winston.transports.Console(),
         new winston.transports.File({ filename: 'application.log' }),
         new winston.transports.MongoDB({
-            db: 'mongodb://127.0.0.1:27017/adoption',
+            db: 'mongodb://127.0.0.1:27017/mainTest',
             collection: 'logs',
             level: 'info',
             options: { useUnifiedTopology: true, useNewUrlParser: true },
@@ -19,8 +19,8 @@ const logger = winston.createLogger({
         })
     ]
 });
-
-
+ 
+ 
 const logUserActivity = (userName, sessionId, url, method) => {
     logger.info({
         userName: userName,
