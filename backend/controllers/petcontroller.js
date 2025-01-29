@@ -16,7 +16,7 @@ const logger = winston.createLogger({
 });
 
 const addPet = async (req, res) => {
-  logger.info('Add Pet request received', { requestBody: req.body, requestFiles: req.files, status: req.body.status });
+  // logger.info('Add Pet request received', { requestBody: req.body, requestFiles: req.files, status: req.body.status });
 
   try {
     const {

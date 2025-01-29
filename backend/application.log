@@ -15,3 +15,77 @@
 {"level":"info","message":{"Fullname":"Shadip Kumar","method":"POST","sessionId":"RDP0ad5UMWgJ4ORI46owphDfYVV3Z1Jb","text":"User logged in successfully","url":"/api/user/login","userId":"679995f8a5121b327b3593de"},"timestamp":"2025-01-29T02:44:35.666Z"}
 {"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T02:44:38.317Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
 {"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T02:44:38.372Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":{"Fullname":"Shadip Kumar","method":"POST","sessionId":"QqtFOuEUZ3IWSDihGrTOWP3d4lG007xG","text":"User logged in successfully","url":"/api/user/login","userId":"679995f8a5121b327b3593de"},"timestamp":"2025-01-29T02:49:11.518Z"}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T02:49:14.578Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T02:49:14.640Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T02:49:34.733Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T02:49:34.790Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"email":"stmcearoz@gmail.com","level":"info","message":"Reset password email sent","timestamp":"2025-01-29T02:52:18.908Z"}
+{"level":"info","message":"Reset password email sent","response":"250 2.0.0 OK  1738119144 d2e1a72fcca58-72f8a7615adsm10061322b3a.112 - gsmtp","timestamp":"2025-01-29T02:52:23.239Z"}
+{"email":"stmcearoz@gmail.com","level":"info","message":"Password reset successfully","timestamp":"2025-01-29T02:52:57.155Z"}
+{"level":"info","message":{"Fullname":"Test two","method":"POST","sessionId":"9ndgItol6Rw_B6uN0NGqKM4bqjcCrbwX","text":"User logged in successfully","url":"/api/user/login","userId":"67998f36a5121b327b3593d4"},"timestamp":"2025-01-29T02:53:36.813Z"}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T02:53:54.110Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T02:53:54.162Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T02:56:41.313Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T02:56:41.368Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Create User request received","requestBody":{"email":"stmcearoz@gmail.com","fullName":"Test two","password":"1@Qwerty"},"timestamp":"2025-01-29T03:05:34.119Z"}
+{"level":"info","message":{"Fullname":"Test two","method":"POST","sessionId":"eDG82NbeHbNCWpAkChRgMLilVXlN9_wl","text":"User logged in successfully","url":"/api/user/login","userId":"67998f36a5121b327b3593d4"},"timestamp":"2025-01-29T03:08:05.773Z"}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T03:08:37.958Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T03:08:38.007Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T03:24:04.357Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T03:24:04.416Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":{"Fullname":"Test two","method":"POST","sessionId":"RBGIGC4MbZiU1EBCbz6O0ijCZI-ipA7d","text":"User logged in successfully","url":"/api/user/login","userId":"67998f36a5121b327b3593d4"},"timestamp":"2025-01-29T03:24:47.668Z"}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T03:25:05.559Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T03:25:05.609Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T03:25:30.392Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T03:25:30.443Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T03:28:41.052Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T03:28:41.104Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T03:33:55.291Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T03:33:55.346Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":{"Fullname":"Shadip Kumar","method":"POST","sessionId":"c_cGC2R_KnjH3JU6GBPnGGWAGR0C01s5","text":"User logged in successfully","url":"/api/user/login","userId":"679995f8a5121b327b3593de"},"timestamp":"2025-01-29T03:34:19.996Z"}
+{"adoptions":[],"level":"info","message":"Fetched all adoptions","timestamp":"2025-01-29T03:34:32.707Z"}
+{"adoptions":[],"level":"info","message":"Fetched all adoptions","timestamp":"2025-01-29T03:34:32.761Z"}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T04:58:48.626Z"}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T04:59:19.373Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T04:59:19.442Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":{"Fullname":"Test two","method":"POST","sessionId":"r6Coljcg5f97dULAuVCA89JLnjnUWF6Q","text":"User logged in successfully","url":"/api/user/login","userId":"67998f36a5121b327b3593d4"},"timestamp":"2025-01-29T05:00:13.572Z"}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:00:34.404Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:00:35.545Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:04:42.991Z"}
+{"level":"info","message":"Add Pet request received","requestBody":{"address":"sz","condition":"xa","description":"asxas","email":"dgvds@gmi.com","fullName":"dvsd","number":"6745745754","petType":"sax","purpose":"saxa","status":"found","user":"67998f36a5121b327b3593d4"},"requestFiles":{"petImageUrlFour":{"fieldName":"petImageUrlFour","headers":{"content-disposition":"form-data; name=\"petImageUrlFour\"; filename=\"2.jpg\"","content-type":"image/jpeg"},"name":"2.jpg","originalFilename":"2.jpg","path":"C:\\Users\\Lenovo\\AppData\\Local\\Temp\\L6uxtCcSK2vq-WZintvuUuHY.jpg","size":15054560,"type":"image/jpeg"},"petImageUrlOne":{"fieldName":"petImageUrlOne","headers":{"content-disposition":"form-data; name=\"petImageUrlOne\"; filename=\"1.jpg\"","content-type":"image/jpeg"},"name":"1.jpg","originalFilename":"1.jpg","path":"C:\\Users\\Lenovo\\AppData\\Local\\Temp\\ujR5_m4tlTVfio2BvTbK_g3h.jpg","size":9364149,"type":"image/jpeg"},"petImageUrlThree":{"fieldName":"petImageUrlThree","headers":{"content-disposition":"form-data; name=\"petImageUrlThree\"; filename=\"1.jpg\"","content-type":"image/jpeg"},"name":"1.jpg","originalFilename":"1.jpg","path":"C:\\Users\\Lenovo\\AppData\\Local\\Temp\\mbBxJ6vceU7OW5EP2i5DXWz9.jpg","size":9364149,"type":"image/jpeg"},"petImageUrlTwo":{"fieldName":"petImageUrlTwo","headers":{"content-disposition":"form-data; name=\"petImageUrlTwo\"; filename=\"1.jpg\"","content-type":"image/jpeg"},"name":"1.jpg","originalFilename":"1.jpg","path":"C:\\Users\\Lenovo\\AppData\\Local\\Temp\\0JgU_SxIIIhWH--7g4cCFQhH.jpg","size":9364149,"type":"image/jpeg"}},"status":"found","timestamp":"2025-01-29T05:04:43.254Z"}
+{"level":"info","message":"Add Pet request received","requestBody":{"address":"sz","condition":"xa","description":"asxas","email":"dgvds@gmi.com","fullName":"dvsd","number":"6745745754","petType":"sax","purpose":"saxa","status":"found","user":"67998f36a5121b327b3593d4"},"requestFiles":{"petImageUrlFour":{"fieldName":"petImageUrlFour","headers":{"content-disposition":"form-data; name=\"petImageUrlFour\"; filename=\"2.jpg\"","content-type":"image/jpeg"},"name":"2.jpg","originalFilename":"2.jpg","path":"C:\\Users\\Lenovo\\AppData\\Local\\Temp\\V1OADRZnbzr6w766NVrWUOIM.jpg","size":15054560,"type":"image/jpeg"},"petImageUrlOne":{"fieldName":"petImageUrlOne","headers":{"content-disposition":"form-data; name=\"petImageUrlOne\"; filename=\"1.jpg\"","content-type":"image/jpeg"},"name":"1.jpg","originalFilename":"1.jpg","path":"C:\\Users\\Lenovo\\AppData\\Local\\Temp\\76My6T6oGHbKO6y5C1XXGYrX.jpg","size":9364149,"type":"image/jpeg"},"petImageUrlThree":{"fieldName":"petImageUrlThree","headers":{"content-disposition":"form-data; name=\"petImageUrlThree\"; filename=\"1.jpg\"","content-type":"image/jpeg"},"name":"1.jpg","originalFilename":"1.jpg","path":"C:\\Users\\Lenovo\\AppData\\Local\\Temp\\gPfdgh7aenTp09wgbfcD8HJI.jpg","size":9364149,"type":"image/jpeg"},"petImageUrlTwo":{"fieldName":"petImageUrlTwo","headers":{"content-disposition":"form-data; name=\"petImageUrlTwo\"; filename=\"1.jpg\"","content-type":"image/jpeg"},"name":"1.jpg","originalFilename":"1.jpg","path":"C:\\Users\\Lenovo\\AppData\\Local\\Temp\\vsuHzDOj5YEHS3mQuGk1GzGY.jpg","size":9364149,"type":"image/jpeg"}},"status":"found","timestamp":"2025-01-29T05:06:38.763Z"}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:07:19.005Z"}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:07:43.633Z"}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:08:32.229Z"}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:08:39.296Z"}
+{"error":"File size too large. Got 15054560. Maximum is 10485760. Upgrade your plan to enjoy higher limits https://www.cloudinary.com/pricing/upgrades/file-limit","level":"error","message":"Error creating pet","timestamp":"2025-01-29T05:09:05.676Z"}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:09:12.987Z"}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:10:17.811Z"}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:11:18.380Z"}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:11:28.738Z"}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:11:33.022Z"}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:13:59.811Z"}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:14:26.723Z"}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:20:13.852Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:20:13.931Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":{"Fullname":"Test two","method":"POST","sessionId":"sFUoLXmf7pZcHTmbqAtWVVsiJb1ESVi7","text":"User logged in successfully","url":"/api/user/login","userId":"67998f36a5121b327b3593d4"},"timestamp":"2025-01-29T05:20:34.835Z"}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:20:41.390Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:20:41.459Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:21:58.553Z"}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:22:47.182Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:22:47.265Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:24:59.659Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:24:59.724Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:25:44.637Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:25:44.692Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:26:08.641Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:26:08.695Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:26:41.859Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:26:41.909Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:26:57.336Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:26:57.388Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:27:09.576Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:27:09.629Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:27:46.417Z"}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:31:47.991Z"}

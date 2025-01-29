@@ -3,7 +3,7 @@ const petController = require("../controllers/petcontroller");
 const { authGuard, authGuardAdmin } = require("../middleware/authGuard");
 
 // create Order
-router.post("/add-pet", authGuard, petController.addPet);
+router.post("/add-pet", petController.addPet);
 
 //get Order
 router.get("/get-pet/:id", petController.getAllPets);

@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const logger = require('../logger'); // Ensure the path to logger.js is correct
 
 const authGuard = (req, res, next) => {
+    console.log(req.headers.authorization)
     const authHeader = req.headers.authorization;
     if (!authHeader) {
         logger.warn('Authorization header not found', {

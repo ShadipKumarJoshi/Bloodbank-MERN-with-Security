@@ -22,6 +22,8 @@ import useTokenExpiryCheck from "./components/TokenExpire";
 
 function App() {
   const user = JSON.parse(localStorage.getItem("user"));
+
+
   return (
     <Router>
       <TokenExpiryWrapper />
@@ -42,9 +44,9 @@ function App() {
         <Route path="/reset_password/:token" element={<NewPassword />} />
         <Route path="/adopt" element={<Adopt />} />
         <Route path="/changePassword/:id" element={<UpdatedPasswords />} />
-        <Route path="/passwordForget" element={< PasswordForgot/>} />
-        <Route path="/after-expired" element={< PasswordForgot/>} />
-      
+        <Route path="/passwordForget" element={< PasswordForgot />} />
+        <Route path="/after-expired" element={< PasswordForgot />} />
+
 
       </Routes>
       {user?.isAdmin ? null : <Footers />}
