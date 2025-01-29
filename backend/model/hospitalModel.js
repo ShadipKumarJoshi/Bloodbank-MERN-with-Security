@@ -28,23 +28,23 @@ const hospitalSchema = mongoose.Schema(
       required: true,
     },
 
-    hospitalType: {
-      type: String,
-      required: true,
-    },
+    // hospitalType: {
+    //   type: String,
+    //   required: true,
+    // },
 
-    hospitalServices: {
-      type: String,
-      required: true,
-    },
-    latitude: {
-      required: true,
-      type: Number,
-    },
-    longitude: {
-      required: true,
-      type: Number,
-    },
+    // hospitalServices: {
+    //   type: String,
+    //   required: true,
+    // },
+    // latitude: {
+    //   required: true,
+    //   type: Number,
+    // },
+    // longitude: {
+    //   required: true,
+    //   type: Number,
+    // },
     hospitalImageUrl: {
       type: String,
       required: true,

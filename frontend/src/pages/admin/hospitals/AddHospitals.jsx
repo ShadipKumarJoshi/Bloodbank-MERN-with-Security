@@ -91,8 +91,8 @@ export default function AddHospitals() {
   // const [municipality, setMunicipality] = useState("");
   // const [wardNo, setWardNo] = useState("");
   const [hospitalContactNumber, setHospitalContactNumber] = useState("");
-  const [hospitalType, setHospitalType] = useState("");
-  const [hospitalServices, setHospitalServices] = useState("");
+  // const [hospitalType, setHospitalType] = useState("");
+  // const [hospitalServices, setHospitalServices] = useState("");
   const [hospitalImage, setHospitalImage] = useState(null);
 
   const [isdeleteModalOpen, setdeleteIsModalOpen] = useState(false);
@@ -112,12 +112,12 @@ export default function AddHospitals() {
     setHospitalContactNumber(e.target.value);
   };
 
-  const changeHospitalType = (e) => {
-    setHospitalType(e.target.value);
-  };
-  const changeHospitalServices = (e) => {
-    setHospitalServices(e.target.value);
-  };
+  // const changeHospitalType = (e) => {
+  //   setHospitalType(e.target.value);
+  // };
+  // const changeHospitalServices = (e) => {
+  //   setHospitalServices(e.target.value);
+  // };
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -136,10 +136,10 @@ export default function AddHospitals() {
     // formData.append("municipality", municipality);
     // formData.append("wardNo", wardNo);
     formData.append("hospitalContactNumber", hospitalContactNumber);
-    formData.append("hospitalType", hospitalType);
-    formData.append("hospitalServices", hospitalServices);
-    formData.append("latitude", latitude);
-    formData.append("longitude", longitude);
+    // formData.append("hospitalType", hospitalType);
+    // formData.append("hospitalServices", hospitalServices);
+    // formData.append("latitude", latitude);
+    // formData.append("longitude", longitude);
     formData.append("hospitalImage", hospitalImage);
 
     // making Api call
@@ -241,10 +241,10 @@ export default function AddHospitals() {
                   {/* <th className="font-normal text-left pl-12">Municipality</th> */}
                   {/* <th className="font-normal text-left pl-12">Ward No.</th> */}
                   <th className="font-normal text-left pl-12">Contact</th>
-                  <th className="font-normal text-left pl-20">Hospital Type</th>
+                  {/* <th className="font-normal text-left pl-20">Hospital Type</th>
                   <th className="font-normal text-left pl-20">
                     Hospital Service
-                  </th>
+                  </th> */}
                   <th className="font-normal text-left pl-12">
                     <button
                       onClick={() => handleSort("createdAt")}
@@ -299,12 +299,12 @@ export default function AddHospitals() {
                         {item.hospitalContactNumber}
                       </p>
                     </td>
-                    <td className="pl-20">
+                    {/* <td className="pl-20">
                       <p className="font-medium">{item.hospitalType}</p>
                     </td>
                     <td className="pl-20 overflow-y max-w-[200px] truncate">
                       <p className="font-medium">{item.hospitalServices}</p>
-                    </td>
+                    </td> */}
                     <td className="pl-20 overflow-y max-w-[200px] truncate">
                       <p className="font-medium">
                         {new Date(item.createdAt).toLocaleDateString()}
@@ -313,7 +313,7 @@ export default function AddHospitals() {
                     {users.isBloodBank ? null : (
                       <td className="px-7 2xl:px-0">
                         {/* Edit Button */}
-                        <Link
+                        {/* <Link
                           className="focus:outline-none py-2 px-4"
                           to={`/edit-hospital/${item._id}`}
                         >
@@ -321,7 +321,7 @@ export default function AddHospitals() {
                             icon={faEdit}
                             className="text-blue-500 hover:text-blue-700 cursor-pointer"
                           />
-                        </Link>
+                        </Link> */}
 
                         {/* Delete Button */}
                         <button
@@ -447,7 +447,7 @@ export default function AddHospitals() {
                       required
                     />
                   </div>
-                  <div>
+                  {/* <div>
                     <label className="block text-sm font-medium text-gray-900">
                       Hospital Type
                     </label>
@@ -495,8 +495,8 @@ export default function AddHospitals() {
                       className="mt-1 block w-full border border-solid border-gray-300 text-gray-900 rounded-lg shadow-sm"
                       required
                     />
-                  </div>
-                  <div>
+                  </div> */}
+                  {/* <div>
                     <label className="block text-sm font-medium text-gray-900">
                       Hospital Description
                     </label>
@@ -506,7 +506,7 @@ export default function AddHospitals() {
                       rows="4"
                       required
                     ></textarea>
-                  </div>
+                  </div> */}
                 </div>
                 <div>
                   <label className="block text-sm font-medium  text-gray-900">

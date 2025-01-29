@@ -17,12 +17,12 @@ const EditHospital = () => {
   // const [municipality, setMunicipality] = useState("");
   // const [wardNo, setWardNo] = useState("");
   const [hospitalContactNumber, setHospitalContactNumber] = useState("");
-  const [hospitalType, setHospitalType] = useState("");
-  const [hospitalServices, setHospitalServices] = useState("");
+  // const [hospitalType, setHospitalType] = useState("");
+  // const [hospitalServices, setHospitalServices] = useState("");
   const [hospitalImage, setHospitalImage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [latitude, setLatitude] = useState("");
-  const [longitude, setLongitude] = useState("");
+  // const [latitude, setLatitude] = useState("");
+  // const [longitude, setLongitude] = useState("");
   const [imagePreview, setImagePreview] = useState(null); // State to hold the image preview URL
   const [oldimagePreview, setOldImagePreview] = useState(null); // State to hold the image preview URL
 
@@ -38,12 +38,12 @@ const EditHospital = () => {
     setHospitalContactNumber(e.target.value);
   };
 
-  const changeHospitalType = (e) => {
-    setHospitalType(e.target.value);
-  };
-  const changeHospitalServices = (e) => {
-    setHospitalServices(e.target.value);
-  };
+  // const changeHospitalType = (e) => {
+  //   setHospitalType(e.target.value);
+  // };
+  // const changeHospitalServices = (e) => {
+  //   setHospitalServices(e.target.value);
+  // };
 
   useEffect(() => {
     fetchSingleHospitalApi(id).then((res) => {
@@ -52,10 +52,10 @@ const EditHospital = () => {
       // setMunicipality(res.data.hospital.municipality);
       // setWardNo(res.data.hospital.wardNo);
       setHospitalContactNumber(res.data.hospital.hospitalContactNumber);
-      setHospitalType(res.data.hospital.hospitalType);
-      setHospitalServices(res.data.hospital.hospitalServices);
-      setLatitude(res.data.hospital.latitude);
-      setLongitude(res.data.hospital.longitude);
+      // setHospitalType(res.data.hospital.hospitalType);
+      // setHospitalServices(res.data.hospital.hospitalServices);
+      // setLatitude(res.data.hospital.latitude);
+      // setLongitude(res.data.hospital.longitude);
       setOldImagePreview(res.data.hospital.hospitalImageUrl);
     });
   }, [id]);
@@ -69,10 +69,10 @@ const EditHospital = () => {
     // formData.append("municipality", municipality);
     // formData.append("wardNo", wardNo);
     formData.append("hospitalContactNumber", hospitalContactNumber);
-    formData.append("hospitalType", hospitalType);
-    formData.append("hospitalServices", hospitalServices);
-    formData.append("latitude", latitude);
-    formData.append("longitude", longitude);
+    // formData.append("hospitalType", hospitalType);
+    // formData.append("hospitalServices", hospitalServices);
+    // formData.append("latitude", latitude);
+    // formData.append("longitude", longitude);
     formData.append("hospitalImage", hospitalImage);
 
     updatehospitalApi(id, formData)
@@ -173,7 +173,7 @@ const EditHospital = () => {
                 required
               />
             </div>
-            <div>
+            {/* <div>
               <label className="block text-sm font-medium text-gray-900">
                 Hospital Type
               </label>
@@ -218,8 +218,8 @@ const EditHospital = () => {
                 className="mt-1 block w-full border border-solid border-gray-300 text-gray-900 rounded-lg shadow-sm"
                 required
               />
-            </div>
-            <div>
+            </div> */}
+            {/* <div>
               <label className="block text-sm font-medium text-gray-900">
                 Hospital Description
               </label>
@@ -230,7 +230,7 @@ const EditHospital = () => {
                 rows="4"
                 required
               ></textarea>
-            </div>
+            </div> */}
           </div>
           <div>
             <label className="block text-sm font-medium  text-gray-900">

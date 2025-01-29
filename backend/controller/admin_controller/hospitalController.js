@@ -8,10 +8,10 @@ const addHospitals = async (req, res) => {
     // municipality,
     // wardNo,
     hospitalContactNumber,
-    hospitalType,
-    hospitalServices,
-    latitude,
-    longitude,
+    // hospitalType,
+    // hospitalServices,
+    // latitude,
+    // longitude,
   } = req.body;
 
   // Check if req.files and req.files.bbImage exist
@@ -29,11 +29,12 @@ const addHospitals = async (req, res) => {
     !hospitalAddress ||
     // !municipality ||
     // !wardNo ||
-    !hospitalContactNumber ||
-    !hospitalType ||
-    !hospitalServices ||
-    !latitude ||
-    !longitude
+    !hospitalContactNumber
+    //  ||
+    // !hospitalType ||
+    // !hospitalServices ||
+    // !latitude ||
+    // !longitude
   ) {
     return res.json({
       success: false,
@@ -56,10 +57,10 @@ const addHospitals = async (req, res) => {
       hospitalContactNumber: hospitalContactNumber,
       // municipality: municipality,
       // wardNo: wardNo,
-      hospitalType: hospitalType,
-      hospitalServices: hospitalServices,
-      latitude: latitude,
-      longitude: longitude,
+      // hospitalType: hospitalType,
+      // hospitalServices: hospitalServices,
+      // latitude: latitude,
+      // longitude: longitude,
       hospitalImageUrl: uploadedImage.secure_url,
     });
 
@@ -165,10 +166,10 @@ const updateHospital = async (req, res) => {
     // municipality,
     // wardNo,
     hospitalContactNumber,
-    hospitalType,
-    hospitalServices,
-    latitude,
-    longitude,
+    // hospitalType,
+    // hospitalServices,
+    // latitude,
+    // longitude,
   } = req.body;
 
   const { hospitalImage } = req.files;
@@ -181,11 +182,12 @@ const updateHospital = async (req, res) => {
     !hospitalAddress ||
     // !municipality ||
     // !wardNo ||
-    !hospitalContactNumber ||
-    !hospitalType ||
-    !hospitalServices ||
-    !latitude ||
-    !longitude
+    !hospitalContactNumber 
+    // ||
+    // !hospitalType ||
+    // !hospitalServices ||
+    // !latitude ||
+    // !longitude
   ) {
     return res.json({
       success: false,
@@ -209,10 +211,10 @@ const updateHospital = async (req, res) => {
         // municipality: municipality,
         // wardNo: wardNo,
         hospitalContactNumber: hospitalContactNumber,
-        hospitalType: hospitalType,
-        hospitalServices: hospitalServices,
-        latitude: latitude,
-        longitude: longitude,
+        // hospitalType: hospitalType,
+        // hospitalServices: hospitalServices,
+        // latitude: latitude,
+        // longitude: longitude,
         hospitalImageUrl: uploadedImage.secure_url,
       };
       await Hospital.findByIdAndUpdate(id, updatedHospital);
@@ -228,10 +230,10 @@ const updateHospital = async (req, res) => {
         // municipality: municipality,
         // wardNo: wardNo,
         hospitalContactNumber: hospitalContactNumber,
-        hospitalType: hospitalType,
-        hospitalServices: hospitalServices,
-        latitude: latitude,
-        longitude: longitude,
+        // hospitalType: hospitalType,
+        // hospitalServices: hospitalServices,
+        // latitude: latitude,
+        // longitude: longitude,
       };
       await Hospital.findByIdAndUpdate(id, updatedHospital);
       res.json({

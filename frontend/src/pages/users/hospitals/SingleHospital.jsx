@@ -38,8 +38,8 @@ const SingleHospital = () => {
                   <p className="card-text">
                     Phone: {hospital.hospitalContactNumber}
                   </p>
-                  <p className="card-text"> {hospital.hospitalType}</p>
-                  <p className="card-text"> {hospital.hospitalServices}</p>
+                  {/* <p className="card-text"> {hospital.hospitalType}</p>
+                  <p className="card-text"> {hospital.hospitalServices}</p> */}
                 </div>
               </div>
             </div>
