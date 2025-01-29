@@ -1,130 +1,112 @@
 const jwt = require("jsonwebtoken");
-const logger = require('../logger'); // Ensure the path to logger.js is correct
 
 const authGuard = (req, res, next) => {
-    console.log(req.headers.authorization)
-    const authHeader = req.headers.authorization;
-    if (!authHeader) {
-        logger.warn('Authorization header not found', {
-            url: req.originalUrl,
-            method: req.method,
-            ip: req.ip
-        });
-        return res.json({
-            success: false,
-            message: "Authorization header not found!",
-        });
-    }
+  // get header authorizartion
 
-    const token = authHeader.split(" ")[1];
-    if (!token) {
-        logger.warn('Token not found', {
-            url: req.originalUrl,
-            method: req.method,
-            ip: req.ip
-        });
-        return res.json({
-            success: false,
-            message: "Token not found!",
-        });
-    }
+  const authHeader = req.headers.authorization; // authorization is a variable
 
-    try {
-        const decodedUser = jwt.verify(token, process.env.JWT_TOKEN_SECRET);
-        req.user = decodedUser;
+  if (!authHeader) {
+    return res.json({
+      success: false,
+      message: "Authorzation header not found!",
+    });
+  }
+  // get token by splitting the header
+  // Format = "Bearer tokenxysdgjslnksjf"
 
-        // Create a log object with the required fields
-        const log = {
-            userName: req.user.email || 'Unknown', // Use email as an identifier if userName is not available
-            sessionId: req.cookies["connect.sid"] || 'Unknown', // Assume the session ID is stored in cookies
-            url: req.originalUrl,
-            method: req.method,
-            
-        };
+  const token = authHeader.split(" ")[1];
+  if (!token) {
+    return res.json({
+      success: false,
+      message: "Token not found !!",
+    });
+  }
 
-        // Log the user authentication success
-        logger.info('User authenticated', log);
-
-        next();
-    } catch (error) {
-        logger.error('Invalid Token', {
-            url: req.originalUrl,
-            method: req.method,
-            ip: req.ip,
-            error: error.message
-        });
-        return res.json({
-            success: false,
-            message: "Invalid Token",
-        });
-    }
+  try {
+    // verify token
+    const decodeUser = jwt.verify(token, process.env.JWT_TOKEN_SECRET);
+    req.user = decodeUser;
+    next();
+  } catch (error) {
+    res.json({
+      success: false,
+      message: "Invalid Token",
+    });
+  }
 };
 
 const authGuardAdmin = (req, res, next) => {
-    const authHeader = req.headers.authorization;
-    if (!authHeader) {
-        logger.warn('Authorization header not found for admin', {
-            url: req.originalUrl,
-            method: req.method,
-            ip: req.ip
-        });
-        return res.json({
-            success: false,
-            message: "Authorization header not found!",
-        });
+  const authHeader = req.headers.authorization;
+
+  if (!authHeader) {
+    return res.json({
+      success: false,
+      message: "Authorzation header not found!",
+    });
+  }
+
+  const token = authHeader.split(" ")[1];
+  // console.log(`The data is:  ${token[1]}`);
+  if (!token) {
+    return res.json({
+      success: false,
+      message: "Token not found !!",
+    });
+  }
+
+  try {
+    const decodeUser = jwt.verify(token, process.env.JWT_TOKEN_SECRET);
+    req.user = decodeUser;
+
+    if (!req.user.isAdmin) {
+      return res.json({
+        success: false,
+        message: "Permission denied !!",
+      });
     }
 
-    const token = authHeader.split(" ")[1];
-    if (!token) {
-        logger.warn('Token not found for admin', {
-            url: req.originalUrl,
-            method: req.method,
-            ip: req.ip
-        });
-        return res.json({
-            success: false,
-            message: "Token not found!",
-        });
-    }
-
-    try {
-        const decodedUser = jwt.verify(token, process.env.JWT_TOKEN_SECRET);
-        req.user = decodedUser;
-
-        if (!req.user.isAdmin) {
-            logger.warn('Permission denied for non-admin user', {
-                userName: req.user.email || 'Unknown',
-                sessionId: req.cookies["connect.sid"] || 'Unknown',
-                url: req.originalUrl,
-                method: req.method,
-            });
-            return res.json({
-                success: false,
-                message: "Permission denied",
-            });
-        }
-
-        // Log the admin authentication success
-        logger.info('Admin authenticated', {
-            userName: req.user.email || 'Unknown',
-            sessionId: req.cookies["connect.sid"] || 'Unknown',
-            url: req.originalUrl,
-            method: req.method,
-        });
-
-        next();
-    } catch (error) {
-        logger.error('Invalid Token for admin', {
-            url: req.originalUrl,
-            method: req.method,
-            ip: req.ip,
-            error: error.message
-        });
-        return res.json({
-            success: false,
-            message: "Invalid Token",
-        });
-    }
+    next();
+  } catch (error) {
+    res.json({
+      success: false,
+      message: "Invalid Token",
+    });
+  }
 };
 
-module.exports = { authGuard, authGuardAdmin };
+const authGuardBloodBank = (req, res, next) => {
+  const authHeader = req.headers.authorization;
+  if (!authHeader) {
+    return res.json({
+      success: false,
+      message: "Authorzation header not found!",
+    });
+  }
+
+  const token = authHeader.split(" ")[1];
+  if (!token) {
+    return res.json({
+      success: false,
+      message: "Token not found !!",
+    });
+  }
+
+  try {
+    const decodeUser = jwt.verify(token, process.env.JWT_TOKEN_SECRET);
+    req.user = decodeUser;
+    if (!req.user.isBloodBank) {
+      return res.json({
+        success: false,
+        message: "Permission denied !!",
+      });
+    }
+    next();
+  } catch (error) {
+    res.json({
+      success: false,
+      message: "Invalid Token",
+    });
+  }
+};
+
+module.exports = { authGuard, authGuardAdmin, authGuardBloodBank };
