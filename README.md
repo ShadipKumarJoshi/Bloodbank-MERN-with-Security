@@ -60,27 +60,25 @@ Before running this project, make sure you have the following installed on your 
 
 Create a `.env` file in the backend directory of the project and add the following environment variables:
 
-PORT=5000
-DB_URL='your mongodb cloud uri'
-JWT_TOKEN_SECRET="your_jwt_token_secret"
-CLOUD_NAME='your cloudinary cloud name'
-API_SECRET='your cloudinary api secret' 
-API_KEY='your cloudinary api key'
-RECAPTCHA_SITE_KEY=6Lfe3iAqAAAAAF5fpWAIXG6fWPmlJWlNh4R1djnG
-RECAPTCHA_SECRET_KEY= 6Lfe3iAqAAAAAODFpzwdXNwA6kD6uaKzyv6xoz4I
-DOMAIN=localhost
-# session secret
-SESSION_SECRET = your_session_secret
-# cookie expires in milliseconds
-COOKIE_EXPIRESIN = 2400000
-CSRF_TOKEN_COOKIE_EXPIRESIN = 2400000
-SMTP_HOST= smtp.gmail.com 
-SMTP_PORT = 587
-SMTP_MAIL = your email
-SMTP_PASSWORD = your password like qqqqq wwww eeee rrrr
-CORS_ALLOWED_ORIGINS= https://localhost:3000
-SSL_CRT_FILE=cert.crt
-SSL_KEY_FILE=cert.key
+- PORT=5000
+- DB_URL='your mongodb cloud uri'
+- JWT_TOKEN_SECRET="your_jwt_token_secret"
+- CLOUD_NAME='your cloudinary cloud name'
+- API_SECRET='your cloudinary api secret' 
+- API_KEY='your cloudinary api key'
+- RECAPTCHA_SITE_KEY=6Lfe3iAqAAAAAF5fpWAIXG6fWPmlJWlNh4R1djnG
+- RECAPTCHA_SECRET_KEY= 6Lfe3iAqAAAAAODFpzwdXNwA6kD6uaKzyv6xoz4I
+- DOMAIN=localhost
+- SESSION_SECRET = your_session_secret
+- COOKIE_EXPIRESIN = 2400000   # cookie expires in milliseconds
+- CSRF_TOKEN_COOKIE_EXPIRESIN = 2400000
+- SMTP_HOST= smtp.gmail.com 
+- SMTP_PORT = 587
+- SMTP_MAIL = your email
+- SMTP_PASSWORD = your password like qqqqq wwww eeee rrrr
+- CORS_ALLOWED_ORIGINS= https://localhost:3000
+- SSL_CRT_FILE=cert.crt
+- SSL_KEY_FILE=cert.key
 
 
 
