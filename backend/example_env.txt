@@ -12,6 +12,7 @@ RECAPTCHA_SECRET_KEY= 6Lfe3iAqAAAAAODFpzwdXNwA6kD6uaKzyv6xoz4I
 DOMAIN=localhost
 # session secret
 SESSION_SECRET = your_session_secret
+
 # cookie expires in milliseconds
 COOKIE_EXPIRESIN = 2400000
 CSRF_TOKEN_COOKIE_EXPIRESIN = 2400000
