@@ -10,7 +10,7 @@ const addCampaign = async (req, res) => {
     campaignEndDate,
     campaignLocation,
     municipality,
-    wardNo,
+    // wardNo,
     campaignGoal,
     campaignRaised,
     campaignDonors,
@@ -36,7 +36,7 @@ const addCampaign = async (req, res) => {
     !campaignEndDate ||
     !campaignLocation ||
     !municipality ||
-    !wardNo ||
+    // !wardNo ||
     !campaignGoal ||
     !user ||
     !latitude ||
@@ -62,7 +62,7 @@ const addCampaign = async (req, res) => {
       campaignEndDate: campaignEndDate,
       campaignLocation: campaignLocation,
       municipality: municipality,
-      wardNo: wardNo,
+      // wardNo: wardNo,
       campaignGoal: campaignGoal,
       latitude: latitude,
       longitude: longitude,
@@ -179,7 +179,7 @@ const updateCampaigns = async (req, res) => {
     campaignEndDate,
     campaignLocation,
     municipality,
-    wardNo,
+    // wardNo,
     campaignGoal,
     campaignRaised,
     campaignDonors,
@@ -204,7 +204,7 @@ const updateCampaigns = async (req, res) => {
     !campaignEndDate ||
     !campaignLocation ||
     !municipality ||
-    !wardNo ||
+    // !wardNo ||
     !campaignGoal ||
     !latitude ||
     !longitude
@@ -230,7 +230,7 @@ const updateCampaigns = async (req, res) => {
         campaignEndDate: campaignEndDate,
         campaignLocation: campaignLocation,
         municipality: municipality,
-        wardNo: wardNo,
+        // wardNo: wardNo,
         campaignGoal: campaignGoal,
         latitude: latitude,
         longitude: longitude,
@@ -253,7 +253,7 @@ const updateCampaigns = async (req, res) => {
         campaignEndDate: campaignEndDate,
         campaignLocation: campaignLocation,
         municipality: municipality,
-        wardNo: wardNo,
+        // wardNo: wardNo,
         campaignGoal: campaignGoal,
         latitude: latitude,
         longitude: longitude,

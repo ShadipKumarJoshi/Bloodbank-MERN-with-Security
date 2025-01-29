@@ -15,7 +15,7 @@ const EditHospital = () => {
   const [hospitalName, setHospitalName] = useState("");
   const [hospitalAddress, setHospitalAddress] = useState("");
   // const [municipality, setMunicipality] = useState("");
-  const [wardNo, setWardNo] = useState("");
+  // const [wardNo, setWardNo] = useState("");
   const [hospitalContactNumber, setHospitalContactNumber] = useState("");
   const [hospitalType, setHospitalType] = useState("");
   const [hospitalServices, setHospitalServices] = useState("");
@@ -50,7 +50,7 @@ const EditHospital = () => {
       setHospitalName(res.data.hospital.hospitalName);
       setHospitalAddress(res.data.hospital.hospitalAddress);
       // setMunicipality(res.data.hospital.municipality);
-      setWardNo(res.data.hospital.wardNo);
+      // setWardNo(res.data.hospital.wardNo);
       setHospitalContactNumber(res.data.hospital.hospitalContactNumber);
       setHospitalType(res.data.hospital.hospitalType);
       setHospitalServices(res.data.hospital.hospitalServices);
@@ -67,7 +67,7 @@ const EditHospital = () => {
     formData.append("hospitalName", hospitalName);
     formData.append("hospitalAddress", hospitalAddress);
     // formData.append("municipality", municipality);
-    formData.append("wardNo", wardNo);
+    // formData.append("wardNo", wardNo);
     formData.append("hospitalContactNumber", hospitalContactNumber);
     formData.append("hospitalType", hospitalType);
     formData.append("hospitalServices", hospitalServices);
@@ -149,7 +149,7 @@ const EditHospital = () => {
                 required
               />
             </div> */}
-            <div>
+            {/* <div>
               <label className="block text-sm font-medium text-gray-900">
                 Ward No
               </label>
@@ -160,7 +160,7 @@ const EditHospital = () => {
                 className="mt-1 block w-full  border border-solid border-gray-300 text-gray-900 rounded-lg shadow-sm"
                 required
               />
-            </div>
+            </div> */}
             <div>
               <label className="block text-sm font-medium text-gray-900">
                 Contact

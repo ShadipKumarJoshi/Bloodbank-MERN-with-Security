@@ -89,7 +89,7 @@ export default function AddHospitals() {
   const [hospitalName, setHospitalName] = useState("");
   const [hospitalAddress, setHospitalAddress] = useState("");
   // const [municipality, setMunicipality] = useState("");
-  const [wardNo, setWardNo] = useState("");
+  // const [wardNo, setWardNo] = useState("");
   const [hospitalContactNumber, setHospitalContactNumber] = useState("");
   const [hospitalType, setHospitalType] = useState("");
   const [hospitalServices, setHospitalServices] = useState("");
@@ -134,7 +134,7 @@ export default function AddHospitals() {
     formData.append("hospitalName", hospitalName);
     formData.append("hospitalAddress", hospitalAddress);
     // formData.append("municipality", municipality);
-    formData.append("wardNo", wardNo);
+    // formData.append("wardNo", wardNo);
     formData.append("hospitalContactNumber", hospitalContactNumber);
     formData.append("hospitalType", hospitalType);
     formData.append("hospitalServices", hospitalServices);
@@ -239,7 +239,7 @@ export default function AddHospitals() {
                   <th className="font-normal text-left pl-4">Hospital Name</th>
                   <th className="font-normal text-left pl-12">District</th>
                   {/* <th className="font-normal text-left pl-12">Municipality</th> */}
-                  <th className="font-normal text-left pl-12">Ward No.</th>
+                  {/* <th className="font-normal text-left pl-12">Ward No.</th> */}
                   <th className="font-normal text-left pl-12">Contact</th>
                   <th className="font-normal text-left pl-20">Hospital Type</th>
                   <th className="font-normal text-left pl-20">
@@ -291,9 +291,9 @@ export default function AddHospitals() {
                     {/* <td className="pl-12">
                       <p className="font-medium">{item.municipality}</p>
                     </td> */}
-                    <td className="pl-12">
+                    {/* <td className="pl-12">
                       <p className="font-medium">{item.wardNo}</p>
-                    </td>
+                    </td> */}
                     <td className="pl-20">
                       <p className="font-medium">
                         {item.hospitalContactNumber}
@@ -425,7 +425,7 @@ export default function AddHospitals() {
                       required
                     />
                   </div> */}
-                  <div>
+                  {/* <div>
                     <label className="block text-sm font-medium text-gray-900">
                       Ward No.
                     </label>
@@ -435,7 +435,7 @@ export default function AddHospitals() {
                       className="mt-1 block w-full  border border-solid border-gray-300 text-gray-900 rounded-lg shadow-sm"
                       required
                     />
-                  </div>
+                  </div> */}
                   <div>
                     <label className="block text-sm font-medium text-gray-900">
                       Contact
