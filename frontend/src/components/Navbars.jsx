@@ -118,14 +118,14 @@ const Navbars = ({ fullName }) => {
                   About Us
                 </Link>
               </li>
-              <li className="nav-li">
+              {/* <li className="nav-li">
                 <Link
                   to={"/contact-us"}
                   className={activeItem === 5 ? "active" : ""}
                 >
                   Contact Us
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </>
         ) : (
@@ -182,14 +182,14 @@ const Navbars = ({ fullName }) => {
                   About Us
                 </Link>
               </li>
-              <li className="nav-li">
+              {/* <li className="nav-li">
                 <Link
                   to={"/contact-us"}
                   className={activeItem === 5 ? "active" : ""}
                 >
                   Contact Us
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </>
         )}
