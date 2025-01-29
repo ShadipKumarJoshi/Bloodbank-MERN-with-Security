@@ -160,7 +160,7 @@ const HomePage = ({ history }) => {
         </button>
       </div>
 
-      <section className="bg-white p-0 mt-4">
+      {/* <section className="bg-white p-0 mt-4">
         <div className="container p-0">
           <div className="row align-items-center justify-content-between">
             <div className="col-lg-8 col-xl-7 col-xxl-6">
@@ -195,7 +195,7 @@ const HomePage = ({ history }) => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="bg-white p-0  mt-14">
         <div className="container p-0">

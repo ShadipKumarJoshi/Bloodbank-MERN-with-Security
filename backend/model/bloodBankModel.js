@@ -12,58 +12,58 @@ const bloodBankSchema = mongoose.Schema(
       type: String,
     },
 
-    municipality: {
-      required: true,
-      type: String,
-    },
+    // municipality: {
+    //   required: true,
+    //   type: String,
+    // },
 
-    wardNo: {
-      required: true,
-      type: Number,
-    },
+    // wardNo: {
+    //   required: true,
+    //   type: Number,
+    // },
 
     bbContact: {
       required: true,
       type: Number,
     },
 
-    operatingHours: {
-      required: true,
-      type: String,
-    },
-    serviceOffered: {
-      required: true,
-      type: String,
-    },
+    // operatingHours: {
+    //   required: true,
+    //   type: String,
+    // },
+    // serviceOffered: {
+    //   required: true,
+    //   type: String,
+    // },
 
-    specialInstructions: {
-      required: true,
-      type: String,
-    },
+    // specialInstructions: {
+    //   required: true,
+    //   type: String,
+    // },
 
-    additionalNotes: {
-      required: true,
-      type: String,
-    },
+    // additionalNotes: {
+    //   required: true,
+    //   type: String,
+    // },
 
-    availableBloodGroups: {
-      required: true,
-      type: [String],
-    },
+    // availableBloodGroups: {
+    //   required: true,
+    //   type: [String],
+    // },
     
-    socialMediaLinks: {
-      required: true,
-      type: String,
-    },
-    latitude: {
-      required: true,
-      type: Number,
+    // socialMediaLinks: {
+    //   required: true,
+    //   type: String,
+    // },
+    // latitude: {
+    //   required: true,
+    //   type: Number,
 
-    },
-    longitude: {
-      required: true,
-      type: Number,
-    },
+    // },
+    // longitude: {
+    //   required: true,
+    //   type: Number,
+    // },
 
     bbImageUrl: {
       type: String,

@@ -10,16 +10,16 @@ const addBloodBanks = async (req, res) => {
     bName,
     bAddress,
     bContact,
-    oHours,
-    bgavailable,
-    serviceOffered,
-    specialInstructions,
-    additionalNotes,
-    socialLinks,
-    latitude,
-    longitude,
+    // oHours,
+    // bgavailable,
+    // serviceOffered,
+    // specialInstructions,
+    // additionalNotes,
+    // socialLinks,
+    // latitude,
+    // longitude,
     // municipality,
-    wardNo,
+    // wardNo,
     contactEmail,
   } = req.body;
 
@@ -38,17 +38,18 @@ const addBloodBanks = async (req, res) => {
   if (
     !bName ||
     !bAddress ||
-    !bContact ||
-    !oHours ||
-    !bgavailable ||
-    !serviceOffered ||
-    !specialInstructions ||
-    !additionalNotes ||
-    !socialLinks ||
+    !bContact 
+    // ||
+    // !oHours ||
+    // !bgavailable ||
+    // !serviceOffered ||
+    // !specialInstructions ||
+    // !additionalNotes ||
+    // !socialLinks ||
     // !municipality ||
-    !wardNo ||
-    !latitude ||
-    !longitude
+    // !wardNo ||
+    // !latitude ||
+    // !longitude
   ) {
     return res.json({
       success: false,
@@ -66,16 +67,16 @@ const addBloodBanks = async (req, res) => {
       bbName: bName,
       bbAddress: bAddress,
       bbContact: bContact,
-      operatingHours: oHours,
-      serviceOffered: serviceOffered,
-      specialInstructions: specialInstructions,
+      // operatingHours: oHours,
+      // serviceOffered: serviceOffered,
+      // specialInstructions: specialInstructions,
       // municipality: municipality,
-      wardNo: wardNo,
-      additionalNotes: additionalNotes,
-      availableBloodGroups: bgavailable,
-      socialMediaLinks: socialLinks,
-      latitude: latitude,
-      longitude: longitude,
+      // wardNo: wardNo,
+      // additionalNotes: additionalNotes,
+      // availableBloodGroups: bgavailable,
+      // socialMediaLinks: socialLinks,
+      // latitude: latitude,
+      // longitude: longitude,
       contactEmail: contactEmail,
       bbImageUrl: uploadedImage.secure_url,
     });
@@ -133,16 +134,16 @@ const addBloodBanks = async (req, res) => {
       bbName: bName,
       bbAddress: bAddress,
       bbContact: bContact,
-      wardNo: wardNo,
+      // wardNo: wardNo,
       // municipality: municipality,
-      operatingHours: oHours,
-      serviceOffered: serviceOffered,
-      specialInstructions: specialInstructions,
-      additionalNotes: additionalNotes,
-      availableBloodGroups: bgavailable,
-      socialMediaLinks: socialLinks,
-      latitude: latitude,
-      longitude: longitude,
+      // operatingHours: oHours,
+      // serviceOffered: serviceOffered,
+      // specialInstructions: specialInstructions,
+      // additionalNotes: additionalNotes,
+      // availableBloodGroups: bgavailable,
+      // socialMediaLinks: socialLinks,
+      // latitude: latitude,
+      // longitude: longitude,
       contactEmail: contactEmail,
       isNewUser : true
     });
@@ -275,14 +276,14 @@ const updateBloodBank = async (req, res) => {
     bName,
     bAddress,
     bContact,
-    oHours,
-    bgavailable,
-    serviceOffered,
-    specialInstructions,
-    additionalNotes,
-    socialLinks,
-    latitude,
-    longitude,
+    // oHours,
+    // bgavailable,
+    // serviceOffered,
+    // specialInstructions,
+    // additionalNotes,
+    // socialLinks,
+    // latitude,
+    // longitude,
   } = req.body;
 
   const { bbImage } = req.files;
@@ -293,15 +294,16 @@ const updateBloodBank = async (req, res) => {
   if (
     !bName ||
     !bAddress ||
-    !bContact ||
-    !oHours ||
-    !bgavailable ||
-    !serviceOffered ||
-    !specialInstructions ||
-    !additionalNotes ||
-    !socialLinks ||
-    !latitude ||
-    !longitude
+    !bContact 
+    // ||
+    // !oHours ||
+    // !bgavailable ||
+    // !serviceOffered ||
+    // !specialInstructions ||
+    // !additionalNotes ||
+    // !socialLinks ||
+    // !latitude ||
+    // !longitude
   ) {
     return res.json({
       success: false,
@@ -319,14 +321,14 @@ const updateBloodBank = async (req, res) => {
         bName: bName,
         bAddress: bAddress,
         bContact: bContact,
-        oHours: oHours,
-        bgavailable: bgavailable,
-        serviceOffered: serviceOffered,
-        specialInstructions: specialInstructions,
-        additionalNotes: additionalNotes,
-        socialLinks: socialLinks,
-        latitude: latitude,
-        longitude: longitude,
+        // oHours: oHours,
+        // bgavailable: bgavailable,
+        // serviceOffered: serviceOffered,
+        // specialInstructions: specialInstructions,
+        // additionalNotes: additionalNotes,
+        // socialLinks: socialLinks,
+        // latitude: latitude,
+        // longitude: longitude,
         bbImageUrl: uploadedImage.secure_url,
       };
       await BloodBanks.findByIdAndUpdate(id, updatedBloodBanks);
@@ -340,14 +342,14 @@ const updateBloodBank = async (req, res) => {
         bName: bName,
         bAddress: bAddress,
         bContact: bContact,
-        oHours: oHours,
-        bgavailable: bgavailable,
-        serviceOffered: serviceOffered,
-        specialInstructions: specialInstructions,
-        additionalNotes: additionalNotes,
-        socialLinks: socialLinks,
-        latitude: latitude,
-        longitude: longitude,
+        // oHours: oHours,
+        // bgavailable: bgavailable,
+        // serviceOffered: serviceOffered,
+        // specialInstructions: specialInstructions,
+        // additionalNotes: additionalNotes,
+        // socialLinks: socialLinks,
+        // latitude: latitude,
+        // longitude: longitude,
       };
       await BloodBanks.findByIdAndUpdate(id, updatedBloodBanks);
       res.status(200).json({

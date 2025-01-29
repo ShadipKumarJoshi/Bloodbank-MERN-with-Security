@@ -121,7 +121,7 @@ function AdminPanel() {
                 Donors
               </button>
             </li>
-            {users.isBloodBank ? (
+            {/* {users.isBloodBank ? (
               <li
                 className={`adminLi ${
                   currentPage === "Blood Requests" ? "active" : ""
@@ -148,7 +148,7 @@ function AdminPanel() {
                   BloodBanks
                 </button>
               </li>
-            ) : null}
+            ) : null} */}
             <li
               className={`adminLi ${
                 currentPage === "AddHospitals" ? "active" : ""

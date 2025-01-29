@@ -17,6 +17,7 @@ import DistrictList from "../../../components/DistrictsList";
 import MultiSelectBG from "../../../components/MultiSeletctBG";
 
 export default function AddBloodBanks() {
+  const users = JSON.parse(localStorage.getItem("user"));
   // useEffect for fetching all the products and showing in table
   const [bloodBank, setBloodBank] = useState([]);
 
@@ -73,11 +74,12 @@ export default function AddBloodBanks() {
         (filters.bbAddress === "" ||
           hospital.bbAddress
             .toLowerCase()
-            .includes(filters.bbAddress.toLowerCase())) &&
-        (filters.municipality === "" ||
-          hospital.municipality
-            .toLowerCase()
-            .includes(filters.municipality.toLowerCase()))
+            .includes(filters.bbAddress.toLowerCase())) 
+        //     &&
+        // (filters.municipality === "" ||
+        //   hospital.municipality
+        //     .toLowerCase()
+        //     .includes(filters.municipality.toLowerCase()))
       );
     });
     setfilteredBloodBank(filtered);
@@ -86,12 +88,12 @@ export default function AddBloodBanks() {
   const [bbName, setbbName] = useState("");
   const [bbAddress, setbbAddress] = useState("");
   const [bbContact, setbbContact] = useState("");
-  const [operatingHours, setOperatingHours] = useState("");
-  const [serviceOffered, setServiceOffered] = useState("");
-  const [specialInstructions, setSpecialInstructions] = useState("");
-  const [additionalNotes, setAdditionalNotes] = useState("");
-  const [availableBloodGroups, setAvailableBloodGroups] = useState([]);
-  const [socialMediaLinks, setSocialMediaLinks] = useState("");
+  // const [operatingHours, setOperatingHours] = useState("");
+  // const [serviceOffered, setServiceOffered] = useState("");
+  // const [specialInstructions, setSpecialInstructions] = useState("");
+  // const [additionalNotes, setAdditionalNotes] = useState("");
+  // const [availableBloodGroups, setAvailableBloodGroups] = useState([]);
+  // const [socialMediaLinks, setSocialMediaLinks] = useState("");
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [imagePreview, setImagePreview] = useState(null);
@@ -123,16 +125,16 @@ export default function AddBloodBanks() {
     setbbContact(e.target.value);
   };
 
-  const changeOperatingHours = (e) => {
-    setOperatingHours(e.target.value);
-  };
-  const changeAvailableBloodGroups = (selectedOptions) => {
-    const selectedValues = selectedOptions.map((option) => option.value);
-    setAvailableBloodGroups(selectedValues);
-  };
-  const changeSocialMediaLinks = (e) => {
-    setSocialMediaLinks(e.target.value);
-  };
+  // const changeOperatingHours = (e) => {
+  //   setOperatingHours(e.target.value);
+  // };
+  // const changeAvailableBloodGroups = (selectedOptions) => {
+  //   const selectedValues = selectedOptions.map((option) => option.value);
+  //   setAvailableBloodGroups(selectedValues);
+  // };
+  // const changeSocialMediaLinks = (e) => {
+  //   setSocialMediaLinks(e.target.value);
+  // };
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0]; //files not file
@@ -148,14 +150,14 @@ export default function AddBloodBanks() {
     formData.append("bName", bbName);
     formData.append("bAddress", bbAddress);
     formData.append("bContact", bbContact);
-    formData.append("oHours", operatingHours);
-    formData.append("bgavailable", availableBloodGroups);
-    formData.append("serviceOffered", serviceOffered);
-    formData.append("specialInstructions", specialInstructions);
-    formData.append("additionalNotes", additionalNotes);
-    formData.append("socialLinks", socialMediaLinks);
-    formData.append("latitude", latitude);
-    formData.append("longitude", longitude);
+    // formData.append("oHours", operatingHours);
+    // formData.append("bgavailable", availableBloodGroups);
+    // formData.append("serviceOffered", serviceOffered);
+    // formData.append("specialInstructions", specialInstructions);
+    // formData.append("additionalNotes", additionalNotes);
+    // formData.append("socialLinks", socialMediaLinks);
+    // formData.append("latitude", latitude);
+    // formData.append("longitude", longitude);
     formData.append("bbImage", bbImage);
 
     createBloodBankApi(formData)
@@ -196,13 +198,23 @@ export default function AddBloodBanks() {
   return (
     <>
       <div className="w-full sm:px-6">
-        <div className="px-4 md:px-10 py-2 md:py-7 bg-gray-100 rounded-tl-lg rounded-tr-lg">
-          <div className="sm:flex flex-row items-center justify-between">
-            <p className="inline-flex sm:ml-3  sm:mt-0 items-start justify-start px-6 py-3  text-black focus:outline-none rounded">
-              BloodBanks
-            </p>
+      {users.isAdmin ? (
+          <div className="px-4 md:px-10 py-2 md:py-7 bg-gray-100 rounded-tl-lg rounded-tr-lg">
+            <div className="sm:flex flex-row items-center justify-between">
+              <p className="inline-flex sm:ml-3  sm:mt-0 items-start justify-start px-6 py-3  text-black focus:outline-none rounded">
+                Blood Banks
+              </p>
+              <div>
+                <button
+                  className="inline-flex sm:ml-3 mt-1 sm:mt-0 items-start justify-start px-6 py-3 bg-[#111111] hover:bg-[#ff0000] text-white focus:outline-none rounded"
+                  onClick={openModal}
+                >
+                  Add Blood Banks
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
+        ) : null}
         <div className="bg-white shadow px-4 md:px-10 pt-4 md:pt-7 pb-5">
           <div className="flex w-100 my-4 gap-2">
             <input
@@ -221,7 +233,7 @@ export default function AddBloodBanks() {
               value={filters.bbAddress}
               onChange={handleFilterChange}
             />
-            <input
+            {/* <input
               className="w-1/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500"
               type="text"
               name="municipality"
@@ -229,6 +241,7 @@ export default function AddBloodBanks() {
               value={filters.municipality}
               onChange={handleFilterChange}
             />
+          </div> */}
           </div>
 
           <div className="w-full bg-white overflow-y-auto">
@@ -249,7 +262,7 @@ export default function AddBloodBanks() {
                   <th className="font-normal text-left pl-12">
                     BloodBank Contact
                   </th>
-                  <th className="font-normal text-left pl-12">
+                  {/* <th className="font-normal text-left pl-12">
                     Operating Hours
                   </th>
                   <th className="font-normal text-left pl-12">
@@ -257,7 +270,7 @@ export default function AddBloodBanks() {
                   </th>
                   <th className="font-normal text-left pl-12">
                     SocialMedia Links
-                  </th>
+                  </th> */}
                   <th className="font-normal text-left pl-12">
                     <button
                       onClick={() => handleSort("createdAt")}
@@ -310,14 +323,14 @@ export default function AddBloodBanks() {
                       <td className="pl-12">
                         <p className="font-medium">{item.bbContact}</p>
                       </td>
-                      <td className="pl-12">
+                      {/* <td className="pl-12">
                         <p className="font-medium">{item.operatingHours}</p>
                       </td>
                       <td className="pl-12">
                         <p className="font-medium">
                           {item.availableBloodGroups}
                         </p>
-                      </td>
+                      </td> */}
 
                       <td
                         className="pl-12"
@@ -447,7 +460,7 @@ export default function AddBloodBanks() {
                       required
                     />
                   </div>
-                  <div>
+                  {/* <div>
                     <MultiSelectBG onChange={changeAvailableBloodGroups} />
                   </div>
                   <div>
@@ -545,7 +558,7 @@ export default function AddBloodBanks() {
                     className="mt-1 block w-full border border-solid border-gray-300 text-gray-900 rounded-lg shadow-sm"
                     required
                   />
-                </div>
+                </div> */}
                 <div>
                   <label
                     htmlFor="bloodbankImage"
@@ -582,6 +595,7 @@ export default function AddBloodBanks() {
                     "Add BloodBank"
                   )}
                 </button>
+                </div>
               </form>
             </div>
           </div>

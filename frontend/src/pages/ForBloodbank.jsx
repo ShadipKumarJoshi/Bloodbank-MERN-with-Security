@@ -12,8 +12,8 @@ export default function ForBloodbank() {
 
   const [bbName, setbbName] = useState("");
   const [bbAddress, setbbAddress] = useState("");
-  const [municipality, setMunicipality] = useState("");
-  const [wardNo, setWardNo] = useState("");
+  // const [municipality, setMunicipality] = useState("");
+  // const [wardNo, setWardNo] = useState("");
   const [bbContact, setbbContact] = useState("");
   const [operatingHours, setOperatingHours] = useState("");
   const [serviceOffered, setServiceOffered] = useState("");
@@ -64,8 +64,8 @@ export default function ForBloodbank() {
 
     formData.append("bName", bbName);
     formData.append("bAddress", bbAddress);
-    formData.append("municipality", municipality);
-    formData.append("wardNo", wardNo);
+    // formData.append("municipality", municipality);
+    // formData.append("wardNo", wardNo);
     formData.append("bContact", bbContact);
     formData.append("oHours", operatingHours);
     formData.append("bgavailable", availableBloodGroups);
@@ -120,7 +120,7 @@ export default function ForBloodbank() {
             <div>
               <DistrictList onChange={changebbAddress} />
             </div>
-            <div>
+            {/* <div>
               <label className="block text-sm font-medium text-gray-900">
                 Municipality
               </label>
@@ -141,7 +141,7 @@ export default function ForBloodbank() {
                 className="mt-1 block w-full  border border-solid border-gray-300 text-gray-900 rounded-lg shadow-sm"
                 required
               />
-            </div>
+            </div> */}
             <div>
               <label className="block text-sm font-medium text-gray-900">
                 BLood Bank Contact
