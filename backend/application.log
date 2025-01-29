@@ -7,3 +7,11 @@
 {"level":"info","message":"Connected to Database","timestamp":"2025-01-29T02:05:25.630Z"}
 {"level":"info","message":"Create User request received","requestBody":{"email":"stmcearoz@gmail.com","fullName":"Test two","password":"1@Qwerty"},"timestamp":"2025-01-29T02:15:18.186Z"}
 {"level":"info","message":"User created successfully","timestamp":"2025-01-29T02:15:18.416Z","userId":"67998f36a5121b327b3593d4"}
+{"level":"info","message":{"Fullname":"Test two","method":"POST","sessionId":"fF9uMSdbUxUdic9mFS5FEHqIMISAhcaH","text":"User logged in successfully","url":"/api/user/login","userId":"67998f36a5121b327b3593d4"},"timestamp":"2025-01-29T02:42:53.465Z"}
+{"level":"info","message":"Email sent successfully","response":"250 2.0.0 OK  1738118624 98e67ed59e1d1-2f83be30b06sm371319a91.42 - gsmtp","subject":"Petadapt","timestamp":"2025-01-29T02:43:42.759Z","to":"mstacezro@gmail.com"}
+{"level":"info","message":"Email sent successfully","response":"250 2.0.0 OK  1738118625 d9443c01a7336-21da424ecf5sm89932695ad.221 - gsmtp","subject":"Petadapt","timestamp":"2025-01-29T02:43:44.653Z","to":"mstacezro@gmail.com"}
+{"level":"info","message":"Create User request received","requestBody":{"confirmPassword":"0M@ster1","email":"mstacezro@gmail.com","fullName":"Shadip Kumar","password":"0M@ster1"},"timestamp":"2025-01-29T02:44:08.612Z"}
+{"level":"info","message":"User created successfully","timestamp":"2025-01-29T02:44:08.956Z","userId":"679995f8a5121b327b3593de"}
+{"level":"info","message":{"Fullname":"Shadip Kumar","method":"POST","sessionId":"RDP0ad5UMWgJ4ORI46owphDfYVV3Z1Jb","text":"User logged in successfully","url":"/api/user/login","userId":"679995f8a5121b327b3593de"},"timestamp":"2025-01-29T02:44:35.666Z"}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T02:44:38.317Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T02:44:38.372Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
