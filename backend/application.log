@@ -89,3 +89,10 @@
 {"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:27:09.629Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
 {"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:27:46.417Z"}
 {"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:31:47.991Z"}
+{"level":"info","message":{"Fullname":"Test two","method":"POST","sessionId":"1U_HI0DNoqk0MiZsZEYLNLF5LrmF7qhF","text":"User logged in successfully","url":"/api/user/login","userId":"67998f36a5121b327b3593d4"},"timestamp":"2025-01-29T05:37:00.457Z"}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:37:16.689Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:37:16.746Z","totalPets":0,"unvaccinatedPets":0,"vaccinatedPets":0}
+{"level":"info","message":"Pet created successfully","petId":"6799bec11b0d91b9e5ee2ba5","timestamp":"2025-01-29T05:38:09.611Z"}
+{"level":"info","message":"Pet created successfully","petId":"6799bec41b0d91b9e5ee2ba7","timestamp":"2025-01-29T05:38:12.337Z"}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:38:20.235Z","totalPets":2,"unvaccinatedPets":2,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:38:20.294Z","totalPets":2,"unvaccinatedPets":2,"vaccinatedPets":0}
