@@ -1,49 +1,42 @@
-// import
 const router = require("express").Router();
-const userController = require("../controllers/userController");
-const { authGuardAdmin, authGuard } = require("../middleware/authGuard");
 
-// creating user api
-router.post("/create", userController.createUser);
+const userController = require("../controller/user_controller/userControllers");
+const { authGuard } = require("../middleware/authGuard");
 
-// creating login api
+// create account routes
+router.post("/register", userController.createUser);
+
+// login routes
+
 router.post("/login", userController.loginUser);
 
-//get all users API
-router.get("/get_user", authGuardAdmin,  userController.getAllUsers);
+router.post("/send_otp", userController.sendVerification);
 
-//Get single user API | /get_product/:id
-router.get("/get_single_user/:id", authGuard, userController.getSingleUsers);
+router.put("/beadonor/:id", authGuard, userController.beAdonor);
 
-//update user API
-router.put("/update_user/:id", authGuard, userController.updateUser);
+router.get("/getAllUsers", userController.getAllUsers);
 
-//get pagination
-router.get("/get_user_pagination", userController.getUserPagination);
+router.get("/single_user/:id", userController.getSingleUser);
 
-//update user API
-router.delete("/delete_user/:id", authGuardAdmin, userController.deleteUser);
-// exporting
+router.put("/updateUser/:id", authGuard, userController.updateUser);
 
-//search
-router.get("/search/:key", userController.searchUsers);
+router.post("/forgetpassword", userController.forgetPassword);
 
-//forgot password
-router.post("/forget_password", userController.forgetPassword);
+router.post("/update-password", userController.updatePassword);
 
-//reset password
-router.post("/reset_password/:token", userController.resetPassword);
+// for flutter
+router.put(
+  "/update_user/:id",
+  authGuard,
+  userController.updateUserWithoutImage
+);
 
-//change password
-router.put("/change_password/:id", userController.changePassword);
+router.get("/search_user", userController.searchUsers);
 
-//usercount
-router.get('/users/count', userController.getUserCount);
-
-router.post('/send_otp', userController.sendOtp);
-
-router.post('/verify_user', userController.verifyUser);
-
-
+router.get(
+  "/get_my_request/:id",
+  authGuard,
+  userController.getRequestsByUserId
+);
 
 module.exports = router;
