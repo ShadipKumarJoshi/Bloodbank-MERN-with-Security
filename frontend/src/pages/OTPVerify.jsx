@@ -30,6 +30,7 @@ function OTPVerify({ userOtp, isOpen, closeModal, onResend }) {
     let otpValue = parseInt(otp.join(""));
     const data = new FormData();
     data.append("email", user?.email);
+    data.append("otp", otp);
     if (otpValue === userOtp) {
       verifyUserApi(data).then((res) => {
         if (res.data.success === true) {

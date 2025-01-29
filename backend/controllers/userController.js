@@ -713,9 +713,12 @@ const getUserCount = async (req, res) => {
 const sendOtp = async (req, res) => {
   console.log(req.body)
   const { email } = req.body;
-  // const user = await Users.findOne({ email: email });
+  const user = await Users.findOne({ email: email });
   const randomOtp = Math.floor(100000 + Math.random() * 900000);
   // console.log(randomOtp);
+  user.otp = randomOtp;
+  user.otpExpiresAt = new Date(Date.now() + 600000);
+  await user.save();
   await sendEmailController(
     email,
     "Petadapt",
@@ -741,6 +744,7 @@ const sendOtp = async (req, res) => {
 const verifyUser = async (req, res) => {
   logger.info("Verify User request received", { requestBody: req.body });
   const { email, otp } = req.body;
+  console.log(req.body)
 
   try {
     const user = await Users.findOne({ email });

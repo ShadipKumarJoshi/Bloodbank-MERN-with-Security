@@ -96,3 +96,51 @@
 {"level":"info","message":"Pet created successfully","petId":"6799bec41b0d91b9e5ee2ba7","timestamp":"2025-01-29T05:38:12.337Z"}
 {"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:38:20.235Z","totalPets":2,"unvaccinatedPets":2,"vaccinatedPets":0}
 {"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:38:20.294Z","totalPets":2,"unvaccinatedPets":2,"vaccinatedPets":0}
+{"level":"info","message":"Email sent successfully","response":"250 2.0.0 OK  1738129155 d9443c01a7336-21da3d9e38esm92207475ad.3 - gsmtp","subject":"Petadapt","timestamp":"2025-01-29T05:39:14.916Z","to":"stmcearoz@gmail.com"}
+{"level":"info","message":"Verify User request received","requestBody":{"email":"stmcearoz@gmail.com"},"timestamp":"2025-01-29T05:39:49.280Z"}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:40:06.114Z","totalPets":2,"unvaccinatedPets":2,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:40:06.186Z","totalPets":2,"unvaccinatedPets":2,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:40:57.533Z","totalPets":2,"unvaccinatedPets":2,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:40:57.603Z","totalPets":2,"unvaccinatedPets":2,"vaccinatedPets":0}
+{"level":"info","message":{"Fullname":"Test two","method":"POST","sessionId":"lO6PlBKYXieF9T6HyT9Mn6SDvdfe0fOn","text":"User logged in successfully","url":"/api/user/login","userId":"67998f36a5121b327b3593d4"},"timestamp":"2025-01-29T05:41:47.647Z"}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:41:50.463Z","totalPets":2,"unvaccinatedPets":2,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:41:50.545Z","totalPets":2,"unvaccinatedPets":2,"vaccinatedPets":0}
+{"level":"info","message":"Pet created successfully","petId":"6799bfbf1b0d91b9e5ee2bb8","timestamp":"2025-01-29T05:42:24.034Z"}
+{"level":"info","message":"Pet created successfully","petId":"6799bfc31b0d91b9e5ee2bba","timestamp":"2025-01-29T05:42:27.779Z"}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:42:32.540Z","totalPets":4,"unvaccinatedPets":4,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:42:32.631Z","totalPets":4,"unvaccinatedPets":4,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:45:16.902Z","totalPets":4,"unvaccinatedPets":4,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:45:16.984Z","totalPets":4,"unvaccinatedPets":4,"vaccinatedPets":0}
+{"error":"File size too large. Got 15054560. Maximum is 10485760. Upgrade your plan to enjoy higher limits https://www.cloudinary.com/pricing/upgrades/file-limit","level":"error","message":"Error creating pet","timestamp":"2025-01-29T05:45:58.301Z"}
+{"error":"File size too large. Got 15054560. Maximum is 10485760. Upgrade your plan to enjoy higher limits https://www.cloudinary.com/pricing/upgrades/file-limit","level":"error","message":"Error creating pet","timestamp":"2025-01-29T05:45:58.681Z"}
+{"error":"File size too large. Got 15054560. Maximum is 10485760. Upgrade your plan to enjoy higher limits https://www.cloudinary.com/pricing/upgrades/file-limit","level":"error","message":"Error creating pet","timestamp":"2025-01-29T05:46:03.423Z"}
+{"level":"info","message":"Email sent successfully","response":"250 2.0.0 OK  1738129588 d9443c01a7336-21da414d9e9sm90954565ad.171 - gsmtp","subject":"Petadapt","timestamp":"2025-01-29T05:46:28.025Z","to":"stmcearoz@gmail.com"}
+{"level":"info","message":"Verify User request received","requestBody":{"email":"stmcearoz@gmail.com"},"timestamp":"2025-01-29T05:46:59.822Z"}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:48:30.401Z","totalPets":4,"unvaccinatedPets":4,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:48:30.488Z","totalPets":4,"unvaccinatedPets":4,"vaccinatedPets":0}
+{"error":"File size too large. Got 15054560. Maximum is 10485760. Upgrade your plan to enjoy higher limits https://www.cloudinary.com/pricing/upgrades/file-limit","level":"error","message":"Error creating pet","timestamp":"2025-01-29T05:48:41.658Z"}
+{"error":"File size too large. Got 15054560. Maximum is 10485760. Upgrade your plan to enjoy higher limits https://www.cloudinary.com/pricing/upgrades/file-limit","level":"error","message":"Error creating pet","timestamp":"2025-01-29T05:48:45.614Z"}
+{"level":"info","message":"Email sent successfully","response":"250 2.0.0 OK  1738129776 d2e1a72fcca58-72f8a69eb5esm10317818b3a.20 - gsmtp","subject":"Petadapt","timestamp":"2025-01-29T05:49:35.400Z","to":"stmcearoz@gmail.com"}
+{"level":"info","message":"Verify User request received","requestBody":{"email":"stmcearoz@gmail.com"},"timestamp":"2025-01-29T05:49:47.310Z"}
+{"level":"info","message":"Email sent successfully","response":"250 2.0.0 OK  1738129835 d9443c01a7336-21da414df81sm92416775ad.185 - gsmtp","subject":"Petadapt","timestamp":"2025-01-29T05:50:35.068Z","to":"stmcearoz@gmail.com"}
+{"level":"info","message":"Verify User request received","requestBody":{"email":"stmcearoz@gmail.com"},"timestamp":"2025-01-29T05:51:19.269Z"}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:52:01.151Z","totalPets":4,"unvaccinatedPets":4,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T05:52:01.249Z","totalPets":4,"unvaccinatedPets":4,"vaccinatedPets":0}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:53:31.864Z"}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:53:34.550Z"}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:54:16.511Z"}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:54:33.714Z"}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:55:21.852Z"}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:55:51.761Z"}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T05:55:58.333Z"}
+{"level":"info","message":"Email sent successfully","response":"250 2.0.0 OK  1738130167 98e67ed59e1d1-2f83be1cd22sm713599a91.40 - gsmtp","subject":"Petadapt","timestamp":"2025-01-29T05:56:07.112Z","to":"stmcearoz@gmail.com"}
+{"level":"info","message":"Verify User request received","requestBody":{"email":"stmcearoz@gmail.com"},"timestamp":"2025-01-29T05:56:34.028Z"}
+{"level":"info","message":"Email sent successfully","response":"250 2.0.0 OK  1738130329 98e67ed59e1d1-2f83bcd17a3sm724629a91.18 - gsmtp","subject":"Petadapt","timestamp":"2025-01-29T05:58:48.360Z","to":"stmcearoz@gmail.com"}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T06:00:19.258Z"}
+{"level":"info","message":"Verify User request received","requestBody":{"email":"undefined"},"timestamp":"2025-01-29T06:00:45.134Z"}
+{"email":"undefined","level":"error","message":"User not found during verification","timestamp":"2025-01-29T06:00:45.222Z"}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T06:01:30.439Z"}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T06:01:54.819Z","totalPets":4,"unvaccinatedPets":4,"vaccinatedPets":0}
+{"level":"info","message":"Fetched all pets","timestamp":"2025-01-29T06:01:54.893Z","totalPets":4,"unvaccinatedPets":4,"vaccinatedPets":0}
+{"error":"querySrv ECONNREFUSED _mongodb._tcp.mandala.zazkiu7.mongodb.net","level":"error","message":"Database connection error","timestamp":"2025-01-29T10:19:02.770Z"}
+{"level":"info","message":"Connected to Database","timestamp":"2025-01-29T10:25:48.172Z"}
