@@ -14,8 +14,8 @@ const AddBloodRequests = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [hospitalName, sethospitalName] = useState("");
   const [hospitalAddress, setHospitalAddress] = useState("");
-  const [municipality, setMunicipality] = useState("");
-  const [wardNo, setWardNo] = useState("");
+  // const [municipality, setMunicipality] = useState("");
+  // const [wardNo, setWardNo] = useState("");
   const [quantity, setQuantity] = useState("");
   const [urgency, setUrgency] = useState("");
   const [reason, setReason] = useState("");
@@ -23,8 +23,8 @@ const AddBloodRequests = () => {
   const [instruction, setInstruction] = useState("");
   const [anyPrecautions, setPrecautions] = useState("");
   const [contactPerson, setContactPerson] = useState("");
-  const [latitude, setLatitude] = useState("");
-  const [longitude, setLongitude] = useState("");
+  // const [latitude, setLatitude] = useState("");
+  // const [longitude, setLongitude] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,8 +38,8 @@ const AddBloodRequests = () => {
     formData.append("phoneNumber", phoneNumber);
     formData.append("hospitalName", hospitalName);
     formData.append("hospitalAddress", hospitalAddress);
-    formData.append("municipality", municipality);
-    formData.append("wardNo", wardNo);
+    // formData.append("municipality", municipality);
+    // formData.append("wardNo", wardNo);
     formData.append("quantity", quantity);
     formData.append("urgency", urgency);
     formData.append("reason", reason);
@@ -47,8 +47,8 @@ const AddBloodRequests = () => {
     formData.append("instruction", instruction);
     formData.append("anyPrecautions", anyPrecautions);
     formData.append("contactPerson", contactPerson);
-    formData.append("latitude", latitude);
-    formData.append("longitude", longitude);
+    // formData.append("latitude", latitude);
+    // formData.append("longitude", longitude);
     formData.append("userId", user._id);
 
     addRequestAPI(formData).then((res) => {
@@ -66,15 +66,15 @@ const AddBloodRequests = () => {
         setQuantity("");
         setComponents("");
         setHospitalAddress("");
-        setWardNo("");
-        setMunicipality("");
+        // setWardNo("");
+        // setMunicipality("");
         sethospitalName("");
         setPhoneNumber("");
         setPatientBloodType("");
         setPatientAge("");
         setPatientName("");
-        setLongitude("");
-        setLatitude("");
+        // setLongitude("");
+        // setLatitude("");
       }
     });
   };
@@ -229,7 +229,7 @@ const AddBloodRequests = () => {
                 <div className="underline"></div>
               </div>
             </div>
-            <div className="form-row">
+            {/* <div className="form-row">
               <div className="input-data">
                 <input
                   value={municipality}
@@ -250,8 +250,8 @@ const AddBloodRequests = () => {
                 />
                 <div className="underline"></div>
               </div>
-            </div>
-            <div className="form-row">
+            </div> */}
+            {/* <div className="form-row">
               <div className="input-data">
                 <input
                   value={latitude}
@@ -272,7 +272,7 @@ const AddBloodRequests = () => {
                 />
                 <div className="underline"></div>
               </div>
-            </div>
+            </div> */}
             <div className="form-row">
               <div className="input-data">
                 <input

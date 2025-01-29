@@ -10,8 +10,8 @@ const addRequestsBB = async (req, res) => {
     phoneNumber,
     hospitalName,
     hospitalAddress,
-    municipality,
-    wardNo,
+    // municipality,
+    // wardNo,
     quantity,
     urgency,
     reason,
@@ -19,8 +19,8 @@ const addRequestsBB = async (req, res) => {
     instruction,
     anyPrecautions,
     contactPerson,
-    latitude,
-    longitude,
+    // latitude,
+    // longitude,
     bloodbank,
   } = req.body;
 
@@ -33,14 +33,14 @@ const addRequestsBB = async (req, res) => {
     !phoneNumber ||
     !hospitalName ||
     !hospitalAddress ||
-    !municipality ||
-    !wardNo ||
+    // !municipality ||
+    // !wardNo ||
     !quantity ||
     !urgency ||
     !date ||
     !contactPerson ||
-    !latitude ||
-    !longitude ||
+    // !latitude ||
+    // !longitude ||
     !bloodbank
   ) {
     return res.json({
@@ -58,8 +58,8 @@ const addRequestsBB = async (req, res) => {
       phoneNumber: phoneNumber,
       hospitalName: hospitalName,
       hospitalAddress: hospitalAddress,
-      municipality: municipality,
-      wardNo: wardNo,
+      // municipality: municipality,
+      // wardNo: wardNo,
       quantity: quantity,
       urgency: urgency,
       reason: reason,
@@ -68,8 +68,8 @@ const addRequestsBB = async (req, res) => {
       anyPrecautions: anyPrecautions,
       contactPerson: contactPerson,
       userId: userId,
-      latitude: latitude,
-      longitude: longitude,
+      // latitude: latitude,
+      // longitude: longitude,
       bloodbank: bloodbank,
     });
     await newRequest.save();
@@ -109,8 +109,8 @@ const updateRequestBB = async (req, res) => {
     phoneNumber,
     hospitalName,
     hospitalAddress,
-    municipality,
-    wardNo,
+    // municipality,
+    // wardNo,
     quantity,
     urgency,
     reason,
@@ -118,8 +118,8 @@ const updateRequestBB = async (req, res) => {
     instruction,
     anyPrecautions,
     contactPerson,
-    latitude,
-    longitude,
+    // latitude,
+    // longitude,
   } = req.body;
 
   const id = req.params.id;
@@ -131,14 +131,15 @@ const updateRequestBB = async (req, res) => {
     !phoneNumber ||
     !hospitalName ||
     !hospitalAddress ||
-    !municipality ||
-    !wardNo ||
+    // !municipality ||
+    // !wardNo ||
     !quantity ||
     !urgency ||
     !date ||
-    !contactPerson ||
-    !latitude ||
-    !longitude
+    !contactPerson
+    //  ||
+    // !latitude ||
+    // !longitude
   ) {
     return res.json({
       success: false,
@@ -155,8 +156,8 @@ const updateRequestBB = async (req, res) => {
       phoneNumber: phoneNumber,
       hospitalName: hospitalName,
       hospitalAddress: hospitalAddress,
-      municipality: municipality,
-      wardNo: wardNo,
+      // municipality: municipality,
+      // wardNo: wardNo,
       quantity: quantity,
       urgency: urgency,
       reason: reason,
@@ -164,8 +165,8 @@ const updateRequestBB = async (req, res) => {
       instruction: instruction,
       anyPrecautions: anyPrecautions,
       contactPerson: contactPerson,
-      latitude: latitude,
-      longitude: longitude,
+      // latitude: latitude,
+      // longitude: longitude,
     };
     await RequestForBB.findByIdAndUpdate(id, updatedRequest);
     res.json({

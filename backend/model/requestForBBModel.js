@@ -30,14 +30,14 @@ const UserRequestSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    municipality: {
-      type: String,
-      required: true,
-    },
-    wardNo: {
-      type: String,
-      required: true,
-    },
+    // municipality: {
+    //   type: String,
+    //   required: true,
+    // },
+    // wardNo: {
+    //   type: String,
+    //   required: true,
+    // },
     quantity: {
       type: String,
       required: true,
@@ -66,14 +66,14 @@ const UserRequestSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    latitude: {
-      type: Number,
-      required: true,
-    },
-    longitude: {
-      type: Number,
-      required: true,
-    },
+    // latitude: {
+    //   type: Number,
+    //   required: true,
+    // },
+    // longitude: {
+    //   type: Number,
+    //   required: true,
+    // },
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "user",

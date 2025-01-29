@@ -129,12 +129,12 @@ const Login = () => {
                 </p>
               </div>
 
-              <div className="link">
+              {/* <div className="link">
                 <p>
                   Want to Register Your Blood Bank ?{" "}
                   <Link to={"/bloodbank"}>Register BloodBank</Link>
                 </p>
-              </div>
+              </div> */}
             </form>
           </div>
         </div>

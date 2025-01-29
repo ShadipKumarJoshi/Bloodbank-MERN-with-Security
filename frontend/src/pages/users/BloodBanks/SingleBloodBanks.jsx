@@ -424,11 +424,13 @@ const SingleBloodbank = () => {
             <div className="col-12 p-0">
               <MapContainer
                 className="req-map-container"
-                center={[bloodbank.latitude, bloodbank.longitude]}
+                // center={[bloodbank.latitude, bloodbank.longitude]}
                 zoom={25}
               >
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                <Marker position={[bloodbank.latitude, bloodbank.longitude]}>
+                <Marker 
+                // position={[bloodbank.latitude, bloodbank.longitude]}
+                >
                   <Popup>
                     <div>
                       <h3>{bloodbank.bbName}</h3>

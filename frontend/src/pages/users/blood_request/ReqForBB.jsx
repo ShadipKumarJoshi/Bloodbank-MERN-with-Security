@@ -18,8 +18,8 @@ export default function ReqForBB() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [hospitalName, sethospitalName] = useState("");
   const [hospitalAddress, setHospitalAddress] = useState("");
-  const [municipality, setMunicipality] = useState("");
-  const [ward, setWard] = useState("");
+  // const [municipality, setMunicipality] = useState("");
+  // const [ward, setWard] = useState("");
   const [quantity, setQuantity] = useState("");
   const [urgency, setUrgency] = useState("");
   const [reason, setReason] = useState("");
@@ -28,7 +28,7 @@ export default function ReqForBB() {
   const [anyPrecautions, setPrecautions] = useState("");
   const [contactPerson, setContactPerson] = useState("");
   const [latitude, setLatitude] = useState("");
-  const [longitude, setLongitude] = useState("");
+  // const [longitude, setLongitude] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = (e) => {
@@ -42,8 +42,8 @@ export default function ReqForBB() {
     formData.append("phoneNumber", phoneNumber);
     formData.append("hospitalName", hospitalName);
     formData.append("hospitalAddress", hospitalAddress);
-    formData.append("municipality", municipality);
-    formData.append("wardNo", ward);
+    // formData.append("municipality", municipality);
+    // formData.append("wardNo", ward);
     formData.append("quantity", quantity);
     formData.append("urgency", urgency);
     formData.append("reason", reason);
@@ -51,8 +51,8 @@ export default function ReqForBB() {
     formData.append("instruction", instruction);
     formData.append("anyPrecautions", anyPrecautions);
     formData.append("contactPerson", contactPerson);
-    formData.append("latitude", latitude);
-    formData.append("longitude", longitude);
+    // formData.append("latitude", latitude);
+    // formData.append("longitude", longitude);
     formData.append("userId", user._id);
     formData.append("bloodbank", id);
     setIsLoading(false);
@@ -134,7 +134,7 @@ export default function ReqForBB() {
                 onChange={(e) => setHospitalAddress(e.target.value)}
               />
             </div>
-            <div>
+            {/* <div>
               <label className="block text-sm font-medium text-gray-900">
                 Municipality
               </label>
@@ -189,7 +189,7 @@ export default function ReqForBB() {
                 className="mt-1 block w-full border border-solid border-gray-300 text-gray-900 rounded-lg shadow-sm"
                 required
               />
-            </div>
+            </div> */}
             <div>
               <label className="block text-sm font-medium text-gray-900">
                 Contact Number

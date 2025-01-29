@@ -20,8 +20,8 @@ const EditBloodRequests = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [hospitalName, sethospitalName] = useState("");
   const [hospitalAddress, setHospitalAddress] = useState("");
-  const [municipality, setMunicipality] = useState("");
-  const [wardNo, setWardNo] = useState("");
+  // const [municipality, setMunicipality] = useState("");
+  // const [wardNo, setWardNo] = useState("");
   const [quantity, setQuantity] = useState("");
   const [urgency, setUrgency] = useState("");
   const [reason, setReason] = useState("");
@@ -29,8 +29,8 @@ const EditBloodRequests = () => {
   const [instruction, setInstruction] = useState("");
   const [anyPrecautions, setPrecautions] = useState("");
   const [contactPerson, setContactPerson] = useState("");
-  const [latitude, setLatitude] = useState("");
-  const [longitude, setLongitude] = useState("");
+  // const [latitude, setLatitude] = useState("");
+  // const [longitude, setLongitude] = useState("");
 
   useEffect(() => {
     getSingleRequestApi(id).then((res) => {
@@ -41,8 +41,8 @@ const EditBloodRequests = () => {
       setPhoneNumber(res.data.requestblood.phoneNumber);
       sethospitalName(res.data.requestblood.hospitalName);
       setHospitalAddress(res.data.requestblood.hospitalAddress);
-      setMunicipality(res.data.requestblood.municipality);
-      setWardNo(res.data.requestblood.wardNo);
+      // setMunicipality(res.data.requestblood.municipality);
+      // setWardNo(res.data.requestblood.wardNo);
       setQuantity(res.data.requestblood.quantity);
       setUrgency(res.data.requestblood.urgency);
       setReason(res.data.requestblood.reason);
@@ -50,8 +50,8 @@ const EditBloodRequests = () => {
       setInstruction(res.data.requestblood.instruction);
       setPrecautions(res.data.requestblood.anyPrecautions);
       setContactPerson(res.data.requestblood.contactPerson);
-      setLatitude(res.data.requestblood.latitude);
-      setLongitude(res.data.requestblood.longitude);
+      // setLatitude(res.data.requestblood.latitude);
+      // setLongitude(res.data.requestblood.longitude);
     });
   }, [id]);
 
@@ -67,8 +67,8 @@ const EditBloodRequests = () => {
     formData.append("phoneNumber", phoneNumber);
     formData.append("hospitalName", hospitalName);
     formData.append("hospitalAddress", hospitalAddress);
-    formData.append("municipality", municipality);
-    formData.append("wardNo", wardNo);
+    // formData.append("municipality", municipality);
+    // formData.append("wardNo", wardNo);
     formData.append("quantity", quantity);
     formData.append("urgency", urgency);
     formData.append("reason", reason);
@@ -76,8 +76,8 @@ const EditBloodRequests = () => {
     formData.append("instruction", instruction);
     formData.append("anyPrecautions", anyPrecautions);
     formData.append("contactPerson", contactPerson);
-    formData.append("latitude", latitude);
-    formData.append("longitude", longitude);
+    // formData.append("latitude", latitude);
+    // formData.append("longitude", longitude);
     formData.append("userId", user._id);
 
     updateRequestApi(id, formData)
@@ -171,7 +171,7 @@ const EditBloodRequests = () => {
               required
             />
           </div>
-          <div className="mb-4 w-full">
+          {/* <div className="mb-4 w-full">
             <input
               className="w-full rounded-md border-gray-600 active:border-gray-600 hover:border-gray-600 focus:border-gray-600"
               value={municipality}
@@ -190,7 +190,7 @@ const EditBloodRequests = () => {
               type="text"
               required
             />
-          </div>
+          </div> */}
           <div className="mb-4 w-full">
             <input
               className="w-full rounded-md border-gray-600 active:border-gray-600 hover:border-gray-600 focus:border-gray-600"
@@ -273,7 +273,7 @@ const EditBloodRequests = () => {
             />
           </div>
         </div>
-        <div className="form-row">
+        {/* <div className="form-row">
           <div className="mb-4 w-full">
             <input
               className="w-full rounded-md border-gray-600 active:border-gray-600 hover:border-gray-600 focus:border-gray-600"
@@ -306,7 +306,7 @@ const EditBloodRequests = () => {
               required
             />
           </div>
-        </div>
+        </div> */}
         <div className="form-row">
           <div className="mb-4 w-full">
             <textarea
