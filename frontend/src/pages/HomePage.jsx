@@ -240,7 +240,7 @@ const HomePage = ({ history }) => {
         </div>
       </section>
 
-      {bloodbankData && (
+      {/* {bloodbankData && (
         <div className="hospitals-container m-4 mt-5 p-2 border-primary">
           <div className="w-full flex flex-row justify-between mt-4">
             <h3>Bloodbanks</h3>
@@ -273,9 +273,9 @@ const HomePage = ({ history }) => {
             </div>
           ))}
         </div>
-      )}
+      )} */}
 
-      {hospitalData && (
+      {/* {hospitalData && (
         <div className="hospitals-container m-4 p-2 border-primary">
           <div className="w-full flex flex-row justify-between mt-4">
             <h3>Hospitals</h3>
@@ -310,8 +310,8 @@ const HomePage = ({ history }) => {
             </div>
           ))}
         </div>
-      )}
-
+      )} */}
+{/* 
       {campaigns && (
         <section id="campaigns" className="w-full pt-2 md:py-24 lg:py-32">
           <div className="flex flex-col w-full md:w-1/4 mx-auto">
@@ -364,18 +364,19 @@ const HomePage = ({ history }) => {
                     />
                     <span>{campaign.user.fullName}</span>
                   </div>
-                  {/* <a
+                  <a
                     className="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
                     href="#"
                   >
                     Learn More
-                  </a> */}
+                  </a>
                 </div>
               </div>
             ))}
           </div>
         </section>
-      )}
+      )
+      } */}
 
       {isLoading && <CustomCircularProgress />}
       {error && (
