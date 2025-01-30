@@ -187,7 +187,7 @@ function AdminPanel() {
                     Requests
                   </button>
                 </li>
-                <li
+                {/* <li
                   className={`adminLi ${
                     currentPage === "Campaigns" ? "active" : ""
                   }`}
@@ -198,7 +198,7 @@ function AdminPanel() {
                   >
                     Campaigns
                   </button>
-                </li>
+                </li> */}
                 <li
                   className={`adminLi ${
                     currentPage === "SeeLogs" ? "active" : ""

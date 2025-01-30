@@ -87,8 +87,8 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [number, setContact] = useState("");
   const [currentAddress, setCurrentAddress] = useState("");
-  const [municipality, setMunicipality] = useState("");
-  const [wardNo, setWardNo] = useState("");
+  // const [municipality, setMunicipality] = useState("");
+  // const [wardNo, setWardNo] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [userVerificationCode, setUserVerificationCode] = useState("");
@@ -103,8 +103,8 @@ const Register = () => {
 
   const [fnameerror, setFullnameError] = useState("");
   const [addressError, setCurrentAddressError] = useState("");
-  const [municipalityError, setMunicipalityError] = useState("");
-  const [wardNoError, setWardNoError] = useState("");
+  // const [municipalityError, setMunicipalityError] = useState("");
+  // const [wardNoError, setWardNoError] = useState("");
   const [emailerror, setEmailError] = useState("");
   const [numbererror, setNumberError] = useState("");
   const [passworderror, setPasswordError] = useState("");
@@ -115,8 +115,8 @@ const Register = () => {
 
     setFullnameError("");
     setCurrentAddressError("");
-    setMunicipalityError("");
-    setWardNoError("");
+    // setMunicipalityError("");
+    // setWardNoError("");
     setNumberError("");
     setEmailError("");
     setPasswordError("");
@@ -145,15 +145,15 @@ const Register = () => {
       isValid = false;
     }
 
-    if (municipality.trim() === "") {
-      setMunicipalityError("Municipality is Required");
-      isValid = false;
-    }
+    // if (municipality.trim() === "") {
+    //   setMunicipalityError("Municipality is Required");
+    //   isValid = false;
+    // }
 
-    if (wardNo.trim() === "") {
-      setWardNoError("Ward No is Required");
-      isValid = false;
-    }
+    // if (wardNo.trim() === "") {
+    //   setWardNoError("Ward No is Required");
+    //   isValid = false;
+    // }
 
     if (password.trim() === "") {
       setPasswordError("Password is Required");
@@ -233,8 +233,8 @@ const Register = () => {
       email: email,
       number: number,
       currentAddress: currentAddress,
-      municipality: municipality,
-      wardNo: wardNo,
+      // municipality: municipality,
+      // wardNo: wardNo,
       password: password,
       userImage: userImage,
       userVerificationCode: userVerificationCode,
@@ -314,7 +314,7 @@ const Register = () => {
               />
             </div>
             {addressError && <p className="text-danger">{addressError}</p>}
-            <div className="registerInputBox">
+            {/* <div className="registerInputBox">
               <i>
                 <CustomFaIcons icon={faMapLocation} className={"m-0"} />
               </i>
@@ -328,8 +328,8 @@ const Register = () => {
             </div>
             {municipalityError && (
               <p className="text-danger">{municipalityError}</p>
-            )}
-            <div className="registerInputBox">
+            )} */}
+            {/* <div className="registerInputBox">
               <i>
                 <CustomFaIcons icon={faAddressBook} className={"m-0"} />
               </i>
@@ -341,7 +341,7 @@ const Register = () => {
               />
               <label>Enter Your Ward No</label>
             </div>
-            {wardNoError && <p className="text-danger">{wardNoError}</p>}
+            {wardNoError && <p className="text-danger">{wardNoError}</p>} */}
             <div className="registerInputBox">
               <i>
                 <CustomFaIcons icon={faLock} className={"m-0"} />

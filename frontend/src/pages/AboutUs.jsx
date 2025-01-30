@@ -28,7 +28,7 @@ const AboutUs = () => {
           </Link>
         </div>
       </section>
-      <section className="second">
+      {/* <section className="second">
         <div className="aboutus-container">
           <div className="left-img">
             <img src="../assets/images/contactus.png" alt="Person" />
@@ -53,7 +53,7 @@ const AboutUs = () => {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 };

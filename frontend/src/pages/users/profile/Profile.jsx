@@ -17,8 +17,8 @@ const Profile = ({ updateFullName }) => {
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
   const [currentAddress, setCurrentAddress] = useState("");
-  const [municipality, setMunicipality] = useState("");
-  const [ward, setWard] = useState("");
+  // const [municipality, setMunicipality] = useState("");
+  // const [ward, setWard] = useState("");
   const [gender, setGender] = useState("");
   const [dob, setDOb] = useState("");
   const [bloodGroup, setBloodGroup] = useState("");
@@ -51,8 +51,8 @@ const Profile = ({ updateFullName }) => {
       setNumber(res.data.user.number);
       setGender(res.data.user.gender);
       setCurrentAddress(res.data.user.currentAddress);
-      setMunicipality(res.data.user.municipality);
-      setWard(res.data.user.wardNo);
+      // setMunicipality(res.data.user.municipality);
+      // setWard(res.data.user.wardNo);
       setDOb(res.data.user.dob);
       setBloodGroup(res.data.user.bloodGroup);
       setEmergencyNumber(res.data.user.emergencyNumber);
@@ -83,8 +83,8 @@ const Profile = ({ updateFullName }) => {
     data.append("email", email);
     data.append("number", number);
     data.append("currentAddress", currentAddress);
-    data.append("municipality", municipality);
-    data.append("wardNo", ward);
+    // data.append("municipality", municipality);
+    // data.append("wardNo", ward);
     data.append("gender", gender);
     data.append("dob", dob);
     data.append("bloodGroup", bloodGroup);
@@ -246,7 +246,7 @@ const Profile = ({ updateFullName }) => {
                       />
                     </div>
                   </div>
-                  <div className="row gx-3 mb-3">
+                  {/* <div className="row gx-3 mb-3">
                     <div className="col-md-6">
                       <label className="small mb-1">Municipality</label>
                       <input
@@ -268,7 +268,7 @@ const Profile = ({ updateFullName }) => {
                         value={ward}
                       />
                     </div>
-                  </div>
+                  </div> */}
                   {users.isADonor ? (
                     <>
                       <div className="row gx-3 mb-3">

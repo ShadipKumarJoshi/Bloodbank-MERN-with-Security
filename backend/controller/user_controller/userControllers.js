@@ -150,8 +150,8 @@ const createUser = async (req, res) => {
       number,
       password,
       currentAddress,
-      municipality,
-      wardNo,
+      // municipality,
+      // wardNo,
       userVerificationCode,
     } = req.body;
 
@@ -163,9 +163,10 @@ const createUser = async (req, res) => {
       !email ||
       !number ||
       !password ||
-      !currentAddress ||
-      !municipality ||
-      !wardNo
+      !currentAddress
+      //  ||
+      // !municipality ||
+      // !wardNo
     ) {
       return res.json({
         success: false,
@@ -236,8 +237,8 @@ const createUser = async (req, res) => {
       email,
       number,
       currentAddress,
-      municipality,
-      wardNo,
+      // municipality,
+      // wardNo,
       password: passwordEncrypted,
       userImageURL,
       previousPasswords: [
@@ -582,17 +583,18 @@ const updateUser = async (req, res) => {
           email,
           number,
           currentAddress,
-          municipality,
-          wardNo,
+          // municipality,
+          // wardNo,
         } = req.body;
 
         if (
           !fullName ||
           !email ||
           !number ||
-          !currentAddress ||
-          !municipality ||
-          !wardNo
+          !currentAddress
+          //  ||
+          // !municipality ||
+          // !wardNo
         ) {
           return res.json({
             success: false,
@@ -604,8 +606,8 @@ const updateUser = async (req, res) => {
           email: email,
           number: number,
           currentAddress: currentAddress,
-          municipality: municipality,
-          wardNo: wardNo,
+          // municipality: municipality,
+          // wardNo: wardNo,
           userImageURL: uploadedImage.secure_url,
         };
       } else {
@@ -614,8 +616,8 @@ const updateUser = async (req, res) => {
           email,
           number,
           currentAddress,
-          municipality,
-          wardNo,
+          // municipality,
+          // wardNo,
           gender,
           dob,
           isAvailable,
@@ -628,8 +630,8 @@ const updateUser = async (req, res) => {
           !email ||
           !number ||
           !currentAddress ||
-          !municipality ||
-          !wardNo ||
+          // !municipality ||
+          // !wardNo ||
           !fullName ||
           !gender ||
           !dob ||
@@ -647,8 +649,8 @@ const updateUser = async (req, res) => {
           email: email,
           number: number,
           currentAddress: currentAddress,
-          municipality: municipality,
-          wardNo: wardNo,
+          // municipality: municipality,
+          // wardNo: wardNo,
           gender: gender,
           dob: dob,
           bloodGroup: bloodGroup,
@@ -665,8 +667,8 @@ const updateUser = async (req, res) => {
           email,
           number,
           currentAddress,
-          municipality,
-          wardNo,
+          // municipality,
+          // wardNo,
         } = req.body;
 
         if (!fullName || !email || !number || !currentAddress) {
@@ -680,8 +682,8 @@ const updateUser = async (req, res) => {
           email: email,
           number: number,
           currentAddress: currentAddress,
-          municipality: municipality,
-          wardNo: wardNo,
+          // municipality: municipality,
+          // wardNo: wardNo,
         };
       } else {
         const {
@@ -689,8 +691,8 @@ const updateUser = async (req, res) => {
           email,
           number,
           currentAddress,
-          municipality,
-          wardNo,
+          // municipality,
+          // wardNo,
           gender,
           dob,
           isAvailable,
@@ -703,8 +705,8 @@ const updateUser = async (req, res) => {
           !email ||
           !number ||
           !currentAddress ||
-          !municipality ||
-          !wardNo ||
+          // !municipality ||
+          // !wardNo ||
           !fullName ||
           !gender ||
           !dob ||
@@ -722,8 +724,8 @@ const updateUser = async (req, res) => {
           email: email,
           number: number,
           currentAddress: currentAddress,
-          municipality: municipality,
-          wardNo: wardNo,
+          // municipality: municipality,
+          // wardNo: wardNo,
           gender: gender,
           dob: dob,
           bloodGroup: bloodGroup,
@@ -777,16 +779,19 @@ const updateUserWithoutImage = async (req, res) => {
     // console.log(req.body);
 
     if (user.isADonor == false) {
-      const { fullName, email, number, currentAddress, municipality, wardNo } =
+      const { fullName, email, number, currentAddress, 
+        // municipality, wardNo
+       } =
         req.body;
 
       if (
         !fullName ||
         !email ||
         !number ||
-        !currentAddress ||
-        !municipality ||
-        !wardNo
+        !currentAddress 
+        // ||
+        // !municipality ||
+        // !wardNo
       ) {
         return res.status(404).json({
           success: false,
@@ -798,8 +803,8 @@ const updateUserWithoutImage = async (req, res) => {
         email: email,
         number: number,
         currentAddress: currentAddress,
-        municipality: municipality,
-        wardNo: wardNo,
+        // municipality: municipality,
+        // wardNo: wardNo,
       };
       await User.findByIdAndUpdate(id, updatedUser);
 
@@ -814,8 +819,8 @@ const updateUserWithoutImage = async (req, res) => {
         email,
         number,
         currentAddress,
-        municipality,
-        wardNo,
+        // municipality,
+        // wardNo,
         gender,
         dob,
         isAvailable,
@@ -828,8 +833,8 @@ const updateUserWithoutImage = async (req, res) => {
         !email ||
         !number ||
         !currentAddress ||
-        !municipality ||
-        !wardNo ||
+        // !municipality ||
+        // !wardNo ||
         !fullName ||
         !gender ||
         !dob ||
@@ -847,8 +852,8 @@ const updateUserWithoutImage = async (req, res) => {
         email: email,
         number: number,
         currentAddress: currentAddress,
-        municipality: municipality,
-        wardNo: wardNo,
+        // municipality: municipality,
+        // wardNo: wardNo,
         gender: gender,
         dob: dob,
         bloodGroup: bloodGroup,

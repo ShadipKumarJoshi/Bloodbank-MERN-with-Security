@@ -18,14 +18,14 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    municipality: {
-      type: String,
-      required: true,
-    },
-    wardNo: {
-      type: Number,
-      required: true,
-    },
+    // municipality: {
+    //   type: String,
+    //   required: true,
+    // },
+    // wardNo: {
+    //   type: Number,
+    //   required: true,
+    // },
     password: {
       type: String,
       required: true,
