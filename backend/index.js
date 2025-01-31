@@ -1,127 +1,121 @@
+// Importing necessary packages
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
-const https = require("https");
-const fs = require("fs");
-const multiparty = require("connect-multiparty");
-const cloudinary = require("cloudinary");
-const connectDB = require("./database/db");
-const session = require('express-session');
-const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
-const winston = require('winston');
-const rateLimit = require('express-rate-limit');
-const helmet = require('helmet');
-const xssClean = require('xss-clean');
-const mongoSanitize = require('express-mongo-sanitize');
-const path = require('path');
+const fileUpload = require("express-fileupload");
+const databaseConnection = require("./database/database");
+const path = require("path");
+const rateLimit = require("express-rate-limit");
+const helmet = require("helmet");
+const compression = require("compression");
+const morgan = require("morgan");
+const session = require("express-session");
 
-
-const app = express();
+// Load environment variables
 dotenv.config();
 
-connectDB();
+// Create Express application instance
+const app = express();
 
-cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.API_KEY,
-  api_secret: process.env.API_SECRET,
-});
-
-app.use(express.json());
-
-app.use(cookieParser());
- 
-// Middleware to parse request bodies (for forms, JSON, etc.)
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
- 
-// Set up express-session
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-        maxAge: 15 * 60 * 1000 ,
-        secure: true,
-        httpOnly: false
-       
-    }
-}));
-
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 100,
-  message: 'Too many requests from this IP, please try again later'
-});
-app.use(limiter);
-
-
-app.use(xssClean());
+// 🔹 Security Headers (Helmet)
 app.use(helmet());
-app.use(mongoSanitize());
 
-
-const PORT = process.env.PORT;
-
-app.get("/", (req, res) => {
-  res.send("Hello");
+// 🔹 Secure Session Headers (Prevents Caching of Sensitive Data)
+app.use((req, res, next) => {
+  res.header("Cache-Control", "no-store, no-cache, must-revalidate, private");
+  res.header("Pragma", "no-cache");
+  res.header("Expires", "0");
+  next();
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running!! on ${PORT}`);
-});
+// 🔹 CORS Configuration
+// const corsOptions = {
+//   origin: process.env.CLIENT_URL || "http://localhost:3000", // Ensure frontend URL is set
+//   credentials: true,
+//   optionSuccessStatus: 200,
+// };
+// app.use(cors(corsOptions));
 
-const corsPolicy = {
-  origin: ["https://localhost:3000", "https://localhost:3001"],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true,
+const corsOptions = {
+  origin: ["http://localhost:3000"], // Allow frontend requests
+  credentials: true, // Allow cookies & authorization headers
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE", // Allow all HTTP methods
+  allowedHeaders: "Content-Type,Authorization", // Allow necessary headers
   optionSuccessStatus: 200,
 };
 
-app.use(cors(corsPolicy));
-app.use(multiparty());
+app.use(cors(corsOptions));
 
-// user routes
-app.use("/api/user", require("./routes/userRoutes"));
-// app.use("/api/admin", require("./routes/"))
 
-// bloodBank routes
-app.use("/api/bloodbank", require("./routes/bloodBankRoutes"));
+// 🔹 Session Management (Secure & HttpOnly)
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || "secureRandomSecretKey",
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      secure: process.env.NODE_ENV === "production", // HTTPS only in production
+      httpOnly: true, // Prevents client-side JS access
+      sameSite: "strict", // Prevents CSRF attacks
+      maxAge: 24 * 60 * 60 * 1000, // 1 Day Session Expiry
+    },
+  })
+);
 
-// bloodBank routes
-app.use("/api/hospital", require("./routes/hospitalRoutes"));
+// 🔹 Middleware for JSON parsing, file uploads, and URL encoding
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(fileUpload());
 
-// add request server
-app.use("/api/blood_request", require("./routes/bloodRequestRoute"));
+// Correct usage for serving static files
+app.use("/public", express.static(path.join(__dirname, "public")));
 
-app.use("/api/req_bb", require("./routes/requestForBBRoute"));
+// 🔹 Logging Requests (Morgan for debugging)
+app.use(morgan("dev"));
 
-app.use("/api/contact", require("./routes/contactRoutes"));
+// 🔹 Connect to MongoDB
+databaseConnection();
 
-app.use("/api/campaign", require("./routes/campaignRoutes"));
-
-app.use("/api/registered_users", require("./routes/registeredUsersRoutes"));
-
-app.use("/api/logs", require("./routes/auditRoute"));
-
-const logger = winston.createLogger({
-    level: 'info',
-    format: winston.format.combine(
-        winston.format.colorize(),
-        winston.format.simple()
-    ),
-    transports: [
-        new winston.transports.Console(),
-        new winston.transports.File({ filename: 'server.log' })
-    ]
+// 🔹 Global Rate Limiter (Prevents Abuse & Brute-force)
+const globalRateLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per window
+  message: { success: false, message: "Too many requests. Try again later." },
+  standardHeaders: true,
+  legacyHeaders: false,
 });
- 
- 
+app.use("/api", globalRateLimiter);
 
+// 🔹 Compression (Improves API response time)
+app.use(compression());
 
-module.exports = {
-  connectDB,
-};
+// 🔹 Setting up API routes
+app.use("/api/user", require("./routes/userRoutes"));
+app.use("/api/product", require("./routes/productRoutes"));
+app.use("/api/cart", require("./routes/cartRoutes"));
+
+// 🔹 404 Error Handling (Not Found)
+app.use((req, res, next) => {
+  res.status(404).json({
+    success: false,
+    message: "API route not found!",
+  });
+});
+
+// 🔹 Global Error Handler (Handles Unexpected Errors)
+app.use((err, req, res, next) => {
+  console.error("❌ Server Error:", err);
+  res.status(500).json({
+    success: false,
+    message: "Internal server error! Please try again later.",
+  });
+});
+
+// 🔹 Start the Server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`🚀 Server is running on port ${PORT}!!!`);
+});
+
 
 module.exports = app;
