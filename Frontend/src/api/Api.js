@@ -36,11 +36,16 @@ export const registerUserApi = (data) => Api.post("/api/user/create", data);
 
 export const loginUserApi = (data) => Api.post("/api/user/login", data);
 
-export const userDetailsApi = (data) =>
-  Api.get("/api/user/details", { params: data });
+// export const userDetailsApi = (data) =>
+//   Api.get("/api/user/details", { params: data });
+export const userDetailsApi = (data) => {
+  return Api.get("/api/user/details", {
+    params: data
+  });};
 
 export const deleteUserApi = (data) =>
   Api.delete("/api/user/delete", { params: data });
+
 
 export const updateUserApi = (data) => Api.put("/api/user/update", data);
 
@@ -57,6 +62,8 @@ export const getSingleProduct = (id) =>
   Api.get(`api/product/get_single_product/${id}`);
 
 export const addtoCart = (data) => Api.post("/api/cart/add_to_cart", data);
+
+export const viewCart = () => Api.get("/api/cart/view");
 
 export const removeFromCart = (data) =>
   Api.post("/api/cart/remove_from_cart", data);

@@ -1,5 +1,5 @@
 .become__seller {
-    background: linear-gradient(rgba(104, 104, 249, 0.9), rgba(0, 107, 52, 0.9)),
+    background: linear-gradient(rgba(0, 107, 27, 0.9), rgba(0, 107, 52, 0.9)),
       url("../../assets/images/tour.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -9,7 +9,7 @@
   
   .become__seller button {
     background: #fff;
-    color: #6868f9;
+    color: #457aec;
     font-weight: 600;
   }
 

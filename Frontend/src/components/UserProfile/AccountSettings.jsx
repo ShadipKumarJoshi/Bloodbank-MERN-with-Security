@@ -1,188 +1,71 @@
-import React, { useState, useEffect } from "react";
-import "./AccountSettings.css";
-import { Button } from "reactstrap";
-import { toast } from "react-toastify";
-
-import { FormGroup } from "react-bootstrap";
-import { updateUserApi, userDetailsApi, deleteUserApi } from "../../api/Api";
+import React, { useState } from 'react';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import { Button, FormGroup, Input } from 'reactstrap'; // Assuming usage of Reactstrap for UI components
 
 const AccountSettings = () => {
-  const [currentUser, setCurrentUser] = useState({});
-  const userId = JSON.parse(localStorage.getItem("userData"));
-
-  const data = {
-    userId: userId._id,
-  };
-
-  const handleDelete = () => {
-    if (window.confirm("Are you sure you want to delete your account?")) {
-      deleteUserApi(data).then((res) => {
-        if (res.data.success === false) {
-          toast.error(res.data.message);
-        } else {
-          toast.success(res.data.message);
-          localStorage.clear();
-          window.location = "/login";
-        }
-      });
-    }
-  };
-
-  useEffect(() => {
-    console.log(data);
-    userDetailsApi(data)
-      .then((res) => {
-        if (res.data.success === false) {
-          toast.error(res.data.message);
-        } else {
-          setCurrentUser(res.data.userData);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
-  console.log(currentUser);
-
-  //make a usestate for 5 fields
-  const [fullname, setFullname] = useState("");
-  const [phone, setPhone] = useState("");
-  const [username, setUsername] = useState("");
+  // Load user data from localStorage and parse it
+  const userData = JSON.parse(localStorage.getItem("userData") || '{}');
+  
+  // State for form fields initialized with current user data or empty strings
+  const [fullname, setFullname] = useState(userData.fullname || "");
+  const [phone, setPhone] = useState(userData.phone || "");
+  const [username, setUsername] = useState(userData.username || "");
   const [password, setPassword] = useState("");
 
-  const handleFullname = (e) => {
-    setFullname(e.target.value);
-  };
-  const handlePhone = (e) => {
-    setPhone(e.target.value);
-  };
-  const handleUsername = (e) => {
-    setUsername(e.target.value);
-  };
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
-  //validation
-  var validate = () => {
-    var isValid = true;
-    if (fullname.trim() === "") {
-      isValid = false;
-    }
-    if (phone.trim() === "") {
-      isValid = false;
-    }
-    if (username.trim() === "") {
-      isValid = false;
-    }
-    if (password.trim() === "") {
-      isValid = false;
-    }
-
-    return isValid;
-  };
-
-  //submit button function
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    //validate
-    var isValidated = validate();
-
-    console.log(fullname, phone, username, password);
-    if (!isValidated) {
-      toast.error("Please fill all the fields");
+  // Handle user account deletion
+  const handleDelete = async () => {
+    if (!window.confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
       return;
     }
-    // Sending request to the api
-
-    // Making JSON object
-    const data = {
-      userId: userId._id,
-      fullname: fullname,
-      phone: phone,
-      username: username,
-      password: password,
-    };
-
-    console.log(data);
-
-    updateUserApi(data).then((res) => {
-      // Received data : sucess mesaage
-      if (res.data.success === false) {
-        toast.error(res.data.message);
+  
+    try {
+      const response = await axios.delete('http://localhost:5000/api/user/delete', {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('token')}` // Include the token in the Authorization header
+        },
+        data: {
+          userId: userData._id, // Assuming userData is correctly fetched and stored
+          password // Assuming password is collected from user input
+        }
+      });
+  
+      if (response.data.success) {
+        localStorage.removeItem('token'); // Clear the token from local storage
+        localStorage.removeItem('userData'); // Clear all user data from local storage
+        toast.success(response.data.message);
+        window.location.href = '/login'; // Redirect to login after account deletion
       } else {
-        toast.success(res.data.message);
+        toast.error(response.data.message);
       }
-    });
+    } catch (error) {
+      toast.error("An error occurred while trying to delete the account: " + (error.response?.data?.message || error.message));
+    }
   };
+  
+
+  // Render the account settings form
   return (
     <div className="account__settings">
-      <h1>Update Information</h1>
-
-      {userDetailsApi}
-
-      <div className="update__profile-form">
-        <div className="row__group">
-          <FormGroup className="d-flex flex-row">
-            <label htmlFor="">Full Name :</label>
-            <input
-              onChange={handleFullname}
-              type="text"
-              className="form-control"
-              placeholder={currentUser.fullname}
-            />
-          </FormGroup>
-          <FormGroup className="d-flex flex-row">
-            <label htmlFor="">Phone :</label>
-            <input
-              onChange={handlePhone}
-              type="text"
-              className="form-control"
-              placeholder={currentUser.phone}
-              value={currentUser.phone} 
-              disabled 
-            />
-          </FormGroup>
-
-          <FormGroup className="d-flex flex-row">
-            <label htmlFor="">Username :</label>
-
-            <input
-              onChange={handleUsername}
-              type="text"
-              className="form-control"
-              placeholder={currentUser.username}
-            />
-          </FormGroup>
-          <FormGroup className="d-flex flex-row">
-            <label htmlFor="">Password :</label>
-
-            <input
-              onChange={handlePassword}
-              type="text"
-              className="form-control"
-              placeholder="********"
-            />
-          </FormGroup>
-        </div>
-
-        <div className="account__settings_btn">
-          <Button
-            onClick={handleSubmit}
-            className="btn primary__btn w-100 mt-3"
-          >
-            Update
-          </Button>
-
-          <Button
-            onClick={handleDelete}
-            className="btn delete__btn w-100 mt-3 "
-          >
-            Delete
-          </Button>
-        </div>
-      </div>
+      <h1>Account Settings</h1>
+      <FormGroup>
+        <label>Full Name</label>
+        <Input type="text" value={fullname} onChange={(e) => setFullname(e.target.value)} />
+      </FormGroup>
+      <FormGroup>
+        <label>Phone (disabled)</label>
+        <Input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} disabled />
+      </FormGroup>
+      <FormGroup>
+        <label>Username</label>
+        <Input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+      </FormGroup>
+      <FormGroup>
+        <label>Password</label>
+        <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter password to confirm" />
+      </FormGroup>
+      <Button color="danger" onClick={handleDelete} className="mt-3 w-100">Delete Account</Button>
     </div>
   );
 };

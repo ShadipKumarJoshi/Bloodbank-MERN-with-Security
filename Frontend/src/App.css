@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 
 :root {
-  --primary-color: #6868f9;
+  --primary-color: #457aec;
   --secondary-color: #A6CE39;
   --heading-color: #0b2727;
   --text-color: #6e7074;
@@ -71,7 +71,7 @@ ul {
 }
 
 .btn-secondary-fp:hover {
-  background: #6868f9 !important;
+  background: #457aec !important;
 }
 
 .delete__btn {

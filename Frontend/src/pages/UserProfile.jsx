@@ -10,6 +10,7 @@ import "../styles/UserProfile.css";
 
 const Profile = () => {
   const { activepage } = useParams();
+  console.log(activepage)
 
   return (
     <>
