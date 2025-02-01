@@ -11,8 +11,8 @@
 # production
 /build
 # Ignore environment files
-# *.env
-# .env
+*.env
+.env
 
 # misc
 .DS_Store

@@ -43,7 +43,7 @@ isVerified:{ type: Boolean, default: false, required: true },
   },
   role: {
     type: String,
-    enum: ["Admin", "Seller", "Buyer"], // Restrict role values to these options
+    enum: ["Admin", "Buyer"], // Restrict role values to these options
     default: "Buyer", // Default role is "Buyer"
   },
   orders: {
