@@ -42,10 +42,15 @@ const sendOtpEmail = async (userEmail, otp) => {
   }
 };
 
-// **🔹 Generate JWT Token (Login & Registration)**
-const generateToken = (userId) => {
-  return jwt.sign({ id: userId }, process.env.JWT_SECRET, { expiresIn: "1h" }); // **Token expires in 1 hour**
+
+const generateToken = (user) => {
+  const payload = {
+    id: user._id,
+    role: user.role
+  };
+  return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
 };
+
 
 // **🔹 Authentication Guard Middleware**
 const authGuard = async (req, res, next) => {
@@ -76,7 +81,7 @@ const authGuard = async (req, res, next) => {
     }
 
     // **4️⃣ Attach User Data to Request**
-    req.user = decodedUserData;
+    req.user = user;
     next();
   } catch (error) {
     console.error("❌ Authentication Error:", error);

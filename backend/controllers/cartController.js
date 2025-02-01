@@ -1,5 +1,6 @@
 // Import required modules
 const path = require("path");
+const logger = require("../logger");
 const userModel = require("../models/userModel");
 const productModel = require("../models/productModel");
 const axios = require("axios");
@@ -66,12 +67,47 @@ const addToCart = async (req, res) => {
   } catch (error) {
     // Handle any errors and respond with an error message
     console.log(error);
+    logger.error("unable to add items to cart", error.message);
     return res.status(500).json({
       success: false,
       message: "Internal server error!",
     });
   }
 };
+
+
+const getCartItems = async (req, res) => {
+  const userId = req.user.id;
+  console.log("userid ->>>>>>>>>>>>>>>", userId)
+  try {
+      // Assuming your auth middleware has attached the user ID to req.user
+
+
+
+      // Fetch the user and select only the cart field
+      const user = await userModel.findById(userId);
+      if (!user) {
+          return res.status(404).json({
+              success: false,
+              message: "User not found"
+          });
+      }
+
+      // Respond with the user's cart items
+      res.json({
+          success: true,
+          cart: user.cart
+      });
+  } catch (error) {
+      console.error("Error fetching cart items:", error);
+      logger.error("Error fetching cart items:", error.message);
+      res.status(500).json({
+          success: false,
+          message: 'Failed to retrieve cart items due to an internal error.'
+      });
+  }
+};
+
 
 // Function to remove a product from the user's cart
 const removeFromCart = async (req, res) => {
@@ -123,6 +159,7 @@ const removeFromCart = async (req, res) => {
   } catch (error) {
     // Handle any errors and respond with an error message
     console.log(error);
+    logger.error("unable to remove items from cart", error.message);
     return res.json({
       success: false,
       message: "Internal server error!",
@@ -166,6 +203,7 @@ const removeAllFromCart = async (req, res) => {
   } catch (error) {
     // Handle any errors and respond with an error message
     console.log(error);
+    logger.error("unable to remove all items from cart", error.message);
     return res.json({
       success: false,
       message: "Internal server error!",
@@ -208,6 +246,7 @@ const initiatePayment = async (req, res) => {
     // Return the payment URL to the frontend
     res.json(response.data);
   } catch (error) {
+    console.error("Error initiating payment:", error);
     res.status(500).json({ error: error.message });
   }
 };
@@ -215,6 +254,7 @@ const initiatePayment = async (req, res) => {
 // Export the functions so they can be used in other files
 module.exports = {
   addToCart,
+  getCartItems,
   removeFromCart,
   removeAllFromCart,
   initiatePayment,

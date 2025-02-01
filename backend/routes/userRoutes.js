@@ -50,37 +50,38 @@ router.post(
 router.get("/verify-email", sanitizeInput, userController.verifyEmail);
 
 // ✅ Secure User Login (Prevents NoSQL Injection)
-// router.post(
-//   "/login",
-//   sanitizeInput, // 🛡️ Sanitizes Inputs
-//   [
-//     body("username").trim().isAlphanumeric().withMessage("Invalid username"),
-//     body("password").trim().isLength({ min: 8 }).withMessage("Invalid password"),
-//   ],
-//   (req, res, next) => {
-//     const errors = validationResult(req);
-//     if (!errors.isEmpty()) {
-//       return res.status(400).json({ success: false, errors: errors.array() });
-//     }
-//     next();
-//   },
-//   authRateLimiter,
-//   userController.loginUser
-// );
+router.post(
+  "/login",
+  sanitizeInput, // 🛡️ Sanitizes Inputs
+  [
+    body("username").trim().isAlphanumeric().withMessage("Invalid username"),
+    body("password").trim().isLength({ min: 8 }).withMessage("Invalid password"),
+  ],
+  (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ success: false, errors: errors.array() });
+    }
+    next();
+  },
+  authRateLimiter,
+  userController.loginUser
+);
 // User Login (Rate Limited)
-router.post("/login", authRateLimiter, userController.loginUser);
+// router.post("/login", authRateLimiter, userController.loginUser);
 
 // ✅ Secure Update User (Prevents NoSQL Injection)
 router.put("/update", sanitizeInput, authGuard, rbac(["Admin", "Buyer", "Seller"]), userController.updateUserDetails);
 
 // ✅ Secure Delete User (Prevents NoSQL Injection)
-router.delete("/delete", sanitizeInput, authGuard, rbac(["Admin"]), userController.userDelete);
+router.delete("/delete", sanitizeInput, authGuard, rbac(["Buyer"]), userController.userDelete);
 
 // ✅ Secure Get User Details (Prevents NoSQL Injection)
 router.get("/details", sanitizeInput, authGuard, rbac(["Admin", "Buyer", "Seller"]), userController.getUserDetails);
 
 // ✅ Secure User Orders (Prevents NoSQL Injection)
 router.post("/orders", sanitizeInput, authGuard, rbac(["Buyer"]), userController.orders);
+router.post('/updateUser', userController.updateUserDetails);
 
 // ✅ Secure Forgot Password (Prevents NoSQL Injection)
 router.post("/forgot_password", sanitizeInput, userController.forgotPassword);

@@ -11,6 +11,8 @@ const { encrypt, decrypt } = require("../utils/encryptionHelper");
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
 const sanitize = require("mongo-sanitize");
+const logger = require("../logger");
+logger
 
 
 
@@ -61,13 +63,10 @@ const getUserDetails = async (req, res) => {
     });
   } catch (error) {
     console.error("❌ Error fetching user details:", error);
+    logger.error("Error fetching user details:", error.message);
     res.status(500).json({ success: false, message: "Internal server error." });
   }
 };
-
-
-// Function to SMTP
-
 
 
 
@@ -175,6 +174,7 @@ const createUser = async (req, res) => {
       });
     } catch (error) {
       console.error("❌ Error creating user:", error);
+      logger.error("Error creating user:", error.message);
       res.status(500).json({ success: false, message: "Internal server error!" });
     }
   };
@@ -207,7 +207,7 @@ const verifyEmail = async (req, res) => {
       <div style="text-align:center; padding: 20px; border: 1px solid #ddd; max-width: 500px; margin: auto; font-family: Arial;">
         <h2 style="color: green;">🎉 Your account has been successfully verified!</h2>
         <p>You can now log in to your account.</p>
-        <a href="${process.env.REACT_APP_BACKEND_URL}/login" 
+        <a href="${process.env.REACT_APP_FRONTEND_URL}/login" 
            style="background-color: #27ae60; color: white; padding: 12px 20px; text-decoration: none; border-radius: 5px; font-size: 16px;">
            Login Now
         </a>
@@ -215,6 +215,7 @@ const verifyEmail = async (req, res) => {
     `);
   } catch (error) {
     console.error("❌ Error verifying email:", error);
+    logger.error("Error verifying email:", error.message);
     res.status(500).send(`<h2 style="color:red;">❌ Internal Server Error!</h2>`);
   }
 };
@@ -245,6 +246,7 @@ const confirmEmail = async (req, res) => {
     });
   } catch (error) {
     console.error("Error confirming email:", error);
+    logger.error("Error confirming email:", error.message);
     res.status(500).json({ success: false, message: "Internal server error!" });
   }
 };
@@ -297,6 +299,7 @@ const loginUser = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
+    logger.error("Error logging in user:", error.message);
     res.status(500).json({
       success: false,
       message: "Internal server error!",
@@ -373,6 +376,7 @@ const updateUserDetails = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
+    logger.error("Error updating user:", error.message);
     res.status(500).json({
       success: false,
       message: "Internal server error!",
@@ -440,21 +444,24 @@ const updatePassword = async (req, res) => {
     res.status(200).json({ success: true, message: "Password updated successfully!" });
   } catch (error) {
     console.error("❌ Error updating password:", error);
+    logger.error("Error updating password:", error.message);
     res.status(500).json({ success: false, message: "Internal server error!" });
   }
 };
 
 module.exports = { updatePassword };
 
-// Function to delete a user by ID
-const userDelete = async (req, res) => {
-  const { userId } = req.query;
+ // Ensure this path is correct to your user model
 
-  // Validate the request (ensure userId is provided)
-  if (!userId) {
-    return res.json({
+const userDelete = async (req, res) => {
+  const { userId, password } = req.body;  // Expecting userId and password from request body
+
+  debugger
+  console.log("password->>>>>>>>>>>>>>>", password)
+  if (!userId || !password) {
+    return res.status(400).json({
       success: false,
-      message: "User ID is required!",
+      message: "User ID and password must be provided!"
     });
   }
 
@@ -462,28 +469,38 @@ const userDelete = async (req, res) => {
     // Find the user by ID
     const user = await userModel.findById(userId);
     if (!user) {
-      return res.json({
+      return res.status(404).json({
         success: false,
-        message: "User does not exist!",
+        message: "User not found!"
       });
     }
 
-    // Delete the user from the database
-    await userModel.findByIdAndDelete(userId);
+    // Verify user's password
+    const isPasswordMatch = await bcrypt.compare(password, user.password);
+    if (!isPasswordMatch) {
+      return res.status(401).json({
+        success: false,
+        message: "Incorrect password!"
+      });
+    }
 
-    // Send a success response back to the client
-    res.json({
+    // Delete the user if password matches
+    await userModel.deleteOne({ _id: user._id });
+    res.status(200).json({
       success: true,
-      message: "User deleted successfully!",
+      message: "Account successfully deleted."
     });
   } catch (error) {
-    console.log(error);
-    res.json({
+    console.error('Error during user deletion:', error);
+    logger.error('Error during user deletion:', error.message);
+    res.status(500).json({
       success: false,
-      message: "Internal server error!",
+      message: `Internal server error: ${error.message}`
     });
   }
 };
+
+module.exports = userDelete;
 
 // Function to handle placing an order
 const orders = async (req, res) => {
@@ -601,6 +618,7 @@ const forgotPassword = async (req, res) => {
     });
   } catch (e) {
     console.log(e); // Log any errors that occur
+    logger.error("Error sending OTP:", e.message);
     return res.status(500).json({
       success: false,
       message: "Internal Server Error!", // Return an error if something goes wrong
@@ -635,6 +653,7 @@ const getMe = async (req, res) => {
     return res.status(200).json(user);
   } catch (error) {
     console.error("Error fetching user:", error);
+    logger.error("Error fetching user:", error.message);
     return res.status(500).json({
       success: false,
       message: "Internal server error",
@@ -691,6 +710,7 @@ const verifyOtpAndSetPassword = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
+    logger.error("Error updating password:", error.message);
     return res.status(500).json({
       success: false,
       message: "Internal Server Error!",

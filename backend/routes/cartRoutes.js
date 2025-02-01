@@ -1,11 +1,15 @@
 // Import the Express router to create routes
 const router = require("express").Router();
+const { authGuard, authRateLimiter } = require("../middleware/authGuard");
+
 
 // Import the cartController which contains the logic for cart operations
 const cartController = require("../controllers/cartController");
 
 // Route for adding an item to the cart
 router.post("/add_to_cart", cartController.addToCart);
+
+router.get('/view', authGuard, cartController.getCartItems);
 
 // Route for removing a single item from the cart
 router.post("/remove_from_cart", cartController.removeFromCart);

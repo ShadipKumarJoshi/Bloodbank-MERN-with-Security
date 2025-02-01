@@ -2,6 +2,8 @@
 const path = require("path");
 const productModel = require("../models/productModel");
 const fs = require("fs");
+const logger = require("../logger");
+
 
 // Function to create a new product
 const createProduct = async (req, res) => {
@@ -73,6 +75,7 @@ const createProduct = async (req, res) => {
   } catch (error) {
     // Handle any errors and respond with an error message
     console.log(error);
+    logger.error("product Controll",error.message);
     res.status(500).json({
       success: false,
       message: "Internal server error",
@@ -135,6 +138,7 @@ const updateProduct = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
+    logger.error("product Controll",error.message);
     res.status(500).json({
       success: false,
       message: "Internal Server Error!",
@@ -193,7 +197,7 @@ const addReview = async (req, res) => {
       product.productReviews.length > 0
       ? parseFloat((totalRating / product.productReviews.length).toFixed(1))
       : 0;
-g
+
     // Save the updated product to the database
     await product.save();
 
@@ -206,6 +210,7 @@ g
   } catch (error) {
     // Handle any errors and respond with an error message
     console.log(error);
+    logger.error("product Controll",error.message);
     res.status(500).json({
       success: false,
       message: "Internal server error",
@@ -241,6 +246,7 @@ const getSingleProduct = async (req, res) => {
   } catch (error) {
     // Handle any errors and respond with an error message
     console.log(error);
+    logger.error("product Controll",error.message);
     res.status(500).json({
       success: false,
       message: "Internal server error",
@@ -263,6 +269,7 @@ const getAllProducts = async (req, res) => {
   } catch (error) {
     // Handle any errors and respond with an error message
     console.log(error);
+    logger.error("product Controll",error.message);
     res.status(500).json({
       success: false,
       message: "Internal server error",
@@ -285,6 +292,7 @@ const deleteProduct = async (req, res) => {
   } catch (error) {
     // Handle any errors and respond with an error message
     console.log(error);
+    logger.error("product Controll",error.message);
     res.status(500).json({
       success: false,
       message: "Internal server error",
@@ -327,6 +335,7 @@ const paginationProducts = async (req, res) => {
   } catch (error) {
     // Handle any errors and respond with an error message
     console.log(error);
+    logger.error("product Controll",error.message);
     res.status(500).json({
       success: false,
       message: "Internal server error",
@@ -349,6 +358,7 @@ const pageCount = async (req, res) => {
   } catch (error) {
     // Handle any errors and respond with an error message
     console.log(error);
+    logger.error("product Controll",error.message);
     res.status(500).json({
       success: false,
       message: "Internal server error",
@@ -388,6 +398,7 @@ const mobilePaginationProducts = async (req, res) => {
   } catch (error) {
     // Handle any errors and respond with an error message
     console.log(error);
+    logger.error("product Controll",error.message);
     res.status(500).json({
       success: false,
       message: "Internal server error",
@@ -397,6 +408,7 @@ const mobilePaginationProducts = async (req, res) => {
 
 // Export all the functions so they can be used in other files
 module.exports = {
+  
   createProduct,
   getAllProducts,
   getSingleProduct,
