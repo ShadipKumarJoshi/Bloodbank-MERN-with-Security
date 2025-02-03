@@ -1,55 +1,70 @@
+# Getting Started with Create React App
 
-# Kirana - Frontend
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Available Scripts
 
-## Features
+In the project directory, you can run:
 
-Admin Role
-- Dashboard: Greet users with a personalized welcome message upon app entry.
-- Product Management: Perform Create, Read, Update, and Delete (CRUD) operations on product listings.
-- Order Management: View and manage orders placed by users, including detailed order information.
-- Account Management: Update or delete user accounts as needed.
+### `npm start`
 
-User Role
-- Order Placement: View and place orders for products.
-- Reviews: Add and read product reviews
-- Cart Management: Add products to the cart and manage cart contents.
-- Payment Options: Complete transactions using Khalti or Cash on Delivery (COD).
-- Profile Management: Perform CRUD operations on user profiles.
-- Order History: Access and review the list of past orders.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
+### `npm test`
 
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Tech Stack
+### `npm run build`
 
-**Client:** React, BootStrapCSS
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-**Server:** Node, Express
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## API Integration
+### `npm run eject`
 
-The frontend of Kirana communicates with the backend through a RESTful API, managing operations for both Admin and User roles. This includes functionalities such as product management, order processing, and user interactions.
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-## Future Works
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-- Expanded Payment Options: Incorporate additional payment gateways and options to facilitate smoother transactions and support various payment methods.
-- Multilingual Support: Add support for multiple languages to cater to a broader audience and make the platform accessible to users from different regions.
-- Integration with Agricultural Services: Partner with agricultural service providers to offer additional resources, such as crop advisory, weather forecasts, and pest control information directly through the platform.
-- Subscription Models: Introduce subscription-based services for premium features or enhanced visibility for sellers.
-## Challenges
+## Learn More
 
-- MERN Stack: This project involved working with the MERN stack for the first time, presenting a significant learning curve in mastering MongoDB, Express.js, React, and Node.js.
-- API Integration Challenges: Integrating the Khalti API posed considerable challenges, requiring extensive troubleshooting and adaptation to ensure seamless functionality.
-- Unified Mobile and Web Management: Managing both mobile and web platforms under a single API presented complexities, necessitating careful coordination to ensure consistent performance and user experience across different devices.
-## Environment Variables
--REAT_APP_API_URL : http://localhost:5000/api/
-## Authors
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
+To learn React, check out the [React documentation](https://reactjs.org/).
 
+### Code Splitting
 
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
+### Analyzing the Bundle Size
 
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

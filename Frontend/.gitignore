@@ -10,9 +10,6 @@
 
 # production
 /build
-# Ignore environment files
-*.env
-.env
 
 # misc
 .DS_Store
@@ -24,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#  donot upload .key .crt .pem file 
+*.key
+*.crt
+*.pem
